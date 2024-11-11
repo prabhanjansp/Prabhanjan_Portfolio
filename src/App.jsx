@@ -20,9 +20,8 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import DownloadIcon from "@mui/icons-material/Download";
 import resume from "./assets/Prabhanjan_Puranik_CV.pdf";
-import pp from "./assets/pp.jpg";
+import pp from "./assets/pp.png";
 import { motion } from "framer-motion";
-
 import firebase from "./assets/firebase.png";
 import git from "./assets/git.png";
 import js from "./assets/js.png";
@@ -31,6 +30,8 @@ import node2 from "./assets/node2.png";
 import react from "./assets/react.svg";
 import redux from "./assets/redux.png";
 import wind from "./assets/wind.png";
+import apollo from "./assets/apollo.svg";
+import ql from "./assets/ql.png"
 
 const THEME = {
   dark: {
@@ -128,11 +129,16 @@ const About = ({ isDarkMode }) => (
     <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
       {/* Left Side - Text Content */}
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
+      <motion.div
+            
+             whileHover={{ scale: 1.1 }}>
         <img
           src={pp}
           alt="Prabhanjan"
-          className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-full shadow-lg "
+          className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-full drop-shadow-2xl"
+          loading="lazy"
         />
+        </motion.div>
       </div>
       <div className="md:w-2/3 text-center md:text-left">
        <div className="typewriter">
@@ -388,6 +394,8 @@ const Skills = ({ isDarkMode }) => {
     { name: "Material UI", icon:  mui  },
     { name: "Tailwind css", icon:  wind  },
     { name: "Firebase", icon:  firebase  },
+    { name: "Apollo Client", icon:  apollo  },
+    { name: "Graph Ql", icon:  ql  },
     { name: "GitHub", icon:  git  },
     // Add the rest of your tech stack items
   ];
@@ -434,7 +442,7 @@ const Skills = ({ isDarkMode }) => {
           <img
             src="https://as2.ftcdn.net/v2/jpg/05/60/02/91/1000_F_560029138_HuyluR3MHV7Iex3G4MXDLGUIpx3Mi2Lv.jpg"
             alt="Developer Working"
-            className="w-72 h-72 md:w-full object-cover border filter:drop-shadow(1 "
+            className="w-72 h-72 md:w-full object-cover border drop-shadow-lg"
             style={{borderRadius:16}}
             loading="lazy"
           />
@@ -451,13 +459,13 @@ const Skills = ({ isDarkMode }) => {
             {techStack.map((category, index) => (
              <motion.div
              key={index}
-             whileHover={{ scale: 1.1 }}
+             whileHover={{ scale: 1.25 }}
              className="bg-[#112240] p-4 rounded-lg flex flex-col items-center transition-transform shadow-md"
-             style={{ width: '150px', height: '180px' }}
+            //  style={{ width: '150px', height: '180px' }}
            >
-             <div className="w-full h-24 flex items-center justify-center gap-x-5">
+             <div className="w-full h-24 flex items-center justify-center gap-5">
                <img
-                 className="object-contain h-full"
+                 className="object-contain h-full drop-shadow-2xl"
                  src={category.icon}
                  alt={`${category.name} icon`}
                  
