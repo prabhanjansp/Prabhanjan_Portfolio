@@ -17,9 +17,9 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import LinkIcon from "@mui/icons-material/Link";
 import ClearIcon from "@mui/icons-material/Clear";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import DownloadIcon from "@mui/icons-material/Download";
-import resume from "./assets/Prabhanjan_Puranik_CV.pdf";
+import resume from "./../Prabhanjan-Resume.pdf";
 import pp from "./assets/pp.png";
 import { motion } from "framer-motion";
 import firebase from "./assets/firebase.png";
@@ -31,7 +31,11 @@ import react from "./assets/react.svg";
 import redux from "./assets/redux.png";
 import wind from "./assets/wind.png";
 import apollo from "./assets/apollo.svg";
-import ql from "./assets/ql.png"
+import ql from "./assets/ql.png";
+import Card from '@mui/material/Card';
+import postman from "./assets/postman.png"
+import "./App.css"
+
 
 const THEME = {
   dark: {
@@ -72,10 +76,11 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`hover:text-[#E84C3D] font-semibold transition-colors ${location.pathname === item.path
+                className={`hover:text-[#E84C3D] font-semibold transition-colors ${
+                  location.pathname === item.path
                     ? "text-[#E84C3D]"
                     : "text-[#B2BEC3]"
-                  }`}
+                }`}
               >
                 {item.name}
               </Link>
@@ -108,10 +113,11 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`block py-2 px-4 rounded hover:bg-[#171A21] transition-colors ${location.pathname === item.path
+                className={`block py-2 px-4 rounded hover:bg-[#171A21] transition-colors ${
+                  location.pathname === item.path
                     ? "text-[#E84C3D]"
                     : "text-[#B2BEC3]"
-                  }`}
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
@@ -129,36 +135,41 @@ const About = ({ isDarkMode }) => (
     <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
       {/* Left Side - Text Content */}
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
-      <motion.div
+        <motion.div whileHover={{ scale: 1.1 }}>
+          <Card className="card" style={{background:"none",borderRadius:200,}} elevation={15}>
             
-             whileHover={{ scale: 1.1 }}>
-        <img
-          src={pp}
-          alt="Prabhanjan"
-          className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-full drop-shadow-2xl"
-          loading="lazy"
-        />
+          <img
+            src={pp}
+            alt="Prabhanjan"
+            className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-full drop-shadow-2xl "
+            loading="lazy"
+          />
+          </Card>
+
         </motion.div>
       </div>
       <div className="md:w-2/3 text-center md:text-left">
-       <div className="typewriter">
-       <h1
-          className={`text-4xl md:text-6xl font-bold mb-6 ${isDarkMode ? "text-[#ffffff]" : "text-[#101828]"
+        <div className="typewriter">
+          <h1
+            className={`text-4xl md:text-6xl font-bold mb-6 ${
+              isDarkMode ? "text-[#ffffff]" : "text-[#101828]"
             }`}
-        >
-          Hi, I'm <span className="text-[#E84C3D]">Prabhanjan</span>
-        </h1>
-       </div>
+          >
+            Hi, I'm <span className="text-[#E84C3D]">Prabhanjan</span>
+          </h1>
+        </div>
         <h2
-          className={`text-2xl md:text-4xl mb-8 ${isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
-            }`}
+          className={`text-2xl md:text-4xl mb-8 ${
+            isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+          }`}
         >
           Front-End Developer specializing in{" "}
           <span className="text-[#E84C3D]">React</span>
         </h2>
         <p
-          className={`text-lg ${isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
-            } mb-8`}
+          className={`text-lg ${
+            isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+          } mb-8`}
         >
           With 2+ years of expertise in React.js and React Native, I create
           high-performance web and mobile applications. My focus is on
@@ -168,47 +179,47 @@ const About = ({ isDarkMode }) => (
         <div className="flex justify-center md:justify-start space-x-6 mb-8">
           <SocialLink
             href="https://github.com/prabhanjansp"
-            icon={<GitHubIcon />}
+            icon={<GitHubIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
           <SocialLink
             href="https://www.linkedin.com/in/prabhanjan-puranik/"
-            icon={<LinkedInIcon />}
+            icon={<LinkedInIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
           <SocialLink
             href="https://x.com/iamprabhanjans?t=LEBLKyEPgAr6zkt6uSF9UQ&s=09"
-            icon={<XIcon />}
+            icon={<XIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
           <SocialLink
             href="mailto:puranikchetan97@gmail.com"
-            icon={<EmailIcon />}
+            icon={<EmailIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
           <SocialLink
             href="https://www.instagram.com/iamprabhanjan/profilecard/?igsh=ZW5pM2JybDIwYWJy"
-            icon={<InstagramIcon />}
+            icon={<InstagramIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
           <SocialLink
             href="https://www.youtube.com/@PrabhanjanShrinivasPuranik"
-            icon={<YouTubeIcon />}
+            icon={<YouTubeIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
           {/* <SocialLink href="tel:9538711410" icon={<PhoneIcon />}             isDarkMode={isDarkMode}
  /> */}
         </div>
         {/* <marquee direction="up" width="250" height="200" behavior="alternate"> */}
-          <a
-            href={resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center md:justify-start space-x-4 bg-[#E84C3D] hover:bg-[#844a9b] text-[#F2F2F2] font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px]"
-          >
-            <DownloadIcon size={20} />
-            <span className="text-sm">Download Resume</span>
-          </a>
+        <a
+          href={resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center md:justify-start space-x-4 bg-[#E84C3D] hover:bg-[#844a9b] text-[#F2F2F2] font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px]"
+        >
+          <DownloadIcon size={20} />
+          <span className="text-sm">Download Resume</span>
+        </a>
         {/* </marquee> */}
       </div>
 
@@ -218,16 +229,19 @@ const About = ({ isDarkMode }) => (
 );
 
 const SocialLink = ({ href, icon, isDarkMode }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`${isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
-      } hover:text-[#E84C3D] transition-colors
+  <motion.div whileHover={{ scale: 1.5 }}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${
+        isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+      } hover:text-[#E84C3d] transition-all 
 `}
-  >
-    {icon}
-  </a>
+    >
+      {icon}
+    </a>
+  </motion.div>
 );
 
 const Experience = ({ isDarkMode }) => {
@@ -260,8 +274,9 @@ const Experience = ({ isDarkMode }) => {
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
-          className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-            } `}
+          className={`text-3xl font-bold mb-8 ${
+            isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
+          } `}
         >
           Experience
         </h2>
@@ -312,7 +327,14 @@ const Projects = ({ isDarkMode }) => {
     {
       title: "Blog Application",
       description: "A full-stack blog application built with MERN",
-      technologies: ["React.js", "Nodejs", "Express","Mongo Db","Tailwind","FlowBit"],
+      technologies: [
+        "React.js",
+        "Nodejs",
+        "Express",
+        "Mongo Db",
+        "Tailwind",
+        "FlowBit",
+      ],
       link: "https://github.com/prabhanjansp/MeenBlogApp",
     },
   ];
@@ -321,8 +343,9 @@ const Projects = ({ isDarkMode }) => {
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
-          className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-            }`}
+          className={`text-3xl font-bold mb-8 ${
+            isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
+          }`}
         >
           Projects
         </h2>
@@ -387,16 +410,17 @@ const Skills = ({ isDarkMode }) => {
   // ];
 
   const techStack = [
-    { name: "Java Script", icon:  js  },
-    { name: "React", icon:  react  },
-    { name: "Node.js", icon:  node2  },
-    { name: "Redux tool kit", icon:  redux  },
-    { name: "Material UI", icon:  mui  },
-    { name: "Tailwind css", icon:  wind  },
-    { name: "Firebase", icon:  firebase  },
-    { name: "Apollo Client", icon:  apollo  },
-    { name: "Graph Ql", icon:  ql  },
-    { name: "GitHub", icon:  git  },
+    { name: "Java Script", icon: js },
+    { name: "React", icon: react },
+    { name: "Node.js", icon: node2 },
+    { name: "Redux tool kit", icon: redux },
+    { name: "Material UI", icon: mui },
+    { name: "Tailwind css", icon: wind },
+    { name: "Firebase", icon: firebase },
+    { name: "Apollo Client", icon: apollo },
+    { name: "Graph Ql", icon: ql },
+    { name: "Postman", icon: postman },
+    { name: "GitHub", icon: git },
     // Add the rest of your tech stack items
   ];
 
@@ -432,53 +456,58 @@ const Skills = ({ isDarkMode }) => {
     //   </div>
     // </section>
     <section className="min-h-screen pt-24 px-4">
-       <div className="max-w-4xl mx-auto">
-      {/* Title */}
-      <h2 className={`text-4xl font-bold ${isDarkMode?"text-[#f2f2f2]":"text-[#101820]"} mb-8  text-center `}>My Tech Stack</h2>
+      <div className="max-w-4xl mx-auto">
+        {/* Title */}
+        <h2
+          className={`text-4xl font-bold ${
+            isDarkMode ? "text-[#f2f2f2]" : "text-[#101820]"
+          } mb-8  text-center `}
+        >
+          My Tech Stack
+        </h2>
 
-      <div className="flex flex-col md:flex-row justify-center items-center gap-10 w-full max-w-4xl">
-        {/* Static Image */}
-        <div className="flex justify-center items-center md:w-1/2">
-          <img
-            src="https://as2.ftcdn.net/v2/jpg/05/60/02/91/1000_F_560029138_HuyluR3MHV7Iex3G4MXDLGUIpx3Mi2Lv.jpg"
-            alt="Developer Working"
-            className="w-72 h-72 md:w-full object-cover border drop-shadow-lg"
-            style={{borderRadius:16}}
-            loading="lazy"
-          />
-        </div>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-10 w-full max-w-4xl">
+          {/* Static Image */}
+          <div className="flex justify-center items-center md:w-1/2">
+            <img
+              src="https://as2.ftcdn.net/v2/jpg/05/60/02/91/1000_F_560029138_HuyluR3MHV7Iex3G4MXDLGUIpx3Mi2Lv.jpg"
+              alt="Developer Working"
+              className="w-72 h-72 md:w-full object-cover border drop-shadow-lg"
+              style={{ borderRadius: 16 }}
+              loading="lazy"
+            />
+          </div>
 
-        {/* Tech Stack List with Animation */}
-        <div className="md:w-1/2 flex flex-col items-start gap-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-4"
-          >
-            {techStack.map((category, index) => (
-             <motion.div
-             key={index}
-             whileHover={{ scale: 1.25 }}
-             className="bg-[#112240] p-4 rounded-lg flex flex-col items-center transition-transform shadow-md"
-            //  style={{ width: '150px', height: '180px' }}
-           >
-             <div className="w-full h-24 flex items-center justify-center gap-5">
-               <img
-                 className="object-contain h-full drop-shadow-2xl"
-                 src={category.icon}
-                 alt={`${category.name} icon`}
-                 
-               />
-             </div>
-             <h3 className="text-[#E84C3D] font-bold text-sm text-center">
-               {category.name}
-             </h3>
-           </motion.div>
-            ))}
-          </motion.div>
+          {/* Tech Stack List with Animation */}
+          <div className="md:w-1/2 flex flex-col items-start gap-10">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="grid grid-cols-2 md:grid-cols-3 gap-4"
+            >
+              {techStack.map((category, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.25 }}
+                  className="bg-[#112240] p-4 rounded-lg flex flex-col items-center transition-transform shadow-md"
+                  //  style={{ width: '150px', height: '180px' }}
+                >
+                  <div className="w-full h-20 flex items-center justify-center gap-5">
+                    <img
+                      className="object-contain h-full drop-shadow-2xl"
+                      src={category.icon}
+                      alt={`${category.name} icon`}
+                    />
+                  </div>
+                  <h3 className="text-[#E84C3D] font-bold text-sm text-center">
+                    {category.name}
+                  </h3>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );
@@ -521,8 +550,9 @@ const Education = ({ isDarkMode }) => {
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
-          className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-            }`}
+          className={`text-3xl font-bold mb-8 ${
+            isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
+          }`}
         >
           Education
         </h2>
@@ -546,8 +576,9 @@ const Education = ({ isDarkMode }) => {
         </div>
 
         <h3
-          className={`text-2xl font-bold mb-6 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-            }`}
+          className={`text-2xl font-bold mb-6 ${
+            isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
+          }`}
         >
           Certifications
         </h3>
@@ -642,8 +673,9 @@ const Contact = ({ isDarkMode }) => {
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
-          className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#F2F2F2]" : "text-[#101828]"
-            }`}
+          className={`text-3xl font-bold mb-8 ${
+            isDarkMode ? "text-[#F2F2F2]" : "text-[#101828]"
+          }`}
         >
           Get In Touch
         </h2>
@@ -724,8 +756,9 @@ const Contact = ({ isDarkMode }) => {
             <button
               type="submit"
               disabled={status === "sending"}
-              className={`w-full py-3 px-6 rounded-lg bg-[#E84C3D] text-white font-bold hover:bg-[#E84C3D] transition-colors ${status === "sending" ? "opacity-75 cursor-not-allowed" : ""
-                }`}
+              className={`w-full py-3 px-6 rounded-lg bg-[#E84C3D] text-white font-bold hover:bg-[#E84C3D] transition-colors ${
+                status === "sending" ? "opacity-75 cursor-not-allowed" : ""
+              }`}
             >
               {status === "sending" ? "Sending..." : "Send Message"}
             </button>

@@ -40,3 +40,6 @@
 .read-the-docs {
   color: #888;
 } */
+ .card{
+  filter: drop-shadow(10px 5px 15px  #E84c3d);
+ }

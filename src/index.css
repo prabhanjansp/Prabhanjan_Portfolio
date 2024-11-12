@@ -44,6 +44,4 @@ html {
     border-color: #e84c3d;
   }
 }
-img {
-  filter: drop-shadow(1px, 1px, 25px, #e84c3d);
-}
+
