@@ -43,3 +43,9 @@
  .card{
   filter: drop-shadow(10px 5px 15px  #E84c3d);
  }
+
+ span{
+  font-family: "VT323", monospace;
+  font-weight: 600;
+  font-style: normal;
+ }

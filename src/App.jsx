@@ -337,6 +337,17 @@ const Projects = ({ isDarkMode }) => {
       ],
       link: "https://github.com/prabhanjansp/MeenBlogApp",
     },
+    {
+      title: "Namma Mart Application",
+      description: "Namma Mart is a React Native quick commerce app designed for fast and convenient shopping, delivering essentials right to your doorstep.",
+      technologies: [
+        "React.Native",
+        "React Native Elements",
+        "Firebase",
+        
+      ],
+      link: "https://github.com/Raorakshith/NammaMartNew",
+    },
   ];
 
   return (
@@ -351,6 +362,7 @@ const Projects = ({ isDarkMode }) => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
+             <motion.div whileHover={{ scale: 1.1 }}>
             <div
               key={index}
               className="bg-[#112240] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
@@ -378,6 +390,7 @@ const Projects = ({ isDarkMode }) => {
                 ))}
               </div>
             </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -631,12 +644,12 @@ const Contact = ({ isDarkMode }) => {
   };
 
   const contactInfo = [
-    {
-      icon: <PhoneIcon size={24} />,
-      label: "Phone",
-      value: "+91 9538711410",
-      href: "tel:+919538711410",
-    },
+    // {
+    //   icon: <PhoneIcon size={24} />,
+    //   label: "Phone",
+    //   value: "+91 9538711410",
+    //   href: "tel:+919538711410",
+    // },
     {
       icon: <EmailIcon size={24} />,
       label: "Email",
