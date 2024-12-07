@@ -32,10 +32,9 @@ import redux from "./assets/redux.png";
 import wind from "./assets/wind.png";
 import apollo from "./assets/apollo.svg";
 import ql from "./assets/ql.png";
-import Card from '@mui/material/Card';
-import postman from "./assets/postman.png"
-import "./App.css"
-
+import Card from "@mui/material/Card";
+import postman from "./assets/postman.png";
+import "./App.css";
 
 const THEME = {
   dark: {
@@ -79,8 +78,9 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                 className={`hover:text-[#E84C3D] font-semibold transition-colors ${
                   location.pathname === item.path
                     ? "text-[#E84C3D]"
-                    :               isDarkMode ? "text-[#ffffff]" : "text-[#101828]"
-
+                    : isDarkMode
+                    ? "text-[#ffffff]"
+                    : "text-[#101828]"
                 }`}
               >
                 {item.name}
@@ -91,9 +91,15 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
               className="p-2 rounded-full hover:bg-[#262626] transition-colors"
             >
               {isDarkMode ? (
-                <LightModeIcon size={20} />
+                <LightModeIcon
+                  size={20}
+                  style={{ color: isDarkMode ? "#fff" : "#000" }}
+                />
               ) : (
-                <BedtimeIcon size={20} />
+                <BedtimeIcon
+                  size={20}
+                  style={{ color: isDarkMode ? "#fff" : "#000" }}
+                />
               )}
             </button>
           </div>
@@ -103,13 +109,27 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
             className="md:hidden p-2 rounded-lg hover:bg-[#262626] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <ClearIcon size={24} /> : <MenuIcon size={24} />}
+            {isOpen ? (
+              <ClearIcon
+                size={24}
+                style={{ color: isDarkMode ? "#fff" : "#000" }}
+              />
+            ) : (
+              <MenuIcon
+                size={24}
+                style={{ color: isDarkMode ? "#fff" : "#000" }}
+              />
+            )}
           </button>
         </div>
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden mt-4 bg-[#262626] rounded-lg p-4">
+          <div
+            className={`"md:hidden mt-4 ${
+              isDarkMode ? "bg-[#232323]" : "bg-[#fefefe]"
+            } rounded-lg p-4"`}
+          >
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -117,14 +137,31 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                 className={`block py-2 px-4 rounded hover:bg-[#000] transition-colors ${
                   location.pathname === item.path
                     ? "text-[#E84C3D]"
-                    :              isDarkMode ?  "text-[#000]":"text-[#ffffff]" 
-
+                    : isDarkMode
+                    ? "text-[#fff]"
+                    : "text-[#000]"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-[#262626] transition-colors"
+            >
+              {isDarkMode ? (
+                <LightModeIcon
+                  size={20}
+                  style={{ color: isDarkMode ? "#fff" : "#000" }}
+                />
+              ) : (
+                <BedtimeIcon
+                  size={20}
+                  style={{ color: isDarkMode ? "#fff" : "#000" }}
+                />
+              )}
+            </button>
           </div>
         )}
       </div>
@@ -138,16 +175,18 @@ const About = ({ isDarkMode }) => (
       {/* Left Side - Text Content */}
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
         <motion.div whileHover={{ scale: 1.1 }}>
-          <Card className="card" style={{background:"none",borderRadius:200,}} elevation={15}>
-            
-          <img
-            src={pp}
-            alt="Prabhanjan"
-            className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-full drop-shadow-2xl "
-            loading="lazy"
-          />
+          <Card
+            className="card"
+            style={{ background: "none", borderRadius: 200 }}
+            elevation={15}
+          >
+            <img
+              src={pp}
+              alt="Prabhanjan"
+              className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-full drop-shadow-2xl "
+              loading="lazy"
+            />
           </Card>
-
         </motion.div>
       </div>
       <div className="md:w-2/3 text-center md:text-left">
@@ -341,13 +380,9 @@ const Projects = ({ isDarkMode }) => {
     },
     {
       title: "Namma Mart Application",
-      description: "Namma Mart is a React Native quick commerce app designed for fast and convenient shopping, delivering essentials right to your doorstep.",
-      technologies: [
-        "React.Native",
-        "React Native Elements",
-        "Firebase",
-        
-      ],
+      description:
+        "Namma Mart is a React Native quick commerce app designed for fast and convenient shopping, delivering essentials right to your doorstep.",
+      technologies: ["React.Native", "React Native Elements", "Firebase"],
       link: "https://github.com/Raorakshith/NammaMartNew",
     },
   ];
@@ -364,34 +399,34 @@ const Projects = ({ isDarkMode }) => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-             <motion.div whileHover={{ scale: 1.1 }}>
-            <div
-              key={index}
-              className="bg-[#262626] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
-            >
-              <h3 className="text-xl font-bold text-[#E84C3D] mb-2 flex items-center justify-between">
-                {project.title}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#B2BEC3] hover:text-[#E84C3D]"
-                >
-                  <LinkIcon size={20} />
-                </a>
-              </h3>
-              <p className="text-[#B2BEC3] mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 text-sm bg-[#000] text-[#E84C3D] rounded-full"
+            <motion.div whileHover={{ scale: 1.1 }}>
+              <div
+                key={index}
+                className="bg-[#262626] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
+              >
+                <h3 className="text-xl font-bold text-[#E84C3D] mb-2 flex items-center justify-between">
+                  {project.title}
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#B2BEC3] hover:text-[#E84C3D]"
                   >
-                    {tech}
-                  </span>
-                ))}
+                    <LinkIcon size={20} />
+                  </a>
+                </h3>
+                <p className="text-[#B2BEC3] mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 text-sm bg-[#000] text-[#E84C3D] rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
             </motion.div>
           ))}
         </div>
@@ -799,9 +834,7 @@ const App = () => {
 
   return (
     <Router>
-      <div
-        className={`min-h-screen ${isDarkMode ? "bg-[#000]" : "bg-[#fff]"}`}
-      >
+      <div className={`min-h-screen ${isDarkMode ? "bg-[#000]" : "bg-[#fff]"}`}>
         <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={<About isDarkMode={isDarkMode} />} />
