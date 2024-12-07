@@ -63,7 +63,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-opacity-90 backdrop-blur-sm bg-[#171A21] text-white py-4">
+    <nav className="fixed w-full z-50 bg-opacity-10 backdrop-blur-sm bg-[#2d2d2d] text-white py-4">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold text-[#E84C3D]">
@@ -79,7 +79,8 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                 className={`hover:text-[#E84C3D] font-semibold transition-colors ${
                   location.pathname === item.path
                     ? "text-[#E84C3D]"
-                    : "text-[#B2BEC3]"
+                    :               isDarkMode ? "text-[#ffffff]" : "text-[#101828]"
+
                 }`}
               >
                 {item.name}
@@ -87,7 +88,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
             ))}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-[#112240] transition-colors"
+              className="p-2 rounded-full hover:bg-[#262626] transition-colors"
             >
               {isDarkMode ? (
                 <LightModeIcon size={20} />
@@ -99,7 +100,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
           {/* Mobile Navigation Toggle */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-[#112240] transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-[#262626] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <ClearIcon size={24} /> : <MenuIcon size={24} />}
@@ -108,15 +109,16 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden mt-4 bg-[#112240] rounded-lg p-4">
+          <div className="md:hidden mt-4 bg-[#262626] rounded-lg p-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`block py-2 px-4 rounded hover:bg-[#171A21] transition-colors ${
+                className={`block py-2 px-4 rounded hover:bg-[#000] transition-colors ${
                   location.pathname === item.path
                     ? "text-[#E84C3D]"
-                    : "text-[#B2BEC3]"
+                    :              isDarkMode ?  "text-[#000]":"text-[#ffffff]" 
+
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -284,7 +286,7 @@ const Experience = ({ isDarkMode }) => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-[#112240] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
+              className="bg-[#262626] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
             >
               <h3 className="text-xl font-bold text-[#E84C3D] mb-2">
                 {exp.title}
@@ -365,7 +367,7 @@ const Projects = ({ isDarkMode }) => {
              <motion.div whileHover={{ scale: 1.1 }}>
             <div
               key={index}
-              className="bg-[#112240] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
+              className="bg-[#262626] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
             >
               <h3 className="text-xl font-bold text-[#E84C3D] mb-2 flex items-center justify-between">
                 {project.title}
@@ -383,7 +385,7 @@ const Projects = ({ isDarkMode }) => {
                 {project.technologies.map((tech, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-sm bg-[#171A21] text-[#E84C3D] rounded-full"
+                    className="px-3 py-1 text-sm bg-[#000] text-[#E84C3D] rounded-full"
                   >
                     {tech}
                   </span>
@@ -503,7 +505,7 @@ const Skills = ({ isDarkMode }) => {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.25 }}
-                  className="bg-[#112240] p-4 rounded-lg flex flex-col items-center transition-transform shadow-md"
+                  className="bg-[#262626] p-4 rounded-lg flex flex-col items-center transition-transform shadow-md"
                   //  style={{ width: '150px', height: '180px' }}
                 >
                   <div className="w-full h-20 flex items-center justify-center gap-5">
@@ -574,7 +576,7 @@ const Education = ({ isDarkMode }) => {
           {education.map((edu, index) => (
             <div
               key={index}
-              className="bg-[#112240] p-6 rounded-lg mb-6 hover:transform hover:scale-[1.02] transition-transform"
+              className="bg-[#262626] p-6 rounded-lg mb-6 hover:transform hover:scale-[1.02] transition-transform"
             >
               <h3 className="text-xl font-bold text-[#E84C3D] mb-2">
                 {edu.degree}
@@ -599,7 +601,7 @@ const Education = ({ isDarkMode }) => {
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="bg-[#112240] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
+              className="bg-[#262626] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
             >
               <h4 className="text-lg font-bold text-[#E84C3D] mb-2">
                 {cert.title}
@@ -701,7 +703,7 @@ const Contact = ({ isDarkMode }) => {
               href={info.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#112240] p-6 rounded-lg flex items-center space-x-4 hover:transform hover:scale-[1.02] transition-transform"
+              className="bg-[#262626] p-6 rounded-lg flex items-center space-x-4 hover:transform hover:scale-[1.02] transition-transform"
             >
               <div className="text-[#E84C3D]">{info.icon}</div>
               <div>
@@ -713,7 +715,7 @@ const Contact = ({ isDarkMode }) => {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-[#112240] p-8 rounded-lg">
+        <div className="bg-[#262626] p-8 rounded-lg">
           <h3 className="text-2xl font-bold mb-6 text-[#F2F2F2]">
             Send Me a Message
           </h3>
@@ -729,7 +731,7 @@ const Contact = ({ isDarkMode }) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full p-3 rounded-lg bg-[#171A21] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
+                className="w-full p-3 rounded-lg bg-[#000] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
                 placeholder="Your Name"
               />
             </div>
@@ -745,7 +747,7 @@ const Contact = ({ isDarkMode }) => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full p-3 rounded-lg bg-[#171A21] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
+                className="w-full p-3 rounded-lg bg-[#000] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
                 placeholder="your@email.com"
               />
             </div>
@@ -761,7 +763,7 @@ const Contact = ({ isDarkMode }) => {
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full p-3 rounded-lg bg-[#171A21] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
+                className="w-full p-3 rounded-lg bg-[#000] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
                 placeholder="Your message..."
               />
             </div>
@@ -798,7 +800,7 @@ const App = () => {
   return (
     <Router>
       <div
-        className={`min-h-screen ${isDarkMode ? "bg-[#171A21]" : "bg-[#fff]"}`}
+        className={`min-h-screen ${isDarkMode ? "bg-[#000]" : "bg-[#fff]"}`}
       >
         <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
         <Routes>
