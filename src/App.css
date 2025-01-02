@@ -50,3 +50,6 @@
   /* font-style: normal; */
   
  }
+ body{
+  cursor: url(), auto;
+ }

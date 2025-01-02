@@ -21,6 +21,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import DownloadIcon from "@mui/icons-material/Download";
 import resume from "./../Prabhanjan-Resume.pdf";
 import pp from "./assets/pp.png";
+
 import { motion } from "framer-motion";
 import firebase from "./assets/firebase.png";
 import git from "./assets/git.png";
@@ -49,17 +50,19 @@ const THEME = {
 };
 
 const Navbar = ({ isDarkMode, toggleTheme }) => {
+
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
-    { name: "About", path: "/" },
-    { name: "Experience", path: "/experience" },
-    { name: "Projects", path: "/projects" },
-    { name: "Skills", path: "/skills" },
-    { name: "Education", path: "/education" },
-    { name: "Contact", path: "/contact" },
+    { name: "About", path: "/", },
+    { name: "Experience", path: "/experience", },
+    { name: "Projects", path: "/projects", },
+    { name: "Skills", path: "/skills", },
+    { name: "Education", path: "/education", },
+    { name: "Contact", path: "/contact", },
   ];
+
 
   return (
     <nav className="fixed w-full z-50 bg-opacity-10 backdrop-blur-sm bg-[#2d2d2d] text-white py-4">
@@ -75,20 +78,19 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`hover:text-[#E84C3D] font-semibold transition-colors ${
-                  location.pathname === item.path
+                className={`hover:text-[#E84C3D] font-semibold transition-colors ${location.pathname === item.path
                     ? "text-[#E84C3D]"
                     : isDarkMode
-                    ? "text-[#ffffff]"
-                    : "text-[#101828]"
-                }`}
+                      ? "text-[#ffffff]"
+                      : "text-[#101828]"
+                  }`}
               >
                 {item.name}
               </Link>
             ))}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-[#262626] transition-colors"
+              className="p-2 rounded-full hover:bg-[#E84C3D] transition-colors"
             >
               {isDarkMode ? (
                 <LightModeIcon
@@ -106,7 +108,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
           {/* Mobile Navigation Toggle */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-[#262626] transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-[#E84C3D] active:bg-[#E84C3D] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -126,21 +128,19 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div
-            className={`"md:hidden mt-4 ${
-              isDarkMode ? "bg-[#232323]" : "bg-[#fefefe]"
-            } rounded-lg p-4"`}
+            className={`"md:hidden mt-4 ${isDarkMode ? "bg-[#232323]" : "bg-[#fefefe]"
+              } rounded-lg p-4"`}
           >
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`block py-2 px-4 rounded hover:bg-[#000] transition-colors ${
-                  location.pathname === item.path
+                className={`block py-2 px-4 rounded hover:bg-[#000] transition-colors ${location.pathname === item.path
                     ? "text-[#E84C3D]"
                     : isDarkMode
-                    ? "text-[#fff]"
-                    : "text-[#000]"
-                }`}
+                      ? "text-[#fff]"
+                      : "text-[#000]"
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
@@ -166,6 +166,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
         )}
       </div>
     </nav>
+
   );
 };
 
@@ -192,27 +193,24 @@ const About = ({ isDarkMode }) => (
       <div className="md:w-2/3 text-center md:text-left">
         <div className="typewriter">
           <h1
-            className={`text-4xl md:text-6xl font-bold mb-6 ${
-              isDarkMode ? "text-[#ffffff]" : "text-[#101828]"
-            }`}
+            className={`text-4xl md:text-6xl font-bold mb-6 ${isDarkMode ? "text-[#ffffff]" : "text-[#101828]"
+              }`}
           >
             Hi, I'm <span className="text-[#E84C3D]">Prabhanjan</span>
           </h1>
         </div>
         <h2
-          className={`text-2xl md:text-4xl mb-8 ${
-            isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
-          }`}
+          className={`text-2xl md:text-4xl mb-8 ${isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+            }`}
         >
           Front-End Developer specializing in{" "}
           <span className="text-[#E84C3D]">React</span>
         </h2>
         <p
-          className={`text-lg ${
-            isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
-          } mb-8`}
+          className={`text-lg ${isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+            } mb-8`}
         >
-          With 2+ years of expertise in React.js and React Native, I create
+          With 2.5 years of expertise in React.js and React Native, I create
           high-performance web and mobile applications. My focus is on
           delivering scalable solutions that improve user engagement and
           experience.
@@ -275,9 +273,8 @@ const SocialLink = ({ href, icon, isDarkMode }) => (
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${
-        isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
-      } hover:text-[#E84C3d] transition-all 
+      className={`${isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+        } hover:text-[#E84C3d] transition-all 
 `}
     >
       {icon}
@@ -315,9 +312,8 @@ const Experience = ({ isDarkMode }) => {
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
-          className={`text-3xl font-bold mb-8 ${
-            isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-          } `}
+          className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
+            } `}
         >
           Experience
         </h2>
@@ -325,14 +321,28 @@ const Experience = ({ isDarkMode }) => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-[#262626] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
+              className={` ${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                } p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform`}
             >
               <h3 className="text-xl font-bold text-[#E84C3D] mb-2">
                 {exp.title}
               </h3>
-              <h4 className="text-[#B2BEC3] mb-2">{exp.company}</h4>
-              <p className="text-sm text-[#B2BEC3] mb-4">{exp.period}</p>
-              <ul className="list-disc list-inside space-y-2 text-[#B2BEC3]">
+              <h4
+                className={`${isDarkMode ? "text-[#fefefe]" : "text-[#262626]"
+                  } mb-2`}
+              >
+                {exp.company}
+              </h4>
+              <p
+                className={`text-sm ${isDarkMode ? "text-[#fefefe]" : "text-[#262626]"
+                  } mb-4`}
+              >
+                {exp.period}
+              </p>
+              <ul
+                className={`list-disc list-inside space-y-2 ${isDarkMode ? "text-[#fefefe]" : "text-[#262626]"
+                  }`}
+              >
                 {exp.achievements.map((achievement, i) => (
                   <li key={i}>{achievement}</li>
                 ))}
@@ -391,9 +401,8 @@ const Projects = ({ isDarkMode }) => {
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
-          className={`text-3xl font-bold mb-8 ${
-            isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-          }`}
+          className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
+            }`}
         >
           Projects
         </h2>
@@ -401,8 +410,8 @@ const Projects = ({ isDarkMode }) => {
           {projects.map((project, index) => (
             <motion.div whileHover={{ scale: 1.1 }}>
               <div
-                key={index}
-                className="bg-[#262626] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
+                className={` ${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                  } p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform `}
               >
                 <h3 className="text-xl font-bold text-[#E84C3D] mb-2 flex items-center justify-between">
                   {project.title}
@@ -410,17 +419,23 @@ const Projects = ({ isDarkMode }) => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#B2BEC3] hover:text-[#E84C3D]"
+                    className="text-[#E84C3D]"
                   >
-                    <LinkIcon size={20} />
+                    <LinkIcon size={20} color={isDarkMode ? "#000" : "#fff"} />
                   </a>
                 </h3>
-                <p className="text-[#B2BEC3] mb-4">{project.description}</p>
+                <p
+                  className={`${isDarkMode ? "text-[#fefefe]" : "text-[#262626]"
+                    } mb-4`}
+                >
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 text-sm bg-[#000] text-[#E84C3D] rounded-full"
+                      className={`  ${isDarkMode ? "bg-[#000]" : "bg-[#fff]"
+                        } px-3 py-1 text-sm text-[#E84C3D] rounded-full`}
                     >
                       {tech}
                     </span>
@@ -436,28 +451,6 @@ const Projects = ({ isDarkMode }) => {
 };
 
 const Skills = ({ isDarkMode }) => {
-  // const skillCategories = [
-  //   {
-  //     title: "Languages",
-  //     skills: ["JavaScript", "HTML5", "CSS3"],
-  //     icon: "💻",
-  //   },
-  //   {
-  //     title: "Front-End",
-  //     skills: ["React.js", "Redux Toolkit", "React Native"],
-  //     icon: "🎨",
-  //   },
-  //   {
-  //     title: "Backend",
-  //     skills: ["Node.js", "Firebase", "Apollo GraphQL"],
-  //     icon: "⚙️",
-  //   },
-  //   {
-  //     title: "UI/UX",
-  //     skills: ["Material-UI", "Tailwind CSS", "Framer"],
-  //     icon: "🎯",
-  //   },
-  // ];
 
   const techStack = [
     { name: "Java Script", icon: js },
@@ -475,43 +468,13 @@ const Skills = ({ isDarkMode }) => {
   ];
 
   return (
-    // <section className="min-h-screen pt-24 px-4">
-    //   <div className="max-w-4xl mx-auto">
-    //     <h2 className={`text-3xl font-bold mb-8 ${
-    //       isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-    //     }`}>Skills</h2>
-    //     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    //       {skillCategories.map((category, index) => (
-    //         <div
-    //           key={index}
-    //           className="bg-[#112240] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
-    //         >
-    //           <h3 className="text-xl font-bold text-[#E84C3D] mb-4 flex items-center">
-    //             <span className="mr-2">{category.icon}</span>
-    //             {category.title}
-    //           </h3>
-    //           <div className="flex flex-wrap gap-2">
-    //             {category.skills.map((skill, i) => (
-    //               <span
-    //                 key={i}
-    //                 className="px-3 py-1 text-sm bg-[#171A21] text-[#E84C3D] rounded-full"
-    //               >
-    //                 {skill}
-    //               </span>
-    //             ))}
-    //           </div>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-    // </section>
+
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Title */}
         <h2
-          className={`text-4xl font-bold ${
-            isDarkMode ? "text-[#f2f2f2]" : "text-[#101820]"
-          } mb-8  text-center `}
+          className={`text-4xl font-bold ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101820]"
+            } mb-8  text-center `}
         >
           My Tech Stack
         </h2>
@@ -540,14 +503,17 @@ const Skills = ({ isDarkMode }) => {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.25 }}
-                  className="bg-[#262626] p-4 rounded-lg flex flex-col items-center transition-transform shadow-md"
-                  //  style={{ width: '150px', height: '180px' }}
+                  className={`${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                    } p-4 rounded-lg flex flex-col items-center transition-transform shadow-md`}
+                //  style={{ width: '150px', height: '180px' }}
                 >
                   <div className="w-full h-20 flex items-center justify-center gap-5">
                     <img
                       className="object-contain h-full drop-shadow-2xl"
                       src={category.icon}
                       alt={`${category.name} icon`}
+                      loading="lazy"
+
                     />
                   </div>
                   <h3 className="text-[#E84C3D] font-bold text-sm text-center">
@@ -600,9 +566,8 @@ const Education = ({ isDarkMode }) => {
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
-          className={`text-3xl font-bold mb-8 ${
-            isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-          }`}
+          className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
+            }`}
         >
           Education
         </h2>
@@ -611,13 +576,24 @@ const Education = ({ isDarkMode }) => {
           {education.map((edu, index) => (
             <div
               key={index}
-              className="bg-[#262626] p-6 rounded-lg mb-6 hover:transform hover:scale-[1.02] transition-transform"
+              className={`${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                } p-6 rounded-lg mb-6 hover:transform hover:scale-[1.02] transition-transform`}
             >
               <h3 className="text-xl font-bold text-[#E84C3D] mb-2">
                 {edu.degree}
               </h3>
-              <p className="text-[#B2BEC3] mb-2">{edu.institution}</p>
-              <p className="text-sm text-[#B2BEC3]">{edu.period}</p>
+              <p
+                className={`${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  } mb-2`}
+              >
+                {edu.institution}
+              </p>
+              <p
+                className={`text-sm ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  }`}
+              >
+                {edu.period}
+              </p>
               {edu.grade && (
                 <p className="text-sm text-[#E84C3D] mt-2">{edu.grade}</p>
               )}
@@ -626,9 +602,8 @@ const Education = ({ isDarkMode }) => {
         </div>
 
         <h3
-          className={`text-2xl font-bold mb-6 ${
-            isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
-          }`}
+          className={`text-2xl font-bold mb-6 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
+            }`}
         >
           Certifications
         </h3>
@@ -636,13 +611,24 @@ const Education = ({ isDarkMode }) => {
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="bg-[#262626] p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform"
+              className={`${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                } p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform`}
             >
               <h4 className="text-lg font-bold text-[#E84C3D] mb-2">
                 {cert.title}
               </h4>
-              <p className="text-[#B2BEC3]">{cert.issuer}</p>
-              <p className="text-sm text-[#B2BEC3]">{cert.year}</p>
+              <p
+                className={`text-sm ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  }`}
+              >
+                {cert.issuer}
+              </p>
+              <p
+                className={`text-sm ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  }`}
+              >
+                {cert.year}
+              </p>
             </div>
           ))}
         </div>
@@ -723,9 +709,8 @@ const Contact = ({ isDarkMode }) => {
     <section className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
-          className={`text-3xl font-bold mb-8 ${
-            isDarkMode ? "text-[#F2F2F2]" : "text-[#101828]"
-          }`}
+          className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#F2F2F2]" : "text-[#101828]"
+            }`}
         >
           Get In Touch
         </h2>
@@ -738,25 +723,41 @@ const Contact = ({ isDarkMode }) => {
               href={info.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#262626] p-6 rounded-lg flex items-center space-x-4 hover:transform hover:scale-[1.02] transition-transform"
+              className={` ${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                } p-6 rounded-lg flex items-center space-x-4 hover:transform hover:scale-[1.02] transition-transform`}
             >
               <div className="text-[#E84C3D]">{info.icon}</div>
               <div>
                 <h3 className="text-[#E84C3D] font-bold">{info.label}</h3>
-                <p className="text-[#B2BEC3]">{info.value}</p>
+                <p
+                  className={` ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                    }`}
+                >
+                  {info.value}
+                </p>
               </div>
             </a>
           ))}
         </div>
 
         {/* Contact Form */}
-        <div className="bg-[#262626] p-8 rounded-lg">
-          <h3 className="text-2xl font-bold mb-6 text-[#F2F2F2]">
+        <div
+          className={` ${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+            } p-8 rounded-lg`}
+        >
+          <h3
+            className={`text-2xl font-bold mb-6 ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+              }`}
+          >
             Send Me a Message
           </h3>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-[#B2BEC3] mb-2">
+              <label
+                htmlFor="name"
+                className={`block ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  } mb-2`}
+              >
                 Name
               </label>
               <input
@@ -766,13 +767,19 @@ const Contact = ({ isDarkMode }) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full p-3 rounded-lg bg-[#000] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
+                className={`w-full p-3 rounded-lg ${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                  } ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  } border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors`}
                 placeholder="Your Name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-[#B2BEC3] mb-2">
+              <label
+                htmlFor="email"
+                className={`block ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  } mb-2`}
+              >
                 Email
               </label>
               <input
@@ -782,13 +789,19 @@ const Contact = ({ isDarkMode }) => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full p-3 rounded-lg bg-[#000] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
+                className={`w-full p-3 rounded-lg ${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                  } ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  } border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors`}
                 placeholder="your@email.com"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-[#B2BEC3] mb-2">
+              <label
+                htmlFor="message"
+                className={`block ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  } mb-2`}
+              >
                 Message
               </label>
               <textarea
@@ -798,7 +811,9 @@ const Contact = ({ isDarkMode }) => {
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full p-3 rounded-lg bg-[#000] text-[#F2F2F2] border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors"
+                className={`w-full p-3 rounded-lg ${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
+                  } ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+                  } border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors`}
                 placeholder="Your message..."
               />
             </div>
@@ -806,9 +821,8 @@ const Contact = ({ isDarkMode }) => {
             <button
               type="submit"
               disabled={status === "sending"}
-              className={`w-full py-3 px-6 rounded-lg bg-[#E84C3D] text-white font-bold hover:bg-[#E84C3D] transition-colors ${
-                status === "sending" ? "opacity-75 cursor-not-allowed" : ""
-              }`}
+              className={`w-full py-3 px-6 rounded-lg bg-[#E84C3D] text-white font-bold hover:bg-[#E84C3D] transition-colors ${status === "sending" ? "opacity-75 cursor-not-allowed" : ""
+                }`}
             >
               {status === "sending" ? "Sending..." : "Send Message"}
             </button>
@@ -826,7 +840,7 @@ const Contact = ({ isDarkMode }) => {
 };
 
 const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -834,7 +848,10 @@ const App = () => {
 
   return (
     <Router>
-      <div className={`min-h-screen ${isDarkMode ? "bg-[#000]" : "bg-[#fff]"}`}>
+      <div
+        className={`min-h-screen ${isDarkMode ? "bg-[#000]" : "bg-[#fff]"
+          } cursor`}
+      >
         <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={<About isDarkMode={isDarkMode} />} />

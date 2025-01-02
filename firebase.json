@@ -1,6 +1,7 @@
 {
   "hosting": {
     "source": ".",
+    "site": "prabhanjansp",
     "ignore": [
       "firebase.json",
       "**/.*",
