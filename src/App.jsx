@@ -35,6 +35,9 @@ import apollo from "./assets/apollo.svg";
 import ql from "./assets/ql.png";
 import Card from "@mui/material/Card";
 import postman from "./assets/postman.png";
+import jest from "./assets/jest.png";
+import mocha from "./assets/mocha.png";
+
 import "./App.css";
 
 const THEME = {
@@ -464,6 +467,8 @@ const Skills = ({ isDarkMode }) => {
     { name: "Graph Ql", icon: ql },
     { name: "Postman", icon: postman },
     { name: "GitHub", icon: git },
+    { name: "Jest", icon: jest },
+    { name: "Mocha", icon: mocha },
     // Add the rest of your tech stack items
   ];
 
