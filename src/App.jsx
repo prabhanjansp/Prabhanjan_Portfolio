@@ -21,6 +21,8 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import DownloadIcon from "@mui/icons-material/Download";
 import resume from "./../Prabhanjan-Resume.pdf";
 import pp from "./assets/pp.png";
+import Lottie from "lottie-react";
+import software2 from "./assets/software2.json"
 
 import { motion } from "framer-motion";
 import firebase from "./assets/firebase.png";
@@ -82,10 +84,10 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                 key={item.name}
                 to={item.path}
                 className={`hover:text-[#E84C3D] font-semibold transition-colors ${location.pathname === item.path
-                    ? "text-[#E84C3D]"
-                    : isDarkMode
-                      ? "text-[#ffffff]"
-                      : "text-[#101828]"
+                  ? "text-[#E84C3D]"
+                  : isDarkMode
+                    ? "text-[#ffffff]"
+                    : "text-[#101828]"
                   }`}
               >
                 {item.name}
@@ -139,10 +141,10 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                 key={item.name}
                 to={item.path}
                 className={`block py-2 px-4 rounded hover:bg-[#000] transition-colors ${location.pathname === item.path
-                    ? "text-[#E84C3D]"
-                    : isDarkMode
-                      ? "text-[#fff]"
-                      : "text-[#000]"
+                  ? "text-[#E84C3D]"
+                  : isDarkMode
+                    ? "text-[#fff]"
+                    : "text-[#000]"
                   }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -174,7 +176,10 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 };
 
 const About = ({ isDarkMode }) => (
-  <section className="min-h-screen pt-24 px-4">
+  <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.15, duration: 1.0 }} className="min-h-screen pt-24 px-4">
     <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
       {/* Left Side - Text Content */}
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
@@ -267,7 +272,7 @@ const About = ({ isDarkMode }) => (
 
       {/* Right Side - Profile Image */}
     </div>
-  </section>
+  </motion.div>
 );
 
 const SocialLink = ({ href, icon, isDarkMode }) => (
@@ -312,7 +317,10 @@ const Experience = ({ isDarkMode }) => {
   ];
 
   return (
-    <section className="min-h-screen pt-24 px-4">
+    <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.15, duration: 1.0 }} className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
           className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
@@ -354,7 +362,7 @@ const Experience = ({ isDarkMode }) => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 
@@ -401,7 +409,10 @@ const Projects = ({ isDarkMode }) => {
   ];
 
   return (
-    <section className="min-h-screen pt-24 px-4">
+    <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.15, duration: 1.0 }} className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
           className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
@@ -449,7 +460,7 @@ const Projects = ({ isDarkMode }) => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 
@@ -474,63 +485,126 @@ const Skills = ({ isDarkMode }) => {
 
   return (
 
-    <section className="min-h-screen pt-24 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Title */}
-        <h2
-          className={`text-4xl font-bold ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101820]"
-            } mb-8  text-center `}
-        >
-          My Tech Stack
-        </h2>
+    // <section
+    //   className="min-h-screen pt-24 px-4"     >
+    //   <div className="max-w-6xl mx-auto">
+    //     {/* Title */}
+    //     <h2
+    //       className={`text-4xl font-bold ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101820]"} mb-8 text-center`}
+    //     >
+    //       My Tech Stack
+    //     </h2>
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-10 w-full max-w-4xl">
-          {/* Static Image */}
-          <div className="flex justify-center items-center md:w-1/2">
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/05/60/02/91/1000_F_560029138_HuyluR3MHV7Iex3G4MXDLGUIpx3Mi2Lv.jpg"
-              alt="Developer Working"
-              className="w-72 h-72 md:w-full object-cover border drop-shadow-lg"
-              style={{ borderRadius: 16 }}
-              loading="lazy"
-            />
-          </div>
+    //     <div className="flex flex-col justify-center items-center gap-10 w-full">
+    //       {/* Static Image */}
+    //       <div className="flex justify-center items-center w-full mb-10">
 
-          {/* Tech Stack List with Animation */}
-          <div className="md:w-1/2 flex flex-col items-start gap-10">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-4"
-            >
-              {techStack.map((category, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.25 }}
-                  className={`${isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
-                    } p-4 rounded-lg flex flex-col items-center transition-transform shadow-md`}
-                //  style={{ width: '150px', height: '180px' }}
-                >
-                  <div className="w-full h-20 flex items-center justify-center gap-5">
-                    <img
-                      className="object-contain h-full drop-shadow-2xl"
-                      src={category.icon}
-                      alt={`${category.name} icon`}
-                      loading="lazy"
+    //         <Lottie animationData={software2} loop={true} className="w-72 h-72 md:w-auto md:h-72 object-cover border rounded drop-shadow-lg" />
+    //       </div>
 
-                    />
-                  </div>
-                  <h3 className="text-[#E84C3D] font-bold text-sm text-center">
-                    {category.name}
-                  </h3>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+    //       {/* Tech Stack List with Animation */}
+
+    //       <motion.div
+    //         initial={{ opacity: 0, y: 50 }}
+    //         animate={{ opacity: 1, y: 0 }}
+    //         transition={{ delay: 0.3, duration: 0.8 }}
+    //         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full"
+    //       >
+    //         {techStack.map((category, index) => (
+    //           <motion.div
+    //             key={index}
+    //             whileHover={{ scale: 1.2 }}
+    //             className={`${isDarkMode ? "bg-[#262626]" : "bg-[#ededed]"
+    //               } p-4 rounded-lg flex flex-col items-center transition-transform shadow-md`}
+    //             style={{
+    //               borderRadius: "16px",
+    //               minWidth: "125px",
+    //               maxWidth: "150px",
+    //               border: "1px solid #e0e0e0",
+    //             }}
+    //           >
+    //             <div className="w-full h-20 flex items-center justify-center gap-5">
+    //               <img
+    //                 className="object-contain h-full drop-shadow-2xl"
+    //                 src={category.icon}
+    //                 alt={`${category.name} icon`}
+    //                 loading="lazy"
+    //               />
+    //             </div>
+    //             <h3 className="text-[#E84C3D] font-bold text-sm text-center mt-4">
+    //               {category.name}
+    //             </h3>
+    //           </motion.div>
+    //         ))}
+    //       </motion.div>
+    //     </div>
+    //   </div>
+    // </section>
+
+    <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3, duration: 0.8 }} className="min-h-screen pt-24 px-4">
+  <div className="max-w-6xl mx-auto">
+    {/* Title */}
+    <h2
+      className={`text-4xl font-bold ${
+        isDarkMode ? "text-[#f2f2f2]" : "text-[#101820]"
+      } mb-8 text-center`}
+    >
+      My Tech Stack
+    </h2>
+
+    <div className="flex flex-col justify-center items-center gap-6 w-full">
+      {/* Static Image */}
+      <div className="flex justify-center items-center w-full mb-8">
+        <Lottie
+          animationData={software2}
+          loop={true}
+          className="w-52 h-52 md:w-64 md:h-64 object-cover border rounded drop-shadow-lg"
+        />
       </div>
-    </section>
+
+      {/* Tech Stack List with Animation */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15, duration: 1.0 }}
+        className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 w-full"
+      >
+        {techStack.map((category, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.1 }}
+            className={`${
+              isDarkMode ? "bg-[#262626]" : "bg-[#ededed]"
+            } p-3 rounded-lg flex flex-col items-center shadow-md`}
+            style={{
+              borderRadius: "16px",
+              minWidth: "90px",
+              maxWidth: "120px",
+              border: "1px solid #e0e0e0",
+            }}
+          >
+            <div className="w-full h-16 flex items-center justify-center">
+              <img
+                className="object-contain h-full drop-shadow-2xl"
+                src={category.icon}
+                alt={`${category.name} icon`}
+                loading="lazy"
+              />
+            </div>
+            <h3 className="text-[#E84C3D] font-bold text-xs text-center mt-2">
+              {category.name}
+            </h3>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  </div>
+</motion.div>
+
+
   );
 };
 
@@ -568,7 +642,10 @@ const Education = ({ isDarkMode }) => {
   ];
 
   return (
-    <section className="min-h-screen pt-24 px-4">
+    <motion.div 
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.15, duration: 1.0 }} className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
           className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
@@ -638,7 +715,7 @@ const Education = ({ isDarkMode }) => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 
@@ -711,7 +788,10 @@ const Contact = ({ isDarkMode }) => {
   ];
 
   return (
-    <section className="min-h-screen pt-24 px-4">
+    <motion.div 
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.15, duration: 1.0 }} className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2
           className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-[#F2F2F2]" : "text-[#101828]"
@@ -840,7 +920,7 @@ const Contact = ({ isDarkMode }) => {
           </form>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 
@@ -884,3 +964,35 @@ const App = () => {
 };
 
 export default App;
+          {/* <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full"
+          >
+            {techStack.map((category, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.2 }}
+                className={`${isDarkMode ? "bg-[#262626]" : "bg-[#ededed  ]"} p-4 rounded-lg flex flex-col items-center transition-transform shadow-md`}
+                style={{
+                  borderRadius: "16px",
+                  minWidth: "125px",
+                  maxWidth: "150px",
+                  border: "1px solid #e0e0e0",
+                }}
+              >
+                <div className="w-full h-20 flex items-center justify-center gap-5">
+                  <img
+                    className="object-contain h-full drop-shadow-2xl"
+                    src={category.icon}
+                    alt={`${category.name} icon`}
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-[#E84C3D] font-bold text-sm text-center mt-4">
+                  {category.name}
+                </h3>
+              </motion.div>
+            ))}
+          </motion.div> */}
