@@ -663,6 +663,11 @@ const Education = ({ isDarkMode }) => {
       issuer: "LinkedIn Learning",
       year: "2023",
     },
+    {
+      title: "ChatGPT Prompt Engineering for Developers",
+      issuer: "Deep Learning.Ai",
+      year: "2024",
+    },
   ];
 
   return (
