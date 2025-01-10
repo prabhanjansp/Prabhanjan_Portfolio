@@ -404,6 +404,7 @@ const Projects = ({ isDarkMode }) => {
       description: "A full-stack blog application built with MERN",
       technologies: [
         "React.js",
+        "Redux Toolkit","Firebase",
         "Nodejs",
         "Express",
         "Mongo Db",
