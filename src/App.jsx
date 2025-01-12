@@ -396,7 +396,7 @@ const Projects = ({ isDarkMode }) => {
     {
       title: "Scontinent Corporate Website",
       description: "Company's official website with optimized SEO",
-      technologies: ["React.js", "Firebase", "Google Tag Manager","Echarts","Youtube API","REact Helmet"],
+      technologies: ["React.js", "Firebase", "Google Tag Manager","Echarts","Youtube API","React Helmet"],
       link: "https://www.scontinent.com/",
     },
     {
