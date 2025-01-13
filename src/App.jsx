@@ -72,7 +72,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold text-[#E84C3D]">
-            {"<Ps.Dev />"}
+            {"{Ps.Dev}"}
           </Link>
 
           {/* Desktop Navigation */}
@@ -228,6 +228,8 @@ const About = ({ isDarkMode }) => (
           delivering scalable solutions that improve user engagement and
           experience.
         </p>
+
+        
         <div className="flex justify-center md:justify-start space-x-6 mb-8">
           <SocialLink
             href="https://github.com/prabhanjansp"
@@ -436,32 +438,35 @@ const Projects = ({ isDarkMode }) => {
       transition={{ delay: 0.15, duration: 1.0 }}
       className="min-h-screen pt-24 px-4"
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h2
           className={`text-3xl font-bold mb-8 ${
             isDarkMode ? "text-[#f2f2f2]" : "text-[#101828]"
           }`}
         >
-          Projects
+          Featured Projects
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <motion.div whileHover={{ scale: 1.08 }}>
+            <motion.div key={index} whileHover={{ scale: 1.08 }}>
               <div
                 className={` ${
                   isDarkMode ? "bg-[#262626]" : "bg-[#ddd]"
-                } p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform `}
+                } p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform h-full flex flex-col`}
               >
                 <h3 className="text-xl font-bold text-[#E84C3D] mb-2 flex items-center justify-between">
                   {project.title}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#E84C3D]"
-                  >
-                    <LinkIcon size={20} color={isDarkMode ? "#000" : "#fff"} />
-                  </a>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#E84C3D]"
+                    >
+                      <LinkIcon size={20} color={isDarkMode ? "#f2f2f2" : "#262626"} />
+                    </a>
+                  )}
                 </h3>
                 <p
                   className={`${
@@ -470,12 +475,12 @@ const Projects = ({ isDarkMode }) => {
                 >
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className={`  ${
-                        isDarkMode ? "bg-[#000]" : "bg-[#fff]"
+                      className={`${
+                        isDarkMode ? "bg-[#101010]" : "bg-[#fff]"
                       } px-3 py-1 text-sm text-[#E84C3D] rounded-full`}
                     >
                       {tech}
