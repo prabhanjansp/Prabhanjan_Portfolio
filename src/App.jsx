@@ -223,10 +223,11 @@ const About = ({ isDarkMode }) => (
             isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
           } mb-8`}
         >
-          With 2.5 years of expertise in React.js and React Native, I create
+          {/* With 2.5 years of expertise in React.js and React Native, I create
           high-performance web and mobile applications. My focus is on
           delivering scalable solutions that improve user engagement and
-          experience.
+          experience. */}
+          Versatile Front-End Developer with 2.5 years of experience specializing in responsive design and user-centric application development. Proficient in translating Figma designs into real-time implementations that maintain smooth user flows and consistent layouts. Passionate about leveraging modern frameworks like React.js and React Native to craft scalable, functional, and visually appealing digital experiences.
         </p>
 
         
