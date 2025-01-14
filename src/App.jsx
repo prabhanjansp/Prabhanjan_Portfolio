@@ -214,7 +214,7 @@ const About = ({ isDarkMode }) => (
         </div>
         <h2
           className={`text-2xl md:text-4xl mb-8 ${
-            isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+            isDarkMode ? "text-[#fafafa]" : "text-[#101828]"
           }`}
         >
           Front-End Developer specializing in{" "}
@@ -222,7 +222,7 @@ const About = ({ isDarkMode }) => (
         </h2>
         <p
           className={`text-lg ${
-            isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+            isDarkMode ? "text-[#fafafa]" : "text-[#101828]"
           } mb-8`}
         >
           {/* With 2.5 years of expertise in React.js and React Native, I create
@@ -303,7 +303,7 @@ const SocialLink = ({ href, icon, isDarkMode }) => (
       target="_blank"
       rel="noopener noreferrer"
       className={`${
-        isDarkMode ? "text-[#B2BEC3]" : "text-[#101828]"
+        isDarkMode ? "text-[#fafafa]" : "text-[#101828]"
       } hover:text-[#E84C3d] transition-all 
 `}
     >
@@ -400,13 +400,13 @@ const Projects = ({ isDarkMode }) => {
     {
       title: "Mock Test Platform",
       description: "Comprehensive platform for online testing and assessment",
-      technologies: ["React", "React Native", "Redux", "Chart.js"],
+      technologies: ["React", "React Native", "Redux", "Echarts", "REST API","Axios"],
       link: "https://samai.scontiapp.com/online-mocktest",
     },
     {
       title: "Sconti Admin Dashboard",
       description: "Advanced quiz management system with role-based access",
-      technologies: ["React.js", "Material-UI", "Firebase"],
+      technologies: ["React.js", "Material-UI", "Firebase", "Spreadsheet API","Axios","Rest API","Axios"],
       link: "https://scontiadmin.web.app/",
     },
     {
@@ -418,7 +418,7 @@ const Projects = ({ isDarkMode }) => {
         "Google Tag Manager",
         "Echarts",
         "Youtube API",
-        "React Helmet",
+        "React Helmet","Framer Motion",
       ],
       link: "https://www.scontinent.com/",
     },
@@ -441,7 +441,7 @@ const Projects = ({ isDarkMode }) => {
       title: "Namma Mart Application",
       description:
         "Namma Mart is a React Native quick commerce app designed for fast and convenient shopping, delivering essentials right to your doorstep.",
-      technologies: ["React.Native", "React Native Elements", "Firebase"],
+      technologies: ["React.Native", "React Native Elements", "React NativeFirebase","React Native Paper"],
       link: "https://github.com/Raorakshith/NammaMartNew",
     },
     {
