@@ -133,7 +133,9 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
         {isOpen && (
           <div
             className={`"md:hidden mt-4 ${
-              isDarkMode ? "bg-[#232323]" : "bg-[#fefefe]"
+              isDarkMode
+                ? "bg-gradient-to-bl from-zinc-900 to-red-900"
+                : "bg-gradient-to-bl from-gray-50 to-rose-100"
             } rounded-lg p-4"`}
           >
             {navItems.map((item) => (
@@ -227,10 +229,15 @@ const About = ({ isDarkMode }) => (
           high-performance web and mobile applications. My focus is on
           delivering scalable solutions that improve user engagement and
           experience. */}
-          Versatile Front-End Developer with 2.5 years of experience specializing in responsive design and user-centric application development. Proficient in translating Figma designs into real-time implementations that maintain smooth user flows and consistent layouts. Passionate about leveraging modern frameworks like React.js and React Native to craft scalable, functional, and visually appealing digital experiences.
+          Versatile Front-End Developer with 2.5 years of experience
+          specializing in responsive design and user-centric application
+          development. Proficient in translating Figma designs into real-time
+          implementations that maintain smooth user flows and consistent
+          layouts. Passionate about leveraging modern frameworks like React.js
+          and React Native to craft scalable, functional, and visually appealing
+          digital experiences.
         </p>
 
-        
         <div className="flex justify-center md:justify-start space-x-6 mb-8">
           <SocialLink
             href="https://github.com/prabhanjansp"
@@ -266,16 +273,22 @@ const About = ({ isDarkMode }) => (
  /> */}
         </div>
         {/* <marquee direction="up" width="250" height="200" behavior="alternate"> */}
-        <a
-          href={resume}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center md:justify-start space-x-4 bg-[#E84C3D] hover:bg-[#844a9b] text-[#F2F2F2] font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px]"
+        <motion.div
+          initial={{ opacity: 10, y: 50 }}
+          animate={{ opacity: 1.5, y: 1.5 }}
+          transition={{ delay: 0.25, duration: 1.25 }}
         >
-          <DownloadIcon size={20} />
-          <span className="text-sm">Download Resume</span>
-        </a>
-        {/* </marquee> */}
+          <a
+            href={resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center md:justify-start space-x-4 bg-[#E84C3D] hover:bg-[#844a9b] text-[#F2F2F2] font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px]"
+          >
+            <DownloadIcon size={20} />
+            <span className="text-sm">Download Resume</span>
+          </a>
+          {/* </marquee> */}
+        </motion.div>
       </div>
 
       {/* Right Side - Profile Image */}
@@ -399,7 +412,14 @@ const Projects = ({ isDarkMode }) => {
     {
       title: "Scontinent Corporate Website",
       description: "Company's official website with optimized SEO",
-      technologies: ["React.js", "Firebase", "Google Tag Manager","Echarts","Youtube API","React Helmet"],
+      technologies: [
+        "React.js",
+        "Firebase",
+        "Google Tag Manager",
+        "Echarts",
+        "Youtube API",
+        "React Helmet",
+      ],
       link: "https://www.scontinent.com/",
     },
     {
@@ -407,7 +427,8 @@ const Projects = ({ isDarkMode }) => {
       description: "A full-stack blog application built with MERN",
       technologies: [
         "React.js",
-        "Redux Toolkit","Firebase",
+        "Redux Toolkit",
+        "Firebase",
         "Nodejs",
         "Express",
         "Mongo Db",
@@ -465,7 +486,10 @@ const Projects = ({ isDarkMode }) => {
                       rel="noopener noreferrer"
                       className="text-[#E84C3D]"
                     >
-                      <LinkIcon size={20} color={isDarkMode ? "#f2f2f2" : "#262626"} />
+                      <LinkIcon
+                        size={20}
+                        color={isDarkMode ? "#f2f2f2" : "#262626"}
+                      />
                     </a>
                   )}
                 </h3>
@@ -998,7 +1022,9 @@ const App = () => {
     <Router>
       <div
         className={`min-h-screen ${
-          isDarkMode ? "bg-[#000]" : "bg-[#fff]"
+          isDarkMode
+            ? "bg-gradient-to-bl from-zinc-900 to-red-900"
+            : "bg-gradient-to-bl from-gray-50 to-rose-100"
         } cursor`}
       >
         <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
