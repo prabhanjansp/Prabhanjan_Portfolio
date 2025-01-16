@@ -52,4 +52,8 @@
  }
  body{
   cursor: url(), auto;
+ 
+ }
+ html{
+  scroll-behavior: smooth;
  }
