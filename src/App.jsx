@@ -315,9 +315,9 @@ const SocialLink = ({ href, icon, isDarkMode }) => (
 const Experience = ({ isDarkMode }) => {
   const experiences = [
     {
-      title: "Front-End Developer",
+      title: "Front-End Developer-1",
       company: "Scontinent Technologies Pvt Ltd",
-      period: "Jul 2023 -- Present",
+      period: "November 2023 -- Present",
       achievements: [
         // "Architected and implemented a comprehensive mock test platform using React and React Native, serving 50,000+ active students",
         // "Integrated Redux for state management and implemented REST APIs for seamless data flow, resulting in 40% faster load times",
@@ -333,6 +333,32 @@ const Experience = ({ isDarkMode }) => {
         " Engineered multi-format question generation system supporting text, images, and equations",
         " Implemented Google Sheets API integration, reducing data handling time by 85%",
         " Developed automated workflow systems using React.js, Material-UI, and Firebase",
+
+        // "Spearheaded development of official corporate website",
+        // "Enhanced SEO performance using React Helmet and Google Tag Manager",
+        // "Integrated YouTube API and E-charts for improved user engagement",
+        // "Implemented secure authentication and optimized hosting services",
+      ],
+    },
+    {
+      title: "Assistant-Front-End Developer",
+      company: "Scontinent Technologies Pvt Ltd",
+      period: "Jul 2023 -- october 2023",
+      achievements: [
+        // "Architected and implemented a comprehensive mock test platform using React and React Native, serving 50,000+ active students",
+        // "Integrated Redux for state management and implemented REST APIs for seamless data flow, resulting in 40% faster load times",
+        // "Developed an advanced analytics dashboard using Chart.js, providing detailed performance metrics",
+        // "Created a responsive educational news section that increased platform engagement by 35%",
+        // "Architected and developed a comprehensive mock test platform serving 50,000+ active students",
+        // "Implemented Redux for state management, achieving 40% faster load times through optimized dataflow",
+        // "Designed and integrated an analytics dashboard using E-Charts for detailed performance tracking",
+        // "Built responsive educational news section with gesture-based interactions",
+        // "Developed cross-platform functionality using React Native",
+        // " Led development of Product Data Management System with role-based access",
+        // " Built real-time Review Dashboard with database synchronization",
+        // " Engineered multi-format question generation system supporting text, images, and equations",
+        // " Implemented Google Sheets API integration, reducing data handling time by 85%",
+        // " Developed automated workflow systems using React.js, Material-UI, and Firebase",
 
         "Spearheaded development of official corporate website",
         "Enhanced SEO performance using React Helmet and Google Tag Manager",
