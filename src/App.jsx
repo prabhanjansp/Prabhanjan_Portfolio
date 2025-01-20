@@ -19,7 +19,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import DownloadIcon from "@mui/icons-material/Download";
-import resume from "./../Prabhanjan-Resume.pdf";
+import resume from "./assets/Prabhanjan.pdf";
 import pp from "./assets/pp.png";
 import Lottie from "lottie-react";
 import software2 from "./assets/software2.json";
