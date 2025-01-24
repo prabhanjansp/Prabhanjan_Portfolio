@@ -39,6 +39,7 @@ import Card from "@mui/material/Card";
 import postman from "./assets/postman.png";
 import jest from "./assets/jest.png";
 import mocha from "./assets/mocha.png";
+import insomnia from "./assets/insomnia.png"
 
 import "./App.css";
 
@@ -595,6 +596,7 @@ const Skills = ({ isDarkMode }) => {
     { name: "Apollo Client", icon: apollo },
     { name: "Graph Ql", icon: ql },
     { name: "Postman", icon: postman },
+    { name: "Insomnia", icon: insomnia },
     { name: "GitHub", icon: git },
     { name: "Jest", icon: jest },
     { name: "Mocha", icon: mocha },
