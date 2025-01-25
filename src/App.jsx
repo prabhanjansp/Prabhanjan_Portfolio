@@ -23,6 +23,7 @@ import resume from "./assets/Prabhanjan.pdf";
 import pp from "./assets/pp.png";
 import Lottie from "lottie-react";
 import software2 from "./assets/software2.json";
+import anime from "./assets/animations/anime.json"
 
 import { motion } from "framer-motion";
 import firebase from "./assets/firebase.png";
@@ -585,6 +586,8 @@ const Projects = ({ isDarkMode }) => {
 };
 
 const Skills = ({ isDarkMode }) => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const techStack = [
     { name: "Java Script", icon: js },
     { name: "React", icon: react },
@@ -680,7 +683,7 @@ const Skills = ({ isDarkMode }) => {
           {/* Static Image */}
           <div className="flex justify-center items-center w-full mb-8">
             <Lottie
-              animationData={software2}
+              animationData={anime}
               loop={true}
               className="w-52 h-52 md:w-64 md:h-64 object-cover border rounded drop-shadow-lg"
             />
