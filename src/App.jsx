@@ -23,7 +23,8 @@ import resume from "./assets/Prabhanjan.pdf";
 import pp from "./assets/pp.png";
 import Lottie from "lottie-react";
 import software2 from "./assets/software2.json";
-import anime from "./assets/animations/anime.json"
+import anime from "./assets/animations/anime.json";
+import figma from "./assets/figma.png"
 
 import { motion } from "framer-motion";
 import firebase from "./assets/firebase.png";
@@ -603,6 +604,7 @@ const Skills = ({ isDarkMode }) => {
     { name: "GitHub", icon: git },
     { name: "Jest", icon: jest },
     { name: "Mocha", icon: mocha },
+    { name: "Figma", icon: figma },
     // Add the rest of your tech stack items
   ];
 
