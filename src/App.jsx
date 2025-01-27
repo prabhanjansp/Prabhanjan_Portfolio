@@ -24,7 +24,14 @@ import pp from "./assets/pp.png";
 import Lottie from "lottie-react";
 import software2 from "./assets/software2.json";
 import anime from "./assets/animations/anime.json";
-import figma from "./assets/figma.png"
+import figma from "./assets/figma.png";
+import java from "./assets/java.png";
+import sql from "./assets/sql.png";
+import spring from "./assets/spring.png";
+import mongo from "./assets/mongo.png";
+import express from "./assets/express.png";
+
+
 
 import { motion } from "framer-motion";
 import firebase from "./assets/firebase.png";
@@ -41,7 +48,7 @@ import Card from "@mui/material/Card";
 import postman from "./assets/postman.png";
 import jest from "./assets/jest.png";
 import mocha from "./assets/mocha.png";
-import insomnia from "./assets/insomnia.png"
+import insomnia from "./assets/insomnia.png";
 
 import "./App.css";
 
@@ -223,23 +230,25 @@ const About = ({ isDarkMode }) => (
           Front-End Developer specializing in{" "}
           <span className="text-[#E84C3D]">React</span>
         </h2>
-        <p
-          className={`text-lg ${
-            isDarkMode ? "text-[#fafafa]" : "text-[#101828]"
-          } mb-8`}
-        >
-          {/* With 2.5 years of expertise in React.js and React Native, I create
+        {/* <div className="typewriter"> */}
+          <p
+            className={`text-lg ${
+              isDarkMode ? "text-[#fafafa]" : "text-[#101828]"
+            } mb-8 `}
+          >
+            {/* With 2.5 years of expertise in React.js and React Native, I create
           high-performance web and mobile applications. My focus is on
           delivering scalable solutions that improve user engagement and
           experience. */}
-          Versatile Front-End Developer with 2.5 years of experience
-          specializing in responsive design and user-centric application
-          development. Proficient in translating Figma designs into real-time
-          implementations that maintain smooth user flows and consistent
-          layouts. Passionate about leveraging modern frameworks like React.js
-          and React Native to craft scalable, functional, and visually appealing
-          digital experiences.
-        </p>
+            Versatile Front-End Developer with 2.5 years of experience
+            specializing in responsive design and user-centric application
+            development. Proficient in translating Figma designs into real-time
+            implementations that maintain smooth user flows and consistent
+            layouts. Passionate about leveraging modern frameworks like React.js
+            and React Native to craft scalable, functional, and visually
+            appealing digital experiences.
+          </p>
+        {/* </div> */}
 
         <div className="flex justify-center md:justify-start space-x-6 mb-8">
           <SocialLink
@@ -605,6 +614,11 @@ const Skills = ({ isDarkMode }) => {
     { name: "Jest", icon: jest },
     { name: "Mocha", icon: mocha },
     { name: "Figma", icon: figma },
+    { name: "Java", icon: java },
+    { name: "My Sql", icon: sql },
+    { name: "Spring", icon: spring },
+    { name: "Mongo Db", icon: mongo },
+    { name: "Express", icon: express },
     // Add the rest of your tech stack items
   ];
 
