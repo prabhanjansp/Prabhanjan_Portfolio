@@ -240,7 +240,7 @@ const About = ({ isDarkMode }) => (
           high-performance web and mobile applications. My focus is on
           delivering scalable solutions that improve user engagement and
           experience. */}
-            Versatile Front-End Developer with 2.5 years of experience
+            Versatile Front-End Developer with 2.5+ years of experience
             specializing in responsive design and user-centric application
             development. Proficient in translating Figma designs into real-time
             implementations that maintain smooth user flows and consistent
@@ -294,7 +294,7 @@ const About = ({ isDarkMode }) => (
             href={resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center md:justify-start space-x-4 bg-[#E84C3D] hover:bg-[#844a9b] text-[#F2F2F2] font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px]"
+            className="flex items-center justify-center md:justify-start space-x-4 bg-[#E84C3D] hover:bg-[#ff7e34] focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 text-[#F2F2F2] font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px] shadow-lg shadow-red-600/60"
           >
             <DownloadIcon size={20} />
             <span className="text-sm">Download Resume</span>
