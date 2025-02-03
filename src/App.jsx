@@ -257,7 +257,7 @@ const About = ({ isDarkMode }) => (
             isDarkMode={isDarkMode}
           />
           <SocialLink
-            href="https://www.linkedin.com/in/prabhanjan-puranik/"
+            href="https://www.linkedin.com/in/prabhanjanpuranik/"
             icon={<LinkedInIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
