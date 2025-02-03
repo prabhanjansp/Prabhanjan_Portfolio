@@ -20,7 +20,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import DownloadIcon from "@mui/icons-material/Download";
 import resume from "./assets/Prabhanjan.pdf";
-import pp from "./assets/pp.png";
+import pp1 from "./assets/pp1.png";
 import Lottie from "lottie-react";
 import software2 from "./assets/software2.json";
 import anime from "./assets/animations/anime.json";
@@ -204,9 +204,9 @@ const About = ({ isDarkMode }) => (
             elevation={15}
           >
             <img
-              src={pp}
+              src={pp1}
               alt="Prabhanjan"
-              className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-full drop-shadow-2xl "
+              className="w-60 h-60 md:w-80 md:h-80 object-cover rounded-full drop-shadow-2xl "
               loading="lazy"
             />
           </Card>
