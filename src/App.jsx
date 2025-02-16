@@ -261,26 +261,26 @@ const About = ({ isDarkMode }) => (
             icon={<LinkedInIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
-          <SocialLink
+          {/* <SocialLink
             href="https://x.com/iamprabhanjans?t=LEBLKyEPgAr6zkt6uSF9UQ&s=09"
             icon={<XIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
-          />
+          /> */}
           <SocialLink
             href="mailto:puranikchetan97@gmail.com"
             icon={<EmailIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
           />
-          <SocialLink
+          {/* <SocialLink
             href="https://www.instagram.com/iamprabhanjan/profilecard/?igsh=ZW5pM2JybDIwYWJy"
             icon={<InstagramIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
-          />
-          <SocialLink
+          /> */}
+          {/* <SocialLink
             href="https://www.youtube.com/@PrabhanjanShrinivasPuranik"
             icon={<YouTubeIcon style={{ width: 40, height: 40 }} />}
             isDarkMode={isDarkMode}
-          />
+          /> */}
           {/* <SocialLink href="tel:9538711410" icon={<PhoneIcon />}             isDarkMode={isDarkMode}
  /> */}
         </div>
