@@ -450,6 +450,43 @@ const Experience = ({ isDarkMode }) => {
 
 const Projects = ({ isDarkMode }) => {
   const projects = [
+    
+   
+    {
+      title: "Blog Application",
+      description: "A full-stack blog application built with MERN",
+      technologies: [
+        "React.js",
+        "Redux Toolkit",
+        "Firebase",
+        "Nodejs",
+        "Express",
+        "Mongo Db",
+        "Tailwind",
+        "FlowBit",
+      ],
+      link: "https://github.com/prabhanjansp/MeenBlogApp",
+    },
+    {
+      title: "Namma Mart Application",
+      description:
+        "Namma Mart is a React Native quick commerce app designed for fast and convenient shopping, delivering essentials right to your doorstep.",
+      technologies: [
+        "React.Native",
+        "React Native Elements",
+        "React NativeFirebase",
+        "React Native Paper",
+      ],
+      link: "https://github.com/Raorakshith/NammaMartNew",
+    },
+ 
+    {
+      title: "YouTube Clone Application",
+      description:
+        "This is a YouTube Clone built using modern web technologies. It allows users to browse and search YouTube videos seamlessly using the YouTube v3 API from Rapid API.",
+      technologies: ["Reactjs", "Material UI", "Axios", "Rapid API","YouTube API"],
+      link: "https://github.com/prabhanjansp/youtubeclone/tree/main/youtubeclone",
+    },
     {
       title: "Mock Test Platform",
       description: "Comprehensive platform for online testing and assessment",
@@ -490,33 +527,6 @@ const Projects = ({ isDarkMode }) => {
         "Framer Motion",
       ],
       link: "https://www.scontinent.com/",
-    },
-    {
-      title: "Blog Application",
-      description: "A full-stack blog application built with MERN",
-      technologies: [
-        "React.js",
-        "Redux Toolkit",
-        "Firebase",
-        "Nodejs",
-        "Express",
-        "Mongo Db",
-        "Tailwind",
-        "FlowBit",
-      ],
-      link: "https://github.com/prabhanjansp/MeenBlogApp",
-    },
-    {
-      title: "Namma Mart Application",
-      description:
-        "Namma Mart is a React Native quick commerce app designed for fast and convenient shopping, delivering essentials right to your doorstep.",
-      technologies: [
-        "React.Native",
-        "React Native Elements",
-        "React NativeFirebase",
-        "React Native Paper",
-      ],
-      link: "https://github.com/Raorakshith/NammaMartNew",
     },
     {
       title: "Sconti Web Application",
