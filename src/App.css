@@ -41,8 +41,10 @@
   color: #888;
 } */
  .card{
-  filter: drop-shadow(10px 5px 15px  #E84c3d);
- }
+  background: linear-gradient(264deg, #da7c25 0.36%, #b923e1 102.06%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(3px 3px 2px #da7c25) drop-shadow(-3px -3px 2px #b923e1); }
 
  span{
   font-family: sans-serif;
