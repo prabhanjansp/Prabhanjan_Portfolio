@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Card from "@mui/material/Card";
-import pp2 from "../assets/pp2.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import DownloadIcon from "@mui/icons-material/Download";
 
+import pp2 from "../assets/pp2.png";
 import resume from "../assets/Prabhanjan.pdf";
 
-
-
-
-
-const About = ({ isDarkMode }) => (
+const About = ({ isDarkMode }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
@@ -71,10 +71,10 @@ const About = ({ isDarkMode }) => (
             development. Proficient in translating Figma designs into real-time
             implementations that maintain smooth user flows and consistent
             layouts. Passionate about leveraging modern frameworks like React.js
-            and React Native to craft scalable, functional, and visually appealing
-            digital experiences.
+            and React Native to craft scalable, functional, and visually
+            appealing digital experiences.
           </p>
-  
+
           <div className="flex justify-center md:justify-start space-x-6 mb-8">
             <SocialLink
               href="https://github.com/prabhanjansp"
@@ -86,7 +86,7 @@ const About = ({ isDarkMode }) => (
               icon={<LinkedInIcon style={{ width: 40, height: 40 }} />}
               isDarkMode={isDarkMode}
             />
-  
+
             <SocialLink
               href="mailto:puranikchetan97@gmail.com"
               icon={<EmailIcon style={{ width: 40, height: 40 }} />}
@@ -102,32 +102,32 @@ const About = ({ isDarkMode }) => (
               href={resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center md:justify-start space-x-4 bg-gradient-to-r from-[#da7c25] to-[#b923e1] hover:bg-[#ff7e34] focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 text-[#F2F2F2] font-bold py-4 px-8 rounded-lg transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px] shadow-lg shadow-red-600/60"
+              className="flex items-center justify-center md:justify-start space-x-4 bg-gradient-to-r from-[#da7c25] to-[#b923e1] hover:bg-[#ff7e34] focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 text-[#F2F2F2] font-bold py-4 px-8 rounded-full transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px] shadow-lg shadow-red-600/60"
             >
               <DownloadIcon size={20} />
-              <span className="text-sm">Download Resume</span>
+              <span className="text-md">Download Resume</span>
             </a>
           </motion.div>
         </div>
       </div>
     </motion.div>
   );
-  
-  const SocialLink = ({ href, icon, isDarkMode }) => (
-    <motion.div whileHover={{ scale: 1.5 }}>
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${
-          isDarkMode ? "text-[#fafafa]" : "text-[#101828]"
-        } hover:text-[#E84C3d] transition-all 
-  `}
-      >
-        {icon}
-      </a>
-    </motion.div>
-  );
-  
+};
 
-export default About
+const SocialLink = ({ href, icon, isDarkMode }) => (
+  <motion.div whileHover={{ scale: 1.5 }}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${
+        isDarkMode ? "text-[#fafafa]" : "text-[#101828]"
+      } hover:text-[#E84C3d] transition-all 
+  `}
+    >
+      {icon}
+    </a>
+  </motion.div>
+);
+
+export default About;

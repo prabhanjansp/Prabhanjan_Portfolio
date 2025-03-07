@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -7,6 +7,9 @@ import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 const Contact = ({ isDarkMode }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -92,8 +95,8 @@ const Contact = ({ isDarkMode }) => {
               rel="noopener noreferrer"
               className={` ${
                 isDarkMode
-                ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-                : "bg-gradient-to-bl from-gray-50 to-blue-200"
+                  ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
+                  : "bg-gradient-to-bl from-gray-50 to-blue-200"
               } p-6 rounded-lg flex items-center space-x-4 hover:transform hover:scale-[1.02] transition-transform`}
             >
               <div className="text-[#E84C3D]">{info.icon}</div>
@@ -115,8 +118,8 @@ const Contact = ({ isDarkMode }) => {
         <div
           className={` ${
             isDarkMode
-            ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-            : "bg-gradient-to-bl from-gray-50 to-blue-200"
+              ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
+              : "bg-gradient-to-bl from-gray-50 to-blue-200"
           } p-8 rounded-lg`}
         >
           <h2 className={`text-4xl font-bold mb-8  `}>
@@ -143,8 +146,8 @@ const Contact = ({ isDarkMode }) => {
                 required
                 className={`w-full p-3 rounded-lg ${
                   isDarkMode
-                  ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-                  : "bg-gradient-to-bl from-gray-50 to-blue-200"
+                    ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
+                    : "bg-gradient-to-bl from-gray-50 to-blue-200"
                 } ${
                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
                 } border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors`}
@@ -170,8 +173,8 @@ const Contact = ({ isDarkMode }) => {
                 required
                 className={`w-full p-3 rounded-lg ${
                   isDarkMode
-                  ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-                  : "bg-gradient-to-bl from-gray-50 to-blue-200"
+                    ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
+                    : "bg-gradient-to-bl from-gray-50 to-blue-200"
                 } ${
                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
                 } border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors`}
@@ -197,8 +200,8 @@ const Contact = ({ isDarkMode }) => {
                 rows="5"
                 className={`w-full p-3 rounded-lg ${
                   isDarkMode
-                  ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-                  : "bg-gradient-to-bl from-gray-50 to-blue-200"
+                    ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
+                    : "bg-gradient-to-bl from-gray-50 to-blue-200"
                 } ${
                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
                 } border border-[#E84C3D] focus:outline-none focus:ring-2 focus:ring-[#E84C3D] transition-colors`}
@@ -224,6 +227,14 @@ const Contact = ({ isDarkMode }) => {
           </form>
         </div>
       </div>
+
+      <footer
+        className={`text-center py-6 mt-12 text-sm ${
+          isDarkMode ? "text-[#ddd]" : "text-[#262626]"
+        }`}
+      >
+        © 2024 Prabhanjan❤️. All rights reserved.
+      </footer>
     </motion.div>
   );
 };
