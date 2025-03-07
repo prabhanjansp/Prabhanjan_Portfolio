@@ -23,7 +23,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link
-            to="#"
+            to="/"
             className={`text-2xl font-bold ${
               isDarkMode ? "text-[#ffffff]" : "text-[#101828]"
             } bg-gradient-to-r from-[#da7c25] to-[#b923e1] rounded-full p-3`}
