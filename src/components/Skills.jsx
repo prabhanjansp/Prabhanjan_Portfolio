@@ -59,17 +59,20 @@ const Skills = ({ isDarkMode }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3, duration: 0.8 }}
-      className={`min-h-screen pt-24 px-6 ${
-        isDarkMode
-          ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-          : "bg-gradient-to-bl from-gray-50 to-blue-200"
-      } text-white`}
+      className="min-h-screen pt-24 px-6"
     >
       <div className="max-w-6xl mx-auto text-center">
         {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-10 bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent">
-          My Tech Stack
-        </h2>
+        <motion.h2
+          className="text-4xl font-extrabold mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <span className="bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent">
+            My Tech Stack
+          </span>
+        </motion.h2>
 
         {/* Animation */}
         <div className="flex justify-center items-center mb-12">
@@ -98,7 +101,13 @@ const Skills = ({ isDarkMode }) => {
                 src={tech.icon}
                 alt={tech.name}
               />
-              <h3 className={`${isDarkMode?"text-white":"text-black"} font-semibold text-sm`}>{tech.name}</h3>
+              <h3
+                className={`${
+                  isDarkMode ? "text-white" : "text-black"
+                } font-semibold text-sm`}
+              >
+                {tech.name}
+              </h3>
             </motion.div>
           ))}
         </motion.div>
