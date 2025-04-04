@@ -23,11 +23,11 @@ const App = () => {
         className={`relative min-h-screen ${
           isDarkMode
             ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-            : "bg-gradient-to-bl from-gray-50 to-blue-200"
+            : "bg-gradient-to-bl from-gray-100 to-blue-200"
         }`}
       >
         {/* Grid Background Layer */}
-        <div className="absolute inset-0 bg-[url('https://img.freepik.com/free-vector/stars-dark-background_78370-2944.jpg?t=st=1741683321~exp=1741686921~hmac=9f8cb2b50a8c860241a39a47fa2748835d6ccfd712afef4ea68de877e448c7c0&w=1060')] bg-cover bg-center opacity-10 pointer-events-none animate-bgPulse overflow-hidden"></div>
+        {/* <div className="absolute inset-0 bg-[url('https://www.freeiconspng.com/thumbs/grid-png/transparent-grid-photo-png-12.png')] bg-cover bg-center opacity-10 pointer-events-none animate-bgPulse overflow-hidden"></div> */}
 
 
 

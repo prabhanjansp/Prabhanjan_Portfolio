@@ -170,7 +170,6 @@
 
 // export default Projects;
 
-
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import LinkIcon from "@mui/icons-material/Link";
@@ -215,30 +214,39 @@ const Projects = ({ isDarkMode }) => {
       link: "https://github.com/prabhanjansp/youtubeclone/tree/main/youtubeclone",
     },
     {
-      title: "Mock Test Platform",
-      description: "Comprehensive platform for online testing and assessment",
-      technologies: ["React", "React Native", "Redux", "Echarts", "REST API", "Axios"],
-      link: "https://samai.scontiapp.com/online-mocktest",
-    },
-    {
-      title: "Sconti Admin Dashboard",
-      description: "Advanced quiz management system with role-based access",
-      technologies: ["React.js", "Material-UI", "Firebase", "Spreadsheet API", "Axios", "Rest API"],
-      link: "https://scontiadmin.web.app/",
-    },
-    {
-      title: "Scontinent Corporate Website",
-      description: "Company's official website with optimized SEO",
-      technologies: ["React.js", "Firebase", "Google Tag Manager", "Echarts", "YouTube API", "React Helmet", "Framer Motion"],
-      link: "https://www.scontinent.com/",
-    },
-    {
-      title: "Sconti Web Application",
+      title: "PrepWise",
       description:
-        "Sconti is a socio-educational web application that connects students with professionals to enhance their career growth.",
-      technologies: ["React.js", "Material UI", "Firebase", "GraphQL"],
-      link: "https://github.com/scontinent/ScontiConnectWeb",
+        "PrepWise is an AI-powered mock interview platform designed to help job seekers prepare for interviews with a voice-based AI assistant. The platform simulates real interview scenarios by generating and asking industry-specific questions, evaluating responses, and providing instant feedback.",
+      technologies: [
+        "NextJS",
+        "TypeScript",
+        "VAPI",
+        "Gemini",
+        "ShadCN",
+        "Firebase",
+        "Vercel",
+      ],
+      link: "https://mockinterviewapp-15es.vercel.app/",
     },
+    // {
+    //   title: "Sconti Admin Dashboard",
+    //   description: "Advanced quiz management system with role-based access",
+    //   technologies: ["React.js", "Material-UI", "Firebase", "Spreadsheet API", "Axios", "Rest API"],
+    //   link: "https://scontiadmin.web.app/",
+    // },
+    // {
+    //   title: "Scontinent Corporate Website",
+    //   description: "Company's official website with optimized SEO",
+    //   technologies: ["React.js", "Firebase", "Google Tag Manager", "Echarts", "YouTube API", "React Helmet", "Framer Motion"],
+    //   link: "https://www.scontinent.com/",
+    // },
+    // {
+    //   title: "Sconti Web Application",
+    //   description:
+    //     "Sconti is a socio-educational web application that connects students with professionals to enhance their career growth.",
+    //   technologies: ["React.js", "Material UI", "Firebase", "GraphQL"],
+    //   link: "https://github.com/scontinent/ScontiConnectWeb",
+    // },
   ];
 
   return (
@@ -260,7 +268,9 @@ const Projects = ({ isDarkMode }) => {
               key={index}
               whileHover={{ scale: 1.05 }}
               className={`relative overflow-hidden shadow-lg rounded-2xl transition-transform duration-300 transform ${
-                isDarkMode ? "bg-gradient-to-bl from-zinc-900 to-blue-900 text-white" : "bg-gradient-to-bl from-gray-50 to-blue-200 text-gray-900"
+                isDarkMode
+                  ? "bg-gradient-to-bl from-zinc-900 to-blue-900 text-white"
+                  : "bg-gradient-to-bl from-gray-50 to-blue-200 text-gray-900"
               }`}
             >
               <div className="p-6 flex flex-col h-full">
