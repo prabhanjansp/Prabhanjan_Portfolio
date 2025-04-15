@@ -213,6 +213,21 @@ const Projects = ({ isDarkMode }) => {
       technologies: ["React.js", "Material UI", "Axios", "YouTube API"],
       link: "https://github.com/prabhanjansp/youtubeclone/tree/main/youtubeclone",
     },
+    
+    {
+      title: "CryptoPulse",
+      description:
+        "CryptoPulse is a modern, responsive cryptocurrency dashboard built using React (with Vite) and Material UI. It offers real-time market data, intuitive charts, and advanced filtering options to help users stay up-to-date with the latest crypto trends. Designed for performance and user experience, CryptoPulse is a sleek and powerful tool for crypto enthusiasts and investors alike.",
+      technologies: ["React.js", "Material UI", "Axios", "LocalStorage ","Crypto API","News API","Context API","React-Echarts",],
+      link: "https://github.com/prabhanjansp/crypto-dashboard",
+    },
+    {
+      title: "ClimaVue🌦️",
+      description:
+        "ClimaVue is a sleek, responsive weather application that delivers real-time weather data, detailed forecasts, and weather-related news in an intuitive interface. Built with React, Material-UI, and powered by OpenWeatherMap API, it offers",
+      technologies: ["React.js", "Material UI", "Axios", "LocalStorage ","OpenWeatherMap API","React-Echarts","Context API"],
+      link: "https://github.com/prabhanjansp/weather-app",
+    },
     {
       title: "PrepWise",
       description:
