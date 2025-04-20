@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo, useMemo } from "react";
 import Lottie from "lottie-react";
+import { motion } from "framer-motion";
 import anime from "../assets/animations/anime.json";
+
+// Images
 import figma from "../assets/figma.png";
 import java from "../assets/java.png";
 import sql from "../assets/sql.png";
@@ -21,38 +24,63 @@ import postman from "../assets/postman.png";
 import jest from "../assets/jest.png";
 import mocha from "../assets/mocha.png";
 import insomnia from "../assets/insomnia.png";
-import { motion } from "framer-motion";
 
-// Replace with actual animation path
+const techStackData = [
+  { name: "JavaScript", icon: js },
+  { name: "React", icon: react },
+  { name: "Node.js", icon: node2 },
+  { name: "Redux Toolkit", icon: redux },
+  { name: "Material UI", icon: mui },
+  { name: "Tailwind CSS", icon: wind },
+  { name: "Firebase", icon: firebase },
+  { name: "Apollo Client", icon: apollo },
+  { name: "GraphQL", icon: ql },
+  { name: "Postman", icon: postman },
+  { name: "Insomnia", icon: insomnia },
+  { name: "GitHub", icon: git },
+  { name: "Jest", icon: jest },
+  { name: "Mocha", icon: mocha },
+  { name: "Figma", icon: figma },
+  { name: "Java", icon: java },
+  { name: "MySQL", icon: sql },
+  { name: "Spring", icon: spring },
+  { name: "MongoDB", icon: mongo },
+  { name: "Express", icon: express },
+];
 
-// Replace with actual animation path
+// Tech Card - Memoized to prevent re-renders
+const TechCard = memo(({ tech, isDarkMode }) => (
+  <motion.div
+    whileHover={{ scale: 1.1 }}
+    className={`p-4 ${
+      isDarkMode
+        ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
+        : "bg-gradient-to-bl from-gray-50 to-blue-200"
+    } bg-opacity-80 rounded-xl shadow-xl flex flex-col items-center transition-transform duration-300 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500`}
+  >
+    <img
+      className="h-16 w-16 object-contain mb-2"
+      src={tech.icon}
+      alt={tech.name}
+      loading="lazy"
+    />
+    <h3
+      className={`${
+        isDarkMode ? "text-white" : "text-black"
+      } font-semibold text-sm`}
+    >
+      {tech.name}
+    </h3>
+  </motion.div>
+));
 
 const Skills = ({ isDarkMode }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const techStack = [
-    { name: "JavaScript", icon: js },
-    { name: "React", icon: react },
-    { name: "Node.js", icon: node2 },
-    { name: "Redux Toolkit", icon: redux },
-    { name: "Material UI", icon: mui },
-    { name: "Tailwind CSS", icon: wind },
-    { name: "Firebase", icon: firebase },
-    { name: "Apollo Client", icon: apollo },
-    { name: "GraphQL", icon: ql },
-    { name: "Postman", icon: postman },
-    { name: "Insomnia", icon: insomnia },
-    { name: "GitHub", icon: git },
-    { name: "Jest", icon: jest },
-    { name: "Mocha", icon: mocha },
-    { name: "Figma", icon: figma },
-    { name: "Java", icon: java },
-    { name: "MySQL", icon: sql },
-    { name: "Spring", icon: spring },
-    { name: "MongoDB", icon: mongo },
-    { name: "Express", icon: express },
-  ];
+
+  // useMemo to avoid recalculating the array
+  const techStack = useMemo(() => techStackData, []);
 
   return (
     <motion.div
@@ -62,7 +90,6 @@ const Skills = ({ isDarkMode }) => {
       className="min-h-screen pt-24 px-6"
     >
       <div className="max-w-6xl mx-auto text-center">
-        {/* Title */}
         <motion.h2
           className="text-4xl font-extrabold mb-8"
           initial={{ opacity: 0 }}
@@ -87,28 +114,7 @@ const Skills = ({ isDarkMode }) => {
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
         >
           {techStack.map((tech, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.1 }}
-              className={`p-4 ${
-                isDarkMode
-                  ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-                  : "bg-gradient-to-bl from-gray-50 to-blue-200"
-              } bg-opacity-80 rounded-xl shadow-xl flex flex-col items-center transition-transform duration-300 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500`}
-            >
-              <img
-                className="h-16 w-16 object-contain mb-2"
-                src={tech.icon}
-                alt={tech.name}
-              />
-              <h3
-                className={`${
-                  isDarkMode ? "text-white" : "text-black"
-                } font-semibold text-sm`}
-              >
-                {tech.name}
-              </h3>
-            </motion.div>
+            <TechCard key={tech.name} tech={tech} isDarkMode={isDarkMode} />
           ))}
         </motion.div>
       </div>
@@ -116,4 +122,4 @@ const Skills = ({ isDarkMode }) => {
   );
 };
 
-export default Skills;
+export default memo(Skills);
