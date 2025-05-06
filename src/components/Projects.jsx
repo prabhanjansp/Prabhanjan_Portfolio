@@ -85,6 +85,20 @@ const Projects = ({ isDarkMode }) => {
         link: "https://github.com/prabhanjansp/youtubeclone/tree/main/youtubeclone",
       },
       {
+        title: "Movie Explorer📽️",
+        description:
+          "Movie Explorer is a modern, responsive web application built with React that allows users to discover trending movies, TV shows, and actors. Powered by the TMDB API, it offers a sleek interface with dark/light mode, search functionality, and personalized watchlists.",
+        technologies: [
+          "React.js",
+          "Material UI",
+          "Axios",
+          "LocalStorage ",
+          "TMBD API",
+          "Context API","debouncing", "react-multi-carousel"
+        ],
+        link: "https://github.com/prabhanjansp/movieapp",
+      },
+      {
         title: "CryptoPulse",
         description:
           "CryptoPulse is a modern, responsive cryptocurrency dashboard built using React (with Vite) and Material UI. It offers real-time market data, intuitive charts, and advanced filtering options to help users stay up-to-date with the latest crypto trends. Designed for performance and user experience, CryptoPulse is a sleek and powerful tool for crypto enthusiasts and investors alike.",
