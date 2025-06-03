@@ -122,7 +122,7 @@ const SocialLink = ({ href, icon, isDarkMode }) => (
       rel="noopener noreferrer"
       className={`${
         isDarkMode ? "text-[#fafafa]" : "text-[#101828]"
-      } hover:text-[#E84C3d] transition-all 
+      } hover:text-[#b923e1] 
   `}
     >
       {icon}

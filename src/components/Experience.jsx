@@ -1,7 +1,6 @@
 // import React from 'react'
 // import { motion } from "framer-motion";
 
-
 // const Experience = ({ isDarkMode }) => {
 //     const experiences = [
 //       {
@@ -44,7 +43,7 @@
 //         ],
 //       },
 //     ];
-  
+
 //     return (
 //       <motion.div
 //         initial={{ opacity: 0, y: 50 }}
@@ -174,19 +173,36 @@ const Experience = ({ isDarkMode }) => {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              className={`p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 duration-300 backdrop-blur-md border border-gray-200 ${
-                isDarkMode
-                  ? "bg-gradient-to-br from-zinc-900 to-blue-900 text-white"
-                  : "bg-gradient-to-br from-gray-50 to-blue-200 text-gray-900"
+              className={`p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 duration-300 backdrop-blur-md border border-2 border-[#b923e1] border-gray-200 ${
+                isDarkMode ? "bg-black" : "bg-white"
               }`}
               whileHover={{ scale: 1.05 }}
             >
-              <h3 className="text-2xl font-semibold text-[#E84C3D] mb-2">{exp.title}</h3>
-              <h4 className="text-lg mb-2">{exp.company}</h4>
-              <p className="text-sm opacity-80 mb-4">{exp.period}</p>
-              <ul className="list-none space-y-2 text-left">
+              <h3 className="text-2xl font-semibold bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent mb-2">
+                {exp.title}
+              </h3>
+              <h4
+                className={`text-lg mb-2 ${
+                  isDarkMode ? "text-white" : "text-black"
+                } `}
+              >
+                {exp.company}
+              </h4>
+              <p
+                className={`text-sm opacity-80 mb-4  ${
+                  isDarkMode ? "text-white" : "text-black"
+                }`}
+              >
+                {exp.period}
+              </p>
+              <ul className={`list-none space-y-2 text-left`}>
                 {exp.achievements.map((achievement, i) => (
-                  <li key={i} className="flex items-center gap-2">
+                  <li
+                    key={i}
+                    className={`flex items-center gap-2 ${
+                      isDarkMode ? "text-white" : "text-black"
+                    } `}
+                  >
                     <CheckCircleIcon className="text-green-500" /> {achievement}
                   </li>
                 ))}

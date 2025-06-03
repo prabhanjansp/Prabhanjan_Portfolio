@@ -196,12 +196,12 @@ const Education = ({ isDarkMode }) => {
               whileHover={{ scale: 1.05 }}
               className={`p-6 rounded-xl shadow-lg border border-transparent transition-all ${
                 isDarkMode
-                  ? "bg-gradient-to-bl from-zinc-900 to-blue-900 border-gray-700"
-                  : "bg-gradient-to-bl from-gray-50 to-blue-200 border-gray-300"
-              }`}
+                  ? "bg-black"
+                  : "bg-white"
+              }border-2 border-[#b923e1]`}
             >
               <div className="flex items-center gap-3 mb-4">
-                <School className="text-3xl text-[#E84C3D]" />
+                <School className="text-3xl text-[#da7c25]" />
                 <h3 className={`text-lg font-bold ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"}`}>{edu.degree}</h3>
               </div>
               <p className={`text-lg ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"}`}>
@@ -209,7 +209,7 @@ const Education = ({ isDarkMode }) => {
               </p>
               <p className={`text-sm ${isDarkMode ? "text-[#aaa]" : "text-[#444]"}`}>{edu.period}</p>
               {edu.grade && (
-                <p className="text-sm text-[#E84C3D] mt-2 font-semibold">{edu.grade}</p>
+                <p className="text-sm text-[#b923e1] mt-2 font-semibold">{edu.grade}</p>
               )}
             </motion.div>
           ))}
@@ -228,12 +228,12 @@ const Education = ({ isDarkMode }) => {
               whileHover={{ scale: 1.05 }}
               className={`p-6 rounded-xl shadow-lg border border-transparent transition-all ${
                 isDarkMode
-                  ? "bg-gradient-to-bl from-zinc-900 to-blue-900 border-gray-700"
-                  : "bg-gradient-to-bl from-gray-50 to-blue-200 border-gray-300"
-              }`}
+                  ? "bg-black"
+                  : "bg-white"
+              } border-2 border-[#b923e1]`}
             >
               <div className="flex items-center gap-3 mb-4">
-                <WorkspacePremium className="text-3xl text-[#E84C3D]" />
+                <WorkspacePremium className="text-3xl text-[#da7c25]" />
                 <h4 className={`text-lg font-bold ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"}`}>{cert.title}</h4>
               </div>
               <p className={`text-sm ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"}`}>{cert.issuer}</p>

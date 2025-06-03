@@ -34,16 +34,16 @@ const techStackData = [
   { name: "Tailwind CSS", icon: wind },
   { name: "Firebase", icon: firebase },
   { name: "Apollo Client", icon: apollo },
-  { name: "GraphQL", icon: ql },
+  // { name: "GraphQL", icon: ql },
   { name: "Postman", icon: postman },
   { name: "Insomnia", icon: insomnia },
   { name: "GitHub", icon: git },
   { name: "Jest", icon: jest },
   { name: "Mocha", icon: mocha },
   { name: "Figma", icon: figma },
-  { name: "Java", icon: java },
-  { name: "MySQL", icon: sql },
-  { name: "Spring", icon: spring },
+  // { name: "Java", icon: java },
+  // { name: "MySQL", icon: sql },
+  // { name: "Spring", icon: spring },
   { name: "MongoDB", icon: mongo },
   { name: "Express", icon: express },
 ];
@@ -54,9 +54,9 @@ const TechCard = memo(({ tech, isDarkMode }) => (
     whileHover={{ scale: 1.1 }}
     className={`p-4 ${
       isDarkMode
-        ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-        : "bg-gradient-to-bl from-gray-50 to-blue-200"
-    } bg-opacity-80 rounded-xl shadow-xl flex flex-col items-center transition-transform duration-300 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500`}
+        ? "bg-black"
+        : "bg-white"
+    } bg-opacity-80 rounded-xl shadow-xl flex flex-col items-center transition-transform duration-300 border-2 border-[#b923e1] hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500`}
   >
     <img
       className="h-16 w-16 object-contain mb-2"

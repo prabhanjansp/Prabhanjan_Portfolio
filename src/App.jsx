@@ -22,8 +22,8 @@ const App = () => {
       <div
         className={`relative min-h-screen ${
           isDarkMode
-            ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-            : "bg-gradient-to-bl from-gray-100 to-blue-200"
+            ? "bg-black"
+            : "bg-white"
         }`}
       >
         {/* Grid Background Layer */}

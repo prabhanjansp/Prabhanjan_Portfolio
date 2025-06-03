@@ -7,27 +7,35 @@ const ProjectCard = React.memo(({ project, isDarkMode }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      className={`relative overflow-hidden shadow-lg rounded-2xl transition-transform duration-300 transform ${
-        isDarkMode
-          ? "bg-gradient-to-bl from-zinc-900 to-blue-900 text-white"
-          : "bg-gradient-to-bl from-gray-50 to-blue-200 text-gray-900"
+      className={`relative overflow-hidden shadow-2xl rounded-2xl transition-transform duration-300 transform border-2 border-[#b923e1] ${
+        isDarkMode ? "bg-black" : "bg-white"
       }`}
     >
       <div className="p-6 flex flex-col h-full">
-        <h3 className="text-2xl font-semibold flex items-center justify-between min-h-[3rem]">
+        <h3
+          className={`text-2xl font-semibold flex items-center justify-between min-h-[3rem] ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
           {project.title}
           {project.link && (
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#E84C3D]  hover:scale-110 transition"
+              className="text-[#da7c25]  hover:scale-110 transition"
             >
-              <LinkIcon fontSize="small"  />
+              <LinkIcon fontSize="small" />
             </a>
           )}
         </h3>
-        <p className="mt-2 text-sm opacity-80">{project.description}</p>
+        <p
+          className={`mt-2 text-sm opacity-80 ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
+          {project.description}
+        </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((tech, i) => (
             <span
@@ -94,7 +102,9 @@ const Projects = ({ isDarkMode }) => {
           "Axios",
           "LocalStorage ",
           "TMBD API",
-          "Context API","debouncing", "react-multi-carousel"
+          "Context API",
+          "debouncing",
+          "react-multi-carousel",
         ],
         link: "https://github.com/prabhanjansp/movieapp",
       },

@@ -22,7 +22,11 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-opacity-10 backdrop-blur-sm bg-[#2d2d2d] text-white py-4">
+    <nav className={`fixed w-full z-50 bg-opacity-10 backdrop-blur-sm ${
+          isDarkMode
+            ? "bg-black"
+            : "bg-white"
+        } text-white py-4`}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link
@@ -91,19 +95,19 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div
-            className={`"md:hidden mt-4 ${
-              isDarkMode
-                ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-                : "bg-gradient-to-bl from-gray-50 to-blue-200"
-            } rounded-lg p-4"`}
+            className={`"md:hidden mt-4${
+          isDarkMode
+            ? "bg-black"
+            : "bg-white"
+        } rounded-lg p-4"`}
           >
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`block py-2 px-4 rounded hover:bg-[#000] transition-colors ${
+                className={`block py-2 px-4 rounded  transition-colors ${
                   location.pathname === item.path
-                    ? "text-[#E84C3D]"
+                    ? "text-[#b923e1]"
                     : isDarkMode
                     ? "text-[#fff]"
                     : "text-[#000]"
