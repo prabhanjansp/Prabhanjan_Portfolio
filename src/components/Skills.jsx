@@ -18,7 +18,7 @@ import node2 from "../assets/node2.png";
 import react from "../assets/react.svg";
 import redux from "../assets/redux.png";
 import wind from "../assets/wind.png";
-import apollo from "../assets/apollo.svg";
+import apollo from "../assets/apollo.png";
 import ql from "../assets/ql.png";
 import postman from "../assets/postman.png";
 import jest from "../assets/jest.png";

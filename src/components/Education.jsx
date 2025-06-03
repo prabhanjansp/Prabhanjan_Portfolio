@@ -194,11 +194,11 @@ const Education = ({ isDarkMode }) => {
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
-              className={`p-6 rounded-xl shadow-lg border border-transparent transition-all ${
+              className={`p-6 rounded-xl shadow-lg  transition-all border-2 border-[#b923e1] ${
                 isDarkMode
                   ? "bg-black"
                   : "bg-white"
-              }border-2 border-[#b923e1]`}
+              } `}
             >
               <div className="flex items-center gap-3 mb-4">
                 <School className="text-3xl text-[#da7c25]" />
@@ -226,7 +226,7 @@ const Education = ({ isDarkMode }) => {
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
-              className={`p-6 rounded-xl shadow-lg border border-transparent transition-all ${
+              className={`p-6 rounded-xl shadow-lg  border-2 border-[#b923e1] transition-all ${
                 isDarkMode
                   ? "bg-black"
                   : "bg-white"

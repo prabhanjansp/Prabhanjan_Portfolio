@@ -173,7 +173,7 @@ const Experience = ({ isDarkMode }) => {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              className={`p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 duration-300 backdrop-blur-md border border-2 border-[#b923e1] border-gray-200 ${
+              className={`p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 duration-300 backdrop-blur-md  border-2  border-[#b923e1] ${
                 isDarkMode ? "bg-black" : "bg-white"
               }`}
               whileHover={{ scale: 1.05 }}
