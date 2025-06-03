@@ -26,8 +26,8 @@ const App = () => {
             : "bg-white"
         }`}
       >
-        {/* Grid Background Layer */}
-        {/* <div className="absolute inset-0 bg-[url('https://www.freeiconspng.com/thumbs/grid-png/transparent-grid-photo-png-12.png')] bg-cover bg-center opacity-10 pointer-events-none animate-bgPulse overflow-hidden"></div> */}
+        {/* Grid Background Layer
+        <div className="absolute inset-0 bg-[url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fgrid-pattern&psig=AOvVaw1ta6cxtfP_ofmaZl9aaBMf&ust=1749015572007000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCbte_E1I0DFQAAAAAdAAAAABAU')] bg-cover bg-center opacity-10 pointer-events-none  overflow-hidden"> */}
 
 
 
@@ -61,7 +61,8 @@ const App = () => {
             />
           </Routes>
         </div>
-      </div>
+        </div>
+      {/* </div> */}
     </Router>
   );
 };
