@@ -23,11 +23,15 @@ import ql from "../assets/ql.png";
 import postman from "../assets/postman.png";
 import jest from "../assets/jest.png";
 import mocha from "../assets/mocha.png";
-import insomnia from "../assets/insomnia.png";
+import typescript from "../assets/typescript.png";
 
+import nextjs from "../assets/nextjs.png";
+import insomnia from "../assets/insomnia.png";
 const techStackData = [
   { name: "JavaScript", icon: js },
+  { name: "Type Script", icon: typescript },
   { name: "React", icon: react },
+   { name: "Next js", icon: nextjs },
   { name: "Node.js", icon: node2 },
   { name: "Redux Toolkit", icon: redux },
   { name: "Material UI", icon: mui },
@@ -46,6 +50,7 @@ const techStackData = [
   // { name: "Spring", icon: spring },
   { name: "MongoDB", icon: mongo },
   { name: "Express", icon: express },
+ 
 ];
 
 // Tech Card - Memoized to prevent re-renders
