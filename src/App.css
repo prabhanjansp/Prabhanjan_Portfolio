@@ -47,13 +47,14 @@
   filter: drop-shadow(3px 3px 2px #da7c25) drop-shadow(-3px -3px 2px #b923e1); }
 
  span{
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   /* font-weight: 500; */
   /* font-style: normal; */
   
  }
  body{
   cursor: url(), auto;
+  font-family: 'Inter', sans-serif;
  
  }
  html{
