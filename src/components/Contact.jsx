@@ -5,9 +5,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { db } from "../../firebase";
+import { collection, addDoc, Timestamp } from "firebase/firestore"; // Import Firestore functions
 
 const Contact = ({ isDarkMode }) => {
-    const year = new Date();
+  const year = new Date();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -25,18 +27,40 @@ const Contact = ({ isDarkMode }) => {
     });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setStatus("sending");
+
+  //   // Simulate form submission
+  //   setTimeout(() => {
+  //     setStatus("success");
+  //     setFormData({ name: "", email: "", message: "" });
+
+  //     // Reset status after 3 seconds
+  //     setTimeout(() => setStatus(""), 3000);
+  //   }, 1000);
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      await addDoc(collection(db, "contactSubmissions"), {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        submittedAt: Timestamp.now(),
+      });
+
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
 
-      // Reset status after 3 seconds
       setTimeout(() => setStatus(""), 3000);
-    }, 1000);
+    } catch (error) {
+      console.error("Error submitting form: ", error);
+      setStatus("error");
+      setTimeout(() => setStatus(""), 3000);
+    }
   };
 
   const contactInfo = [
@@ -71,7 +95,6 @@ const Contact = ({ isDarkMode }) => {
       href: "https://www.instagram.com/iamprabhanjan/profilecard/?igsh=ZW5pM2JybDIwYWJy",
     },
   ];
-
 
   return (
     <motion.div
@@ -117,7 +140,7 @@ const Contact = ({ isDarkMode }) => {
         {/* Contact Form */}
         <div
           className={` ${
-              isDarkMode ? "bg-black" : "bg-white"
+            isDarkMode ? "bg-black" : "bg-white"
           } p-8 rounded-lg border-2 border-[#b923e1]`}
         >
           <h2 className={`text-4xl font-bold mb-8  `}>
@@ -143,9 +166,7 @@ const Contact = ({ isDarkMode }) => {
                 onChange={handleChange}
                 required
                 className={`w-full p-3 rounded-lg ${
-                  isDarkMode
-                    ? "bg-black"
-                    : "bg-white"
+                  isDarkMode ? "bg-black" : "bg-white"
                 } ${
                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
                 } border-2 border-[#b923e1] focus:outline-none focus:ring-2 focus:ring-[#b923e1] transition-colors`}
@@ -170,9 +191,7 @@ const Contact = ({ isDarkMode }) => {
                 onChange={handleChange}
                 required
                 className={`w-full p-3 rounded-lg ${
-                  isDarkMode
-                    ? "bg-black"
-                    : "bg-white"
+                  isDarkMode ? "bg-black" : "bg-white"
                 } ${
                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
                 } border-2 border-[#b923e1] focus:outline-none focus:ring-2 focus:ring-[#b923e1] transition-colors`}
@@ -197,9 +216,7 @@ const Contact = ({ isDarkMode }) => {
                 required
                 rows="5"
                 className={`w-full p-3 rounded-lg ${
-                  isDarkMode
-                    ? "bg-black"
-                    : "bg-white"
+                  isDarkMode ? "bg-black" : "bg-white"
                 } ${
                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
                 } border-2 border-[#b923e1] focus:outline-none focus:ring-2 focus:ring-[#b923e1] transition-colors`}
