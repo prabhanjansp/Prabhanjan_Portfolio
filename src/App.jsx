@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
+import CustomCursor from "./components/CustomCursor";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -26,6 +27,7 @@ const App = () => {
             : "bg-white"
         }`}
       >
+        <CustomCursor/>
         {/* Grid Background Layer
         <div className="absolute inset-0 bg-[url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fgrid-pattern&psig=AOvVaw1ta6cxtfP_ofmaZl9aaBMf&ust=1749015572007000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCbte_E1I0DFQAAAAAdAAAAABAU')] bg-cover bg-center opacity-10 pointer-events-none  overflow-hidden"> */}
 

@@ -1,0 +1,14 @@
+/* src/components/CustomCursor.css */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #68286d; /* blue ball */
+  border-radius: 25%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.08s ease;
+  will-change: transform;
+}
