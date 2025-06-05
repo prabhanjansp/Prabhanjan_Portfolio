@@ -5,6 +5,8 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Lottie from "lottie-react";
+import sent from "../assets/animations/sent.json"
 import { db } from "../../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore"; // Import Firestore functions
 
@@ -235,8 +237,12 @@ const Contact = ({ isDarkMode }) => {
             </button>
 
             {status === "success" && (
-              <div className="text-green-400 text-center mt-4">
-                Message sent successfully!
+              <div className="flex justify-center items-center mb-12">
+                <Lottie animationData={sent} loop className="w-20 md:w-20" />
+
+                <p className="text-green-800 text-center mt-4">
+                  Message sent successfully!
+                </p>
               </div>
             )}
           </form>
