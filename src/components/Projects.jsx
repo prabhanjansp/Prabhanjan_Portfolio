@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import LinkIcon from "@mui/icons-material/Link";
-
+// import LinkIcon from "@mui/icons-material/Link";
+import GitHubIcon from '@mui/icons-material/GitHub';
 // Memoized ProjectCard Component
 const ProjectCard = React.memo(({ project, isDarkMode }) => {
   return (
@@ -23,9 +23,9 @@ const ProjectCard = React.memo(({ project, isDarkMode }) => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#da7c25]  hover:scale-110 transition"
+              className="text-[#b923e1]  hover:scale-110 transition "
             >
-              <LinkIcon fontSize="small" />
+              <GitHubIcon />
             </a>
           )}
         </h3>
@@ -59,7 +59,7 @@ const Projects = ({ isDarkMode }) => {
   const projects = useMemo(
     () => [
       {
-        title: "Blog Application",
+        title: "Blog Application 📰",
         description: "A full-stack blog application built with MERN",
         technologies: [
           "React.js",
@@ -74,7 +74,7 @@ const Projects = ({ isDarkMode }) => {
         link: "https://github.com/prabhanjansp/MeenBlogApp",
       },
       {
-        title: "Namma Mart Application",
+        title: "Namma Mart Application 🛍️",
         description:
           "A quick commerce app designed for fast and convenient shopping, delivering essentials to your doorstep.",
         technologies: [
@@ -86,7 +86,7 @@ const Projects = ({ isDarkMode }) => {
         link: "https://github.com/Raorakshith/NammaMartNew",
       },
       {
-        title: "YouTube Clone Application",
+        title: "YouTube Clone Application ▶️",
         description:
           "A YouTube Clone built using modern web technologies with seamless video browsing and searching.",
         technologies: ["React.js", "Material UI", "Axios", "YouTube API"],
@@ -109,7 +109,7 @@ const Projects = ({ isDarkMode }) => {
         link: "https://github.com/prabhanjansp/movieapp",
       },
       {
-        title: "CryptoPulse",
+        title: "CryptoPulse 💰",
         description:
           "CryptoPulse is a modern, responsive cryptocurrency dashboard built using React (with Vite) and Material UI. It offers real-time market data, intuitive charts, and advanced filtering options to help users stay up-to-date with the latest crypto trends. Designed for performance and user experience, CryptoPulse is a sleek and powerful tool for crypto enthusiasts and investors alike.",
         technologies: [
@@ -140,7 +140,7 @@ const Projects = ({ isDarkMode }) => {
         link: "https://github.com/prabhanjansp/weather-app",
       },
       {
-        title: "PrepWise",
+        title: "PrepWise 📚",
         description:
           "PrepWise is an AI-powered mock interview platform designed to help job seekers prepare for interviews with a voice-based AI assistant. The platform simulates real interview scenarios by generating and asking industry-specific questions, evaluating responses, and providing instant feedback.",
         technologies: [
