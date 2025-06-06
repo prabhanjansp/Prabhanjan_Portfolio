@@ -104,8 +104,8 @@ const About = ({ isDarkMode }) => {
               rel="noopener noreferrer"
               className="flex items-center justify-center md:justify-start space-x-4 bg-gradient-to-r from-[#da7c25] to-[#b923e1] hover:bg-[#ff7e34] focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 text-[#F2F2F2] font-bold py-4 px-8 rounded-full transition-colors duration-300 transform md:scale-110 mx-2 my-4 md:hover:scale-125 w-auto md:w-[250px] shadow-lg shadow-red-600/60"
             >
-              <DownloadIcon size={20} />
               <span className="text-md">Download Resume</span>
+              <DownloadIcon size={20} />
             </a>
           </motion.div>
         </div>

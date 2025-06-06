@@ -13,12 +13,12 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   }, []);
 
   const navItems = [
-    { name: "About", path: "/" },
-    { name: "Experience", path: "/experience" },
-    { name: "Projects", path: "/projects" },
-    { name: "Skills", path: "/skills" },
-    { name: "Education", path: "/education" },
-    { name: "Contact", path: "/contact" },
+    { name: "<About/>", path: "/" },
+    { name: "<Experience/>", path: "/experience" },
+    { name: "<Projects/>", path: "/projects" },
+    { name: "<Skills/>", path: "/skills" },
+    { name: "<Education/>", path: "/education" },
+    { name: "<Contact/>", path: "/contact" },
   ];
 
   return (
@@ -39,7 +39,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 border-2 border-[#b923e1] rounded-3xl p-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
