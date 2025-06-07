@@ -113,7 +113,7 @@ const Experience = ({ isDarkMode }) => {
     {
       title: "Front-End Developer-1",
       company: "Scontinent Technologies Pvt Ltd",
-      period: "November 2023 -- Present",
+      period: "February 2023 -- January 2025",
       achievements: [
         "Architected and developed a comprehensive mock test platform serving 50,000+ active students",
         "Implemented Redux for state management, achieving 40% faster load times through optimized dataflow",
