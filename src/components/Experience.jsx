@@ -130,7 +130,7 @@ const Experience = ({ isDarkMode }) => {
     {
       title: "Assistant-Front-End Developer",
       company: "Scontinent Technologies Pvt Ltd",
-      period: "Jul 2023 -- October 2023",
+      period: "March 2022 -- October 2022",
       achievements: [
         "Spearheaded development of official corporate website",
         "Enhanced SEO performance using React Helmet and Google Tag Manager",
