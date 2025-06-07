@@ -28,29 +28,44 @@ import typescript from "../assets/typescript.png";
 import nextjs from "../assets/nextjs.png";
 import insomnia from "../assets/insomnia.png";
 const techStackData = [
-  { name: "JavaScript", icon: js },
-  { name: "Type Script", icon: typescript },
-  { name: "React", icon: react },
-   { name: "Next js", icon: nextjs },
-  { name: "Node.js", icon: node2 },
-  { name: "Redux Toolkit", icon: redux },
-  { name: "Material UI", icon: mui },
-  { name: "Tailwind CSS", icon: wind },
-  { name: "Firebase", icon: firebase },
-  { name: "Apollo Client", icon: apollo },
+  {
+    name: "JavaScript",
+    icon: js,
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  {
+    name: "Type Script",
+    icon: typescript,
+    link: "https://www.typescriptlang.org/docs/",
+  },
+  { name: "React", icon: react, link: "https://react.dev/learn" },
+  { name: "Next js", icon: nextjs, link: "https://nextjs.org/docs" },
+  { name: "Node.js", icon: node2, link: "https://nodejs.org/docs/latest/api/" },
+  { name: "Redux Toolkit", icon: redux, link: "https://redux.js.org/" },
+  { name: "Material UI", icon: mui, link: "https://mui.com/" },
+  { name: "Tailwind CSS", icon: wind, link: "https://tailwindcss.com/docs" },
+  {
+    name: "Firebase",
+    icon: firebase,
+    link: "https://firebase.google.com/docshttps://firebase.google.com/docs",
+  },
+  {
+    name: "Apollo Client",
+    icon: apollo,
+    link: "https://www.apollographql.com/docs/",
+  },
   // { name: "GraphQL", icon: ql },
-  { name: "Postman", icon: postman },
-  { name: "Insomnia", icon: insomnia },
-  { name: "GitHub", icon: git },
-  { name: "Jest", icon: jest },
-  { name: "Mocha", icon: mocha },
-  { name: "Figma", icon: figma },
+  { name: "Postman", icon: postman, link: "https://learning.postman.com/" },
+  { name: "Insomnia", icon: insomnia, link: "https://docs.insomnia.rest/" },
+  { name: "GitHub", icon: git, link: "https://docs.github.com/" },
+  { name: "Jest", icon: jest, link: "https://jestjs.io/docs/getting-started" },
+  { name: "Mocha", icon: mocha, link: "https://mochajs.org/" },
+  { name: "Figma", icon: figma, link: "https://help.figma.com/hc/en-us" },
   // { name: "Java", icon: java },
   // { name: "MySQL", icon: sql },
   // { name: "Spring", icon: spring },
-  { name: "MongoDB", icon: mongo },
-  { name: "Express", icon: express },
- 
+  { name: "MongoDB", icon: mongo, link: "https://www.mongodb.com/docs/" },
+  { name: "Express", icon: express, link: "https://expressjs.com/" },
 ];
 
 // Tech Card - Memoized to prevent re-renders
@@ -58,24 +73,30 @@ const TechCard = memo(({ tech, isDarkMode }) => (
   <motion.div
     whileHover={{ scale: 1.1 }}
     className={`p-4 ${
-      isDarkMode
-        ? "bg-black"
-        : "bg-white"
+      isDarkMode ? "bg-black" : "bg-white"
     } bg-opacity-80 rounded-xl shadow-xl flex flex-col items-center transition-transform duration-300 border-2 border-[#b923e1] hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500`}
   >
-    <img
-      className="h-16 w-16 object-contain mb-2"
-      src={tech.icon}
-      alt={tech.name}
-      loading="lazy"
-    />
-    <h3
-      className={`${
-        isDarkMode ? "text-white" : "text-black"
-      } font-semibold text-sm`}
+    <a
+      href={tech.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#b923e1]  hover:scale-110 transition "
     >
-      {tech.name}
-    </h3>
+      <img
+        className="h-16 w-16 object-contain mb-2     animate-pulse"
+
+        src={tech.icon}
+        alt={tech.name}
+        loading="lazy"
+      />
+      <h3
+        className={`${
+          isDarkMode ? "text-white" : "text-black"
+        } font-semibold text-sm`}
+      >
+        {tech.name}
+      </h3>
+    </a>
   </motion.div>
 ));
 

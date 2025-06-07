@@ -22,13 +22,13 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 bg-opacity-10 backdrop-blur-sm ${
-          isDarkMode
-            ? "bg-black"
-            : "bg-white"
-        } text-white py-4`}>
+    <nav
+      className={`fixed w-full z-50 bg-opacity-10 backdrop-blur-sm ${
+        isDarkMode ? "bg-black" : "bg-white"
+      } text-white py-4`}
+    >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center ">
           <Link
             to="/"
             className={`text-2xl font-bold ${
@@ -39,12 +39,12 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 border-2 border-[#b923e1] rounded-3xl p-2">
+          <div className="hidden md:flex items-center space-x-8 border-2 border-[#b923e1] rounded-3xl p-2 shadow-xl shadow-[#b923e1]/50">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`hover:bg-gradient-to-r from-[#da7c25] to-[#b923e1] p-2 rounded-full font-semibold transition-all ${
+                className={`hover:bg-gradient-to-r from-[#da7c25] to-[#b923e1] p-2  rounded-full font-semibold transition-all ${
                   location.pathname === item.path
                     ? "bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent"
                     : isDarkMode
@@ -95,11 +95,9 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div
-            className={`"md:hidden mt-4${
-          isDarkMode
-            ? "bg-black"
-            : "bg-white"
-        } rounded-lg p-4"`}
+            className={`"md:hidden  border-2 border-[#b923e1] rounded-3xl p-2 shadow-xl shadow-[#b923e1]/50 mt-4${
+              isDarkMode ? "bg-black" : "bg-white"
+            } rounded-lg p-4"`}
           >
             {navItems.map((item) => (
               <Link
