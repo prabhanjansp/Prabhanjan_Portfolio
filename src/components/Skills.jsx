@@ -47,7 +47,7 @@ const techStackData = [
   {
     name: "Firebase",
     icon: firebase,
-    link: "https://firebase.google.com/docshttps://firebase.google.com/docs",
+    link: "https://firebase.google.com/docs/",
   },
   {
     name: "Apollo Client",
@@ -57,7 +57,7 @@ const techStackData = [
   // { name: "GraphQL", icon: ql },
   { name: "Postman", icon: postman, link: "https://learning.postman.com/" },
   { name: "Insomnia", icon: insomnia, link: "https://docs.insomnia.rest/" },
-  { name: "GitHub", icon: git, link: "https://docs.github.com/" },
+  { name: "GitHub", icon: git, link: "https://docs.github.com/en/get-started" },
   { name: "Jest", icon: jest, link: "https://jestjs.io/docs/getting-started" },
   { name: "Mocha", icon: mocha, link: "https://mochajs.org/" },
   { name: "Figma", icon: figma, link: "https://help.figma.com/hc/en-us" },

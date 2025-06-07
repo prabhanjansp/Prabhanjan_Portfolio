@@ -25,7 +25,7 @@ const ProjectCard = React.memo(({ project, isDarkMode }) => {
               rel="noopener noreferrer"
               className="text-[#b923e1]  hover:scale-110 transition "
             >
-              <GitHubIcon />
+              <GitHubIcon className="animate-spin" />
             </a>
           )}
         </h3>
