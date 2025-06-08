@@ -58,7 +58,7 @@ const About = ({ isDarkMode }) => {
           >
             Front-End Developer specializing in{" "}
             <span className="bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent">
-              React
+             <b> React</b>
             </span>
           </h2>
           <p
@@ -70,8 +70,8 @@ const About = ({ isDarkMode }) => {
             specializing in responsive design and user-centric application
             development. Proficient in translating Figma designs into real-time
             implementations that maintain smooth user flows and consistent
-            layouts. Passionate about leveraging modern frameworks like React.js
-            and React Native to craft scalable, functional, and visually
+            layouts. Passionate about leveraging modern frameworks like <b>React.js
+            and React Native</b> to craft scalable, functional, and visually
             appealing digital experiences.
           </p>
 
