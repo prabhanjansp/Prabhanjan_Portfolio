@@ -78,24 +78,24 @@ const Contact = ({ isDarkMode }) => {
       value: "prabhanjan-puranik",
       href: "https://www.linkedin.com/in/prabhanjan-puranik/",
     },
-    {
-      icon: <GitHubIcon size={24} />,
-      label: "GitHub",
-      value: "prabhanjansp",
-      href: "https://github.com/prabhanjansp",
-    },
-    {
-      icon: <XIcon size={24} />,
-      label: "X",
-      value: "prabhanjansp",
-      href: "https://x.com/iamprabhanjans?t=LEBLKyEPgAr6zkt6uSF9UQ&s=09",
-    },
-    {
-      icon: <InstagramIcon size={24} />,
-      label: "Instagram",
-      value: "iamprabhanjansp",
-      href: "https://www.instagram.com/iamprabhanjan/profilecard/?igsh=ZW5pM2JybDIwYWJy",
-    },
+    // {
+    //   icon: <GitHubIcon size={24} />,
+    //   label: "GitHub",
+    //   value: "prabhanjansp",
+    //   href: "https://github.com/prabhanjansp",
+    // },
+    // {
+    //   icon: <XIcon size={24} />,
+    //   label: "X",
+    //   value: "prabhanjansp",
+    //   href: "https://x.com/iamprabhanjans?t=LEBLKyEPgAr6zkt6uSF9UQ&s=09",
+    // },
+    // {
+    //   icon: <InstagramIcon size={24} />,
+    //   label: "Instagram",
+    //   value: "iamprabhanjansp",
+    //   href: "https://www.instagram.com/iamprabhanjan/profilecard/?igsh=ZW5pM2JybDIwYWJy",
+    // },
   ];
 
   return (
@@ -106,14 +106,14 @@ const Contact = ({ isDarkMode }) => {
       className="min-h-screen pt-24 px-4"
     >
       <div className="max-w-4xl mx-auto">
-        {/* <h2 className={`text-4xl font-bold mb-8  `}>
+        <h2 className={`text-4xl font-bold mb-8  `}>
           <span className="bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent">
             Get In Touch
           </span>
-        </h2> */}
+        </h2>
 
         {/* Contact Information Grid */}
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {contactInfo.map((info, index) => (
             <a
               key={index}
@@ -137,7 +137,7 @@ const Contact = ({ isDarkMode }) => {
               </div>
             </a>
           ))}
-        </div> */}
+        </div>
 
         {/* Contact Form */}
         <div
