@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 * {
-  cursor: none !important;
+  /* cursor: none !important; */
 }
 body {
   font-family: "Noto Sans", sans-serif;
 }
 
 /* Smooth scrolling */
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 .group:hover .absolute {
   opacity: 1;
   transition: opacity 0.3s ease;
@@ -36,7 +36,40 @@ html {
     width: 100%;
   }
 }
+/* Custom base styles */
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+.bg-grid-pattern {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+/* Custom components */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-300;
+  }
+  
+  .card {
+    @apply rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+  }
+}
 
+/* Custom utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600;
+  }
+  
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+}
 /* The typewriter cursor effect */
 @keyframes blink-caret {
   from,

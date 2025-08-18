@@ -1,249 +1,234 @@
-// import React from "react";
-// import { motion } from "framer-motion";
 
-// const Education = ({ isDarkMode }) => {
-//   const education = [
-//     {
-//       degree: "Master of Computer Applications",
-//       institution: "Bangalore Institute of Technology, VTU",
-//       period: "2019 -- 2022",
-//       grade: "CGPA: 8.5",
-//     },
-//     {
-//       degree: "Bachelor of Computer Applications",
-//       institution: "The National Degree College, Bangalore University",
-//       period: "2015 -- 2018",
-//     },
-//   ];
+import { motion } from 'framer-motion'
+import { FaCalendarAlt, FaGraduationCap, FaUniversity, FaCertificate, FaMapMarkerAlt } from 'react-icons/fa'
+import { educationData, certificationsData } from '../data/EducationData'
 
-//   const certifications = [
-//     {
-//       title: "Responsive Web Design",
-//       issuer: "FreeCodeCamp",
-//       year: "2023",
-//     },
-//     {
-//       title: "React.js Essential Training",
-//       issuer: "LinkedIn Learning",
-//       year: "2023",
-//     },
-//     {
-//       title: "Learning Redux Toolkit",
-//       issuer: "LinkedIn Learning",
-//       year: "2023",
-//     },
-//     {
-//       title: "ChatGPT Prompt Engineering for Developers",
-//       issuer: "Deep Learning.Ai",
-//       year: "2024",
-//     },
-//   ];
-
-//   return (
-//     <motion.div
-//       initial={{ opacity: 0, y: 50 }}
-//       animate={{ opacity: 1, y: 0 }}
-//       transition={{ delay: 0.15, duration: 1.0 }}
-//       className="min-h-screen pt-24 px-4"
-//     >
-//       <div className="max-w-4xl mx-auto">
-//         <h2 className={`text-4xl font-bold mb-8  `}>
-//           <span className="bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent">
-//             Education
-//           </span>
-//         </h2>
-
-//         <div className="mb-12">
-//           {education.map((edu, index) => (
-//             <div
-//               key={index}
-//               className={`${
-//                 isDarkMode
-//                 ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-//                 : "bg-gradient-to-bl from-gray-50 to-blue-200"
-//               } p-6 rounded-lg mb-6 hover:transform hover:scale-[1.02] transition-transform`}
-//             >
-//               <h3 className="text-xl font-bold text-[#E84C3D] mb-2">
-//                 {edu.degree}
-//               </h3>
-//               <p
-//                 className={`${
-//                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
-//                 } mb-2`}
-//               >
-//                 {edu.institution}
-//               </p>
-//               <p
-//                 className={`text-sm ${
-//                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
-//                 }`}
-//               >
-//                 {edu.period}
-//               </p>
-//               {edu.grade && (
-//                 <p className="text-sm text-[#E84C3D] mt-2">{edu.grade}</p>
-//               )}
-//             </div>
-//           ))}
-//         </div>
-
-//         <h2 className={`text-4xl font-bold mb-8  `}>
-//           <span className="bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent">
-//             Certifications
-//           </span>
-//         </h2>
-//         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//           {certifications.map((cert, index) => (
-//             <div
-//               key={index}
-//               className={`${
-//                 isDarkMode
-//                   ? "bg-gradient-to-bl from-zinc-900 to-blue-900"
-//                   : "bg-gradient-to-bl from-gray-50 to-blue-200"
-//               } p-6 rounded-lg hover:transform hover:scale-[1.02] transition-transform`}
-//             >
-//               <h4 className="text-lg font-bold text-[#E84C3D] mb-2">
-//                 {cert.title}
-//               </h4>
-//               <p
-//                 className={`text-sm ${
-//                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
-//                 }`}
-//               >
-//                 {cert.issuer}
-//               </p>
-//               <p
-//                 className={`text-sm ${
-//                   isDarkMode ? "text-[#ddd]" : "text-[#262626]"
-//                 }`}
-//               >
-//                 {cert.year}
-//               </p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </motion.div>
-//   );
-// };
-
-// export default Education;
-
-import React,{useEffect} from "react";
-import { motion } from "framer-motion";
-import { School, WorkspacePremium } from "@mui/icons-material";
-
-const Education = ({ isDarkMode }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  const education = [
-    {
-      degree: "Master of Computer Applications",
-      institution: "Bangalore Institute of Technology, VTU",
-      period: "2019 -- 2022",
-      grade: "CGPA: 8.5",
+const Education = ({ darkMode, id }) => {
+  const cardVariants = {
+    offscreen: {
+      y: 50,
+      opacity: 0,
+      scale: 0.95
     },
-    {
-      degree: "Bachelor of Computer Applications",
-      institution: "The National Degree College, Bangalore University",
-      period: "2015 -- 2018",
-    },
-  ];
-
-  const certifications = [
-    {
-      title: "Responsive Web Design",
-      issuer: "FreeCodeCamp",
-      year: "2023",
-    },
-    {
-      title: "React.js Essential Training",
-      issuer: "LinkedIn Learning",
-      year: "2023",
-    },
-    {
-      title: "Learning Redux Toolkit",
-      issuer: "LinkedIn Learning",
-      year: "2023",
-    },
-    {
-      title: "ChatGPT Prompt Engineering for Developers",
-      issuer: "Deep Learning.Ai",
-      year: "2024",
-    },
-  ];
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.3,
+        duration: 0.8
+      }
+    }
+  }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.15, duration: 1.0 }}
-      className="min-h-screen pt-24 px-6"
+    <motion.section
+      id={id}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, margin: "-100px" }}
+      className={`relative py-20 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}
     >
-      <div className="max-w-5xl mx-auto">
-        {/* Education Section */}
-        <h2 className="text-4xl font-bold mb-8 text-center">
-          <span className="bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent">
-            Education
-          </span>
-        </h2>
+      {/* Floating background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ 
+              x: Math.random() * 100 - 50,
+              y: Math.random() * 100 - 50,
+              rotate: Math.random() * 360
+            }}
+            animate={{
+              x: [null, Math.random() * 100 - 50],
+              y: [null, Math.random() * 100 - 50],
+              transition: {
+                duration: 20 + Math.random() * 20,
+                repeat: Infinity,
+                repeatType: 'reverse'
+              }
+            }}
+            className={`absolute rounded-full ${darkMode ? 'bg-teal-900/20' : 'bg-amber-400/20'}`}
+            style={{
+              width: `${20 + Math.random() * 40}px`,
+              height: `${20 + Math.random() * 40}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              filter: 'blur(12px)'
+            }}
+          />
+        ))}
+      </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {education.map((edu, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className={`p-6 rounded-xl shadow-lg  transition-all border-2 border-[#b923e1] ${
-                isDarkMode
-                  ? "bg-black"
-                  : "bg-white"
-              } `}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <School className="text-3xl text-[#da7c25]" />
-                <h3 className={`text-lg font-bold ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"}`}>{edu.degree}</h3>
-              </div>
-              <p className={`text-lg ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"}`}>
-                {edu.institution}
-              </p>
-              <p className={`text-sm ${isDarkMode ? "text-[#aaa]" : "text-[#444]"}`}>{edu.period}</p>
-              {edu.grade && (
-                <p className="text-sm text-[#b923e1] mt-2 font-semibold">{edu.grade}</p>
-              )}
-            </motion.div>
-          ))}
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Title section */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          <h2 className={`text-4xl font-bold bg-clip-text text-transparent ${darkMode ? 'bg-gradient-to-r from-emerald-400 to-teal-400' : 'bg-gradient-to-r from-amber-500 to-amber-700'}`}>
+            Education & Certifications
+          </h2>
+          <p className={`mt-4 max-w-2xl mx-auto ${darkMode ? 'text-teal-100' : 'text-amber-800'}`}>
+            My academic background and professional certifications
+          </p>
+        </motion.div>
+
+        {/* Education Timeline */}
+        <div className="mb-20">
+          <h3 className={`text-2xl font-bold mb-8 flex items-center ${darkMode ? 'text-teal-300' : 'text-amber-600'}`}>
+            <FaGraduationCap className="mr-3" />
+            Academic Journey
+          </h3>
+          
+          <div className="relative">
+            <div className={`absolute left-8 top-0 h-full w-0.5 ${darkMode ? 'bg-teal-700/50' : 'bg-amber-200'}`}></div>
+
+            <div className="space-y-12 pl-12">
+              {educationData.map((edu, index) => (
+                <motion.div
+                  key={`edu-${index}`}
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, margin: "-50px" }}
+                  variants={cardVariants}
+                  className={`relative rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-800/70' : 'bg-white/90'} backdrop-blur-sm border ${darkMode ? 'border-teal-800/50' : 'border-amber-200'} shadow-xl`}
+                >
+                  {/* Timeline dot */}
+                  <div className={`absolute -left-14 top-6 w-6 h-6 rounded-full flex items-center justify-center ${darkMode ? 'bg-teal-400' : 'bg-amber-500'} shadow-lg`}>
+                    <div className={`w-2 h-2 rounded-full ${darkMode ? 'bg-gray-900' : 'bg-white'}`}></div>
+                  </div>
+
+                  <div className="p-8">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                      <div>
+                        <h3 className={`text-2xl font-bold ${darkMode ? 'text-teal-100' : 'text-amber-900'}`}>{edu.degree}</h3>
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2">
+                          <div className={`inline-flex items-center ${darkMode ? 'text-teal-300' : 'text-amber-600'}`}>
+                            <FaUniversity className="mr-2" />
+                            <span>{edu.institution}</span>
+                          </div>
+                          <div className={`inline-flex items-center ${darkMode ? 'text-teal-100/80' : 'text-amber-800/80'}`}>
+                            <FaMapMarkerAlt className="mr-2" />
+                            <span>{edu.location}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={`flex items-center ${darkMode ? 'text-teal-100/80' : 'text-amber-800/80'}`}>
+                        <FaCalendarAlt className="mr-2" />
+                        <span>{edu.duration}</span>
+                      </div>
+                    </div>
+
+                    {edu.description && (
+                      <p className={`mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                        {edu.description}
+                      </p>
+                    )}
+
+                    {edu.courses && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        viewport={{ once: true }}
+                        className="mt-6"
+                      >
+                        <h4 className={`font-medium mb-3 ${darkMode ? 'text-teal-200' : 'text-amber-800'}`}>Relevant Courses:</h4>
+                        <div className="flex flex-wrap gap-3">
+                          {edu.courses.map((course, i) => (
+                            <motion.div
+                              key={i}
+                              whileHover={{ y: -3, scale: 1.05 }}
+                              className={`flex items-center gap-1 px-3 py-1.5 rounded-full ${darkMode ? 'bg-teal-900/40 hover:bg-teal-800/60' : 'bg-amber-100 hover:bg-amber-200'}`}
+                            >
+                              <span className={`text-sm ${darkMode ? 'text-teal-100' : 'text-amber-800'}`}>{course}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Certifications Section */}
-        <h2 className="text-4xl font-bold mt-16 mb-8 text-center">
-          <span className="bg-gradient-to-r from-[#da7c25] to-[#b923e1] bg-clip-text text-transparent">
-            Certifications
-          </span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certifications.map((cert, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className={`p-6 rounded-xl shadow-lg  border-2 border-[#b923e1] transition-all ${
-                isDarkMode
-                  ? "bg-black"
-                  : "bg-white"
-              } border-2 border-[#b923e1]`}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <WorkspacePremium className="text-3xl text-[#da7c25]" />
-                <h4 className={`text-lg font-bold ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"}`}>{cert.title}</h4>
-              </div>
-              <p className={`text-sm ${isDarkMode ? "text-[#ddd]" : "text-[#262626]"}`}>{cert.issuer}</p>
-              <p className={`text-sm ${isDarkMode ? "text-[#aaa]" : "text-[#444]"}`}>{cert.year}</p>
-            </motion.div>
-          ))}
+        <div>
+          <h3 className={`text-2xl font-bold mb-8 flex items-center ${darkMode ? 'text-teal-300' : 'text-amber-600'}`}>
+            <FaCertificate className="mr-3" />
+            Professional Certifications
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certificationsData.map((cert, index) => (
+              <motion.div
+                key={`cert-${index}`}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={cardVariants}
+                whileHover={{ y: -10 }}
+                className={`rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-800/70' : 'bg-white/90'} backdrop-blur-sm border ${darkMode ? 'border-teal-800/50' : 'border-amber-200'} shadow-lg`}
+              >
+                <div className="p-6">
+                  <div className={`w-full h-2 mb-4 ${darkMode ? 'bg-gradient-to-r from-teal-400 to-emerald-400' : 'bg-gradient-to-r from-amber-500 to-amber-600'}`}></div>
+                  <div className="flex items-start mb-4">
+                    <div className={`p-3 rounded-lg ${darkMode ? 'bg-teal-900/40' : 'bg-amber-100'} mr-4`}>
+                      <FaCertificate className={`text-2xl ${darkMode ? 'text-teal-300' : 'text-amber-600'}`} />
+                    </div>
+                    <div>
+                      <h4 className={`font-bold ${darkMode ? 'text-teal-100' : 'text-amber-900'}`}>{cert.name}</h4>
+                      <p className={`text-sm ${darkMode ? 'text-teal-100/80' : 'text-amber-800/80'}`}>{cert.issuer}</p>
+                    </div>
+                  </div>
+                  <div className={`flex items-center text-sm mb-4 ${darkMode ? 'text-teal-100/80' : 'text-amber-800/80'}`}>
+                    <FaCalendarAlt className="mr-2" />
+                    <span>Issued: {cert.date}</span>
+                    {cert.expires && (
+                      <span className="ml-4">
+                        <FaCalendarAlt className="mr-2 inline" />
+                        Expires: {cert.expires}
+                      </span>
+                    )}
+                  </div>
+                  <p className={`text-sm mb-4 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    {cert.description}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    {cert.credentialId && (
+                      <span className={`text-xs ${darkMode ? 'text-teal-300/80' : 'text-amber-600/80'}`}>
+                        ID: {cert.credentialId}
+                      </span>
+                    )}
+                    {cert.link && (
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? 'bg-teal-900/40 hover:bg-teal-800/60 text-teal-300' : 'bg-amber-100 hover:bg-amber-200 text-amber-700'}`}
+                      >
+                        View Credential
+                      </motion.a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </motion.div>
-  );
-};
+    </motion.section>
+  )
+}
 
-export default Education;
+export default Education
