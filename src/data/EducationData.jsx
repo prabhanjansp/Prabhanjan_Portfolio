@@ -37,16 +37,16 @@ export const certificationsData = [
     date: "June 2023",
     expires: "June 2026",
     description: "Demonstrated ability to design and deploy Web design.",
-    credentialId: "AWS123456789",
-    link: "https://example.com/verify-certificate"
+    credentialId: "fcc24458e28-0971-43c7-9539-72fac3b89ea3/responsive-web-design",
+    link: "https://www.freecodecamp.org/certification/fcc24458e28-0971-43c7-9539-72fac3b89ea3/responsive-web-design"
   },
   {
     name: "React.js Essential Training",
     issuer: "LinkedIn Learning",
     date: "March 2023",
     description: "Certified in React Essentials.",
-    credentialId: "GCP987654321",
-    link: "https://example.com/verify-certificate"
+    credentialId: "700cef2f2de60f3174517be871d63bda851882b9b42657777c29069c40871bda",
+    link: "https://www.linkedin.com/learning/certificates/700cef2f2de60f3174517be871d63bda851882b9b42657777c29069c40871bda"
   },
   {
     name: "Learning Redux Toolkit",
@@ -54,17 +54,24 @@ export const certificationsData = [
     date: "June 2023",
     expires: "June 2026",
     description: "Demonstrated ability to design and deploy Web design.",
-    credentialId: "AWS123456789",
-    link: "https://example.com/verify-certificate"
+    credentialId: "49316525360c4043839f3abb0e25c36a25d2e066a7175979e25bca0ad25d66b7",
+    link: "https://www.linkedin.com/learning/certificates/49316525360c4043839f3abb0e25c36a25d2e066a7175979e25bca0ad25d66b7"
   },
   {
     name: "ChatGPT Prompt Engineering for Developers",
-      issuer: "Deep Learning.Ai",
-    issuer: "LinkedIn Learning",
-    date: "March 2023",
-    description: "Certified in React Essentials.",
-    credentialId: "GCP987654321",
-    link: "https://example.com/verify-certificate"
+      issuer: "Open AI",
+    date: "January 2025",
+    description: "ChatGPT Prompt Engineering for Developers is a course designed to help developers effectively use ChatGPT for various applications, including coding assistance, debugging, and automation.",
+    credentialId: "486684ea-1f1d-4f12-a7e7-17b8b0c889c2",
+    link: "https://learn.deeplearning.ai/accomplishments/486684ea-1f1d-4f12-a7e7-17b8b0c889c2"
+  },
+  {
+    name: "Vibe Coding 101 with Replit",
+      issuer: "Replit",
+    date: "May 2025",
+    description: "Vibe Coding 101 with Replit!.",
+    credentialId: "636bb5d8-28a3-4c0e-a504-468eb6943d09",
+    link: "https://learn.deeplearning.ai/accomplishments/636bb5d8-28a3-4c0e-a504-468eb6943d09"
   },
   // Add more certifications as needed
 ]
