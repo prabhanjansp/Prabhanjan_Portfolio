@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { aboutData } from '../data/AboutData.jsx'
-import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaCode } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaCode, FaEnvelope } from 'react-icons/fa'
 import { TypeAnimation } from 'react-type-animation'
 import pp from "../assets/pp2.png"
 import resume from "../assets/Prabhanjan.pdf";
@@ -187,6 +187,7 @@ const About = ({ darkMode, id }) => {
 
               <div className="flex gap-3">
                 {[
+                  { icon: <FaEnvelope />, url: aboutData.social.email },
                   { icon: <FaGithub />, url: aboutData.social.github },
                   { icon: <FaLinkedin />, url: aboutData.social.linkedin },
                   { icon: <FaTwitter />, url: aboutData.social.twitter }
