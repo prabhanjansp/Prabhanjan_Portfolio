@@ -1,4 +1,3 @@
-import { FaGraduationCap } from 'react-icons/fa'
 
 export const educationData = [
   {
@@ -6,13 +5,13 @@ export const educationData = [
     institution: "Bangalore Institute of Technology",
     duration: "2019 - 2022",
     location: "Bangalore, India",
-    description: "Specialized in Artificial Intelligence and Machine Learning. Thesis on 'Neural Networks for Natural Language Processing'.",
+    // description: "Specialized in Artificial Intelligence and Machine Learning. Thesis on 'Neural Networks for Natural Language Processing'.",
     courses: [
-      "Advanced Algorithms",
-      "Machine Learning",
-      "Data Mining",
-      "Computer Vision",
-      "Distributed Systems"
+      "Computer Networks",
+      "JAVA & J2EE",
+      "Android Development",
+      "Software Testing",
+      "Python Programming",
     ]
   },
   {
@@ -20,13 +19,13 @@ export const educationData = [
     institution: "The National Degree College Basavangudi",
     duration: "2015 - 2018",
     location: "Bangalore India",
-    description: "Graduated with honors. Minor in Mathematics.",
+    // description: "Graduated with honors. Minor in Mathematics.",
     courses: [
       "Data Structures",
       "Computer Architecture",
       "Operating Systems",
       "Database Systems",
-      "Software Engineering"
+      ".NET Framework",
     ]
   }
 ]

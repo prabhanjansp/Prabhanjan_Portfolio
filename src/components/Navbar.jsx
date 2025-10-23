@@ -291,6 +291,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
               >
                 <a
                   href={`#${item.name}`}
+                  id={`#${item.name}`}
                   onClick={(e) => {
                     e.preventDefault()
                     scrollToSection(item.name)
