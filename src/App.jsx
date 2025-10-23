@@ -1,72 +1,68 @@
-import React, { useState } from "react";
-import Contact from "./components/Contact";
-import Education from "./components/Education";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Experience from "./components/Experience";
-import About from "./components/About";
+
+// export default App;
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Education from "./components/Education";
+import Contact from "./components/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
-import "./App.css";
-import CustomCursor from "./components/CustomCursor";
-
-const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
   };
 
+  // Handle scroll for navbar transparency
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Close mobile menu when clicking a nav item
+  const handleNavClick = () => {
+    setMobileMenuOpen(false)
+  }
+
   return (
-    <Router>
-      <div
-        className={`relative min-h-screen ${
-          isDarkMode
-            ? "bg-black"
-            : "bg-white"
-        }`}
-      >
-        <CustomCursor/>
-        {/* Grid Background Layer
-        <div className="absolute inset-0 bg-[url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fgrid-pattern&psig=AOvVaw1ta6cxtfP_ofmaZl9aaBMf&ust=1749015572007000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCbte_E1I0DFQAAAAAdAAAAABAU')] bg-cover bg-center opacity-10 pointer-events-none  overflow-hidden"> */}
+   <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
+      <Navbar 
+        darkMode={darkMode} 
+        toggleDarkMode={toggleDarkMode}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+        handleNavClick={handleNavClick}
+        scrolled={scrolled}
+      />
+      
+      <main className="container mx-auto px-4 pt-24">
+        <About darkMode={darkMode} id="about" />
+        <Experience darkMode={darkMode} id="experience" />
+        <Projects darkMode={darkMode} id="projects" />
+        <Skills darkMode={darkMode} id="skills" />
+        <Education darkMode={darkMode} id="education" />
+        <Contact darkMode={darkMode} id="contact" />
+      </main>
 
-
-
-
-
-
-        {/* Content Wrapper (Ensures Content Stays Above the Background) */}
-        <div className="relative z-15">
-          <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-          <Routes>
-            <Route path="/" element={<About isDarkMode={isDarkMode} />} />
-            <Route
-              path="/experience"
-              element={<Experience isDarkMode={isDarkMode} />}
-            />
-            <Route
-              path="/projects"
-              element={<Projects isDarkMode={isDarkMode} />}
-            />
-            <Route
-              path="/skills"
-              element={<Skills isDarkMode={isDarkMode} />}
-            />
-            <Route
-              path="/education"
-              element={<Education isDarkMode={isDarkMode} />}
-            />
-            <Route
-              path="/contact"
-              element={<Contact isDarkMode={isDarkMode} />}
-            />
-          </Routes>
-        </div>
-        </div>
-      {/* </div> */}
-    </Router>
+      <ScrollToTop darkMode={darkMode} />
+    </div>
   );
-};
+}
 
 export default App;
+
