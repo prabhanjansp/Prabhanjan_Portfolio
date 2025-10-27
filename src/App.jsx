@@ -1,7 +1,8 @@
 
 // export default App;
+/* eslint-disable react/prop-types */
+
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Experience from "./components/Experience";

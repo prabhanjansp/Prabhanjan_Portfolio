@@ -30,7 +30,7 @@ export const projectsData = [
     ],
     github: "https://github.com/prabhanjansp/weather-app",
     live: "https://neon-capybara-b374b2.netlify.app/",
-    image: "src/assets/project3.png",
+    image: "/assets/project3.png",
   },
   {
     title: "YouTube Clone Application ▶️",
@@ -40,7 +40,7 @@ export const projectsData = [
     github:
       "https://github.com/prabhanjansp/youtubeclone/tree/main/youtubeclone",
     live: "https://rococo-horse-9ef7de.netlify.app/",
-    image: "src/assets/project4.png",
+    image: "/assets/project4.png",
   },
   {
     title: "Portfolio Website",
@@ -55,7 +55,7 @@ export const projectsData = [
     ],
     github: "https://github.com/prabhanjansp/Prabhanjan_Portfolio",
     live: "https://prabhanjansp.web.app/",
-    image: "src/assets/project5.png",
+    image: "/assets/project5.png",
   },
   // {
   //   title: "PrepWise 📚",
@@ -87,7 +87,7 @@ export const projectsData = [
     ],
     github: "https://github.com/prabhanjansp/crypto-dashboard",
     live: "https://whimsical-lolly-fa9245.netlify.app/",
-    image: "src/assets/project6.png",
+    image: "/assets/project6.png",
   },
   {
     title: "Namma Mart Application 🛍️",
@@ -101,6 +101,6 @@ export const projectsData = [
     ],
     github: "https://github.com/Raorakshith/NammaMartNew",
     live: "https://taskmanager-demo.com",
-    image: "/project2.jpg",
+    image: "/assets/project2.jpg",
   },
 ];
