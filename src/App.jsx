@@ -1,6 +1,4 @@
 
-// export default App;
-/* eslint-disable react/prop-types */
 
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
@@ -10,7 +8,6 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
-import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -41,17 +38,18 @@ function App() {
   }
 
   return (
-   <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
-      <Navbar 
-        darkMode={darkMode} 
+    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
+      <Navbar
+        darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         handleNavClick={handleNavClick}
         scrolled={scrolled}
       />
-      
+
       <main className="container mx-auto px-4 pt-24">
+        {/* <Hero darkMode={darkMode} id="hero" /> */}
         <About darkMode={darkMode} id="about" />
         <Experience darkMode={darkMode} id="experience" />
         <Projects darkMode={darkMode} id="projects" />
@@ -60,7 +58,7 @@ function App() {
         <Contact darkMode={darkMode} id="contact" />
       </main>
 
-      <ScrollToTop darkMode={darkMode} />
+      {/* <ScrollToTop darkMode={darkMode} /> */}
     </div>
   );
 }

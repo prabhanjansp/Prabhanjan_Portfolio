@@ -1,216 +1,256 @@
-
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { aboutData } from '../data/AboutData.jsx'
-import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaCode, FaEnvelope } from 'react-icons/fa'
-import { TypeAnimation } from 'react-type-animation'
-import pp from "../assets/pp2.png"
+import PropTypes from "prop-types";
+import { motion } from "framer-motion";
+import { FaArrowDown, FaDownload } from "react-icons/fa";
+import { aboutData } from "../data/AboutData.jsx";
+import pp from "../assets/pp2.png";
 import resume from "../assets/Prabhanjan.pdf";
 
 const About = ({ darkMode, id }) => {
-  const [isMounted, setIsMounted] = useState(false)
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
   return (
     <motion.section
       id={id}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className={`relative py-20 min-h-screen flex items-center overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}
+      viewport={{ once: true }}
+      className={`relative min-h-screen pt-20 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden ${darkMode ? "bg-gray-900" : "bg-gray-50"
+        }`}
     >
-      {/* Grid background for entire app */}
-      <div className={`fixed inset-0 -z-50 ${darkMode ? 'opacity-10' : 'opacity-5'}`}>
-        <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px]"></div>
-      </div>
-
-      {/* Animated floating elements */}
-      <div className="fixed inset-0 overflow-hidden -z-40">
-        {[...Array(8)].map((_, i) => (
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-20">
+          {/* Content Section (Left on desktop, Full width on mobile) */}
           <motion.div
-            key={i}
-            initial={{ 
-              x: Math.random() * 100 - 50,
-              y: Math.random() * 100 - 50,
-              rotate: Math.random() * 360
-            }}
-            animate={{
-              x: [null, Math.random() * 100 - 50],
-              y: [null, Math.random() * 100 - 50],
-              transition: {
-                duration: 20 + Math.random() * 20,
-                repeat: Infinity,
-                repeatType: 'reverse'
-              }
-            }}
-            className={`absolute rounded-full ${darkMode ? 'bg-teal-900/20' : 'bg-amber-400/20'}`}
-            style={{
-              width: `${10 + Math.random() * 30}px`,
-              height: `${10 + Math.random() * 30}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              filter: 'blur(10px)'
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
-          {/* Profile Image with 3D effect */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isMounted ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-shrink-0"
-            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left px-2 sm:px-0 order-1 lg:order-1"
           >
-            <div className={`relative rounded-full p-0.5 ${darkMode ? 'bg-gradient-to-br from-emerald-500 to-teal-500' : 'bg-gradient-to-br from-amber-500 to-amber-600'}`}>
-              <div className={`relative w-18 h-18 rounded-full overflow-hidden border-2 ${darkMode ? 'border-gray-900' : 'border-white'}`}>
-                <img 
-                  src={pp} 
-                  alt="Prabhanjan Puranik" 
-                  className="w-72 h-72 object-cover"
-                />
-              </div>
-              <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-2 rounded-full shadow-lg ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-                <div className="flex items-center gap-2">
-                  <FaCode className={`text-lg ${darkMode ? 'text-teal-400' : 'text-amber-500'}`} />
-                  <span className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>Full Stack Developer</span>
+            {/* Main Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-6 md:mb-8"
+            >
+              <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight ${darkMode ? "text-white" : "text-gray-900"}`}>
+                <span className={`block ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+                  {` I'm `}
+                </span>
+                <span className={`bg-clip-text text-transparent ${darkMode
+                  ? "bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500"
+                  : "bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700"
+                  }`}>
+                  Prabhanjan
+                </span>
+                <span className={`block mt-1 ${darkMode ? "text-gray-200" : "text-gray-800"}`}>
+                  Puranik
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* Tagline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-8"
+            >
+              <p className={`text-xl sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl font-bold leading-relaxed ${darkMode ? "text-emerald-300" : "text-amber-700"}`}>
+                {aboutData.tagline}
+              </p>
+            </motion.div>
+
+            {/* PHOTO SECTION - Shows after tagline on mobile, hidden on desktop */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mb-8 lg:hidden"
+            >
+              <div className={`relative rounded-3xl overflow-hidden p-1 shadow-2xl ${darkMode
+                ? "bg-gradient-to-br from-emerald-500 via-teal-500 to-emerald-600"
+                : "bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700"
+                }`}>
+                <div className={`rounded-3xl overflow-hidden ${darkMode ? "bg-gray-900" : "bg-white"}`}>
+                  <div className="relative">
+                    <img
+                      src={pp}
+                      alt="Prabhanjan Puranik"
+                      className="w-full h-[280px] sm:h-[320px] md:h-[380px] object-cover object-top"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${darkMode
+                      ? "from-gray-900/80 via-gray-900/30 to-transparent"
+                      : "from-white/80 via-white/30 to-transparent"
+                      }`}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-          
-          {/* Content with animated text */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isMounted ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="lg:w-3/5"
-          >
-            <div className="mb-8">
-              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
-                <TypeAnimation
-                  sequence={[
-                    'PRABHANJAN PURANIK',
-                    1000,
-                    'PURANIK PRABHANJAN',
-                    1000
-                  ]}
-                  wrapper="span"
-                  speed={30}
-                  style={{ display: 'inline-block' }}
-                  repeat={Infinity}
-                />
-              </h1>
-              <div className="flex items-center gap-4 mb-4">
-                <div className={`h-1 w-20 ${darkMode ? 'bg-gradient-to-r from-emerald-400 to-teal-400' : 'bg-gradient-to-r from-amber-500 to-amber-600'}`}></div>
-                <TypeAnimation
-                  sequence={[
-                    'Full Stack Developer',
-                    2000,
-                    'Problem Solver',
-                    2000,
-                    'Tech Enthusiast',
-                    2000
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  className={`text-xl font-medium ${darkMode ? 'text-teal-100' : 'text-amber-700'}`}
-                  repeat={Infinity}
-                />
-              </div>
-            </div>
-
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={isMounted ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className={`text-lg mb-8 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
-            >
-              {aboutData.bio}
-            </motion.p>
-
-            {/* Interactive details */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={isMounted ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="grid grid-cols-2 gap-4 mb-8"
-            >
-              {aboutData.details.map((item, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -5 }}
-                  className={`p-4 rounded-xl ${darkMode ? 'bg-gray-800/50 hover:bg-gray-800/70' : 'bg-white/50 hover:bg-white/70'} backdrop-blur-sm border ${darkMode ? 'border-teal-900/30' : 'border-amber-200'} transition-all`}
-                >
-                  <div className="flex items-center gap-3">
-                    <span className={`text-2xl ${darkMode ? 'text-teal-400' : 'text-amber-500'}`}>
-                      {item.icon}
-                    </span>
-                    <span className={darkMode ? 'text-gray-300' : 'text-gray-700'}>{item.text}</span>
-                  </div>
-                </motion.div>
-              ))}
             </motion.div>
 
-            {/* Buttons with floating animation */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={isMounted ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="flex flex-wrap gap-4"
+            {/* Bio */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mb-10"
+            >
+              <p className={`text-base sm:text-lg md:text-xl leading-relaxed ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+                {aboutData.bio}
+              </p>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 md:gap-6"
             >
               <motion.a
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                 href={resume}
-              target="_blank"
-              rel="noopener noreferrer"
-                download
-                className={`flex items-center gap-3 px-6 py-3 rounded-xl font-medium relative overflow-hidden ${
-                  darkMode 
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white'
-                    : 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white'
-                }`}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                href="#projects"
+                className={`group px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg ${darkMode
+                  ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-xl hover:shadow-teal-500/30"
+                  : "bg-gradient-to-r from-amber-500 to-amber-600 text-white hover:shadow-xl hover:shadow-amber-500/30"
+                  } transition-all duration-300 flex items-center justify-center gap-3 shadow-lg`}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  <FaFileDownload className="text-lg" />
-                  Download Resume
-                </span>
-                <span className={`absolute inset-0 opacity-0 hover:opacity-20 transition-opacity ${darkMode ? 'bg-gray-900' : 'bg-white'}`}></span>
+                <span>View My Work</span>
+                <FaArrowDown className="group-hover:translate-y-1 transition-transform duration-300" />
               </motion.a>
 
-              <div className="flex gap-3">
-                {[
-                  { icon: <FaEnvelope />, url: aboutData.social.email },
-                  { icon: <FaGithub />, url: aboutData.social.github },
-                  { icon: <FaLinkedin />, url: aboutData.social.linkedin },
-                  { icon: <FaTwitter />, url: aboutData.social.twitter }
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    whileHover={{ y: -5, scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-3 rounded-xl text-xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700 text-teal-100' : 'bg-white hover:bg-amber-50 text-amber-700'} transition-all`}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
+              <motion.a
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                href={resume}
+                download
+                className={`px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg border-2 ${darkMode
+                  ? "border-teal-500 text-teal-400 hover:bg-teal-500/10 hover:shadow-lg hover:shadow-teal-500/20"
+                  : "border-amber-500 text-amber-600 hover:bg-amber-50 hover:shadow-lg hover:shadow-amber-500/20"
+                  } transition-all duration-300 flex items-center justify-center gap-3`}
+              >
+                <FaDownload className="text-lg sm:text-xl" />
+                <span>Download CV</span>
+              </motion.a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Only visible on desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-6 md:space-y-8 order-2 lg:order-2 hidden lg:block"
+          >
+            {/* Profile Photo Card - Desktop only */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className={`relative rounded-3xl overflow-hidden p-1 shadow-2xl ${darkMode
+                ? "bg-gradient-to-br from-emerald-500 via-teal-500 to-emerald-600"
+                : "bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700"
+                }`}
+            >
+              <div className={`rounded-3xl overflow-hidden ${darkMode ? "bg-gray-900" : "bg-white"}`}>
+                <div className="relative">
+                  <img
+                    src={pp}
+                    alt="Prabhanjan Puranik"
+                    className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[450px] object-cover object-top"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${darkMode
+                    ? "from-gray-900/80 via-gray-900/30 to-transparent"
+                    : "from-white/80 via-white/30 to-transparent"
+                    }`}
+                  />
+                </div>
               </div>
             </motion.div>
+
+            {/* Call to Action Card - Desktop only */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className={`p-5 sm:p-6 rounded-2xl backdrop-blur-sm border shadow-xl ${darkMode
+                ? "bg-gradient-to-br from-emerald-900/30 via-teal-900/20 to-emerald-900/30 border-teal-700/40"
+                : "bg-gradient-to-br from-amber-100 via-amber-50 to-amber-100 border-amber-300"
+                }`}
+            >
+              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                <div className="text-center sm:text-left">
+                  <h3 className={`text-lg sm:text-xl font-bold mb-1 ${darkMode ? "text-white" : "text-gray-900"}`}>
+                    {`  Let's Collaborate!`}
+                  </h3>
+                  <p className={`text-sm sm:text-base ${darkMode ? "text-teal-200" : "text-amber-700"}`}>
+                    Have a project in mind?
+                  </p>
+                </div>
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  href="#contact"
+                  className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base whitespace-nowrap ${darkMode
+                    ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg hover:shadow-teal-500/30"
+                    : "bg-gradient-to-r from-amber-500 to-amber-600 text-white hover:shadow-lg hover:shadow-amber-500/30"
+                    } transition-all duration-300 flex items-center justify-center gap-2`}
+                >
+                  <span>Start Conversation</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </motion.a>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Mobile Call to Action - Shows under buttons on mobile */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className={`p-5 sm:p-6 rounded-2xl backdrop-blur-sm border shadow-xl lg:hidden order-3 ${darkMode
+              ? "bg-gradient-to-br from-emerald-900/30 via-teal-900/20 to-emerald-900/30 border-teal-700/40"
+              : "bg-gradient-to-br from-amber-100 via-amber-50 to-amber-100 border-amber-300"
+              }`}
+          >
+            <div className="flex flex-col items-center gap-4">
+              <div className="text-center">
+                <h3 className={`text-lg sm:text-xl font-bold mb-1 ${darkMode ? "text-white" : "text-gray-900"}`}>
+                  {`  Let's Collaborate!`}
+                </h3>
+                <p className={`text-sm sm:text-base ${darkMode ? "text-teal-200" : "text-amber-700"}`}>
+                  Have a project in mind?
+                </p>
+              </div>
+              <motion.a
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                href="#contact"
+                className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base ${darkMode
+                  ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg hover:shadow-teal-500/30"
+                  : "bg-gradient-to-r from-amber-500 to-amber-600 text-white hover:shadow-lg hover:shadow-amber-500/30"
+                  } transition-all duration-300 flex items-center justify-center gap-2`}
+              >
+                <span>Start Conversation</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </motion.a>
+            </div>
           </motion.div>
         </div>
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default About
+About.propTypes = {
+  darkMode: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
+};
+
+export default About;

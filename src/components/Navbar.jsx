@@ -1,409 +1,585 @@
 
-
-// import { useState, useEffect } from 'react'
-// import { motion } from 'framer-motion'
-// import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa'
-// import { useLocation } from 'react-router-dom'
-
-// const Navbar = ({ darkMode, toggleDarkMode }) => {
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-//   const [scrolled, setScrolled] = useState(false)
-//   const [activeSection, setActiveSection] = useState('')
-//   const location = useLocation()
-
-//   const navItems = [
-//     { name: 'about', label: 'About' },
-//     { name: 'experience', label: 'Experience' },
-//     { name: 'projects', label: 'Projects' },
-//     { name: 'skills', label: 'Skills' },
-//     { name: 'education', label: 'Education' },
-//     { name: 'contact', label: 'Contact' }
-//   ]
-
-//   // Handle scroll for navbar transparency and active section
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setScrolled(window.scrollY > 50)
-      
-//       // Update active section based on scroll position
-//       const sections = navItems.map(item => document.getElementById(item.name))
-//       const scrollPosition = window.scrollY + 100
-      
-//       sections.forEach(section => {
-//         if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-//           setActiveSection(section.id)
-//         }
-//       })
-//     }
-
-//     window.addEventListener('scroll', handleScroll)
-//     return () => window.removeEventListener('scroll', handleScroll)
-//   }, [location])
-
-//   // Scroll to section with offset
-//   const scrollToSection = (sectionId) => {
-//     const element = document.getElementById(sectionId)
-//     if (element) {
-//       const offset = 80
-//       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-//       window.scrollTo({
-//         top: elementPosition - offset,
-//         behavior: 'smooth'
-//       })
-//       setActiveSection(sectionId)
-//       setMobileMenuOpen(false)
-//     }
-//   }
-
-//   return (
-//     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? (darkMode ? 'bg-gray-900/90 backdrop-blur-md' : 'bg-white/90 backdrop-blur-md') : 'bg-transparent'} shadow-md`}>
-//       <div className="container mx-auto px-4 py-3">
-//         <div className="flex justify-between items-center">
-//           {/* Logo */}
-//           <motion.div 
-//             whileHover={{ scale: 1.05 }}
-//             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-//             className="flex items-center cursor-pointer"
-//           >
-//             {/* <img src={logo} alt="Logo" className="h-8 w-8 mr-2" /> */}
-//             <span className={`text-xl font-bold  isDarkMode ? "text-[#ffffff]" : "text-[#101828]"
-//              } ${
-//                   darkMode 
-//                     ? 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white'
-//                     : 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white'
-//                 } rounded-full p-3`}>{"{Ps}"}</span>
-          
-//           </motion.div>
-
-//           {/* Desktop Navigation */}
-//           <div className="hidden md:flex items-center space-x-1">
-//             {navItems.map((item) => (
-//               <motion.div
-//                 key={item.name}
-//                 whileHover={{ scale: 1.05 }}
-//                 whileTap={{ scale: 0.95 }}
-//                 className="relative"
-//               >
-//                 <button
-//                   onClick={() => scrollToSection(item.name)}
-//                   className={`px-4 py-2 rounded-lg text-sm font-medium relative overflow-hidden ${
-//                     activeSection === item.name 
-//                       ? (darkMode ? 'text-cyan-400' : 'text-amber-500')
-//                       : (darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-gray-900')
-//                   }`}
-//                 >
-//                   {item.label}
-//                   {/* Gradient underline for active item */}
-//                   {activeSection === item.name && (
-//                     <motion.span
-//                       layoutId="navUnderline"
-//                       className={`absolute bottom-0 left-0 w-full h-0.5 ${
-//                         darkMode ? 'bg-gradient-to-r from-purple-400 to-cyan-400' : 'bg-gradient-to-r from-amber-400 to-pink-400'
-//                       }`}
-//                       transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
-//                     />
-//                   )}
-//                 </button>
-//               </motion.div>
-//             ))}
-
-//             {/* Dark Mode Toggle */}
-//             <motion.button
-//               whileHover={{ scale: 1.1 }}
-//               whileTap={{ scale: 0.9 }}
-//               onClick={toggleDarkMode}
-//               className={`ml-4 p-2 rounded-full ${
-//                 darkMode ? 'bg-gray-800 text-amber-300' : 'bg-amber-100 text-amber-600'
-//               }`}
-//             >
-//               {darkMode ? <FaSun /> : <FaMoon />}
-//             </motion.button>
-//           </div>
-
-//           {/* Mobile Menu Button */}
-//           <div className="md:hidden flex items-center">
-//             <motion.button
-//               whileHover={{ scale: 1.1 }}
-//               whileTap={{ scale: 0.9 }}
-//               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-//               className={`p-2 rounded-full ${
-//                 darkMode ? 'bg-gray-800 text-white' : 'bg-amber-100 text-gray-800'
-//               }`}
-//             >
-//               {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-//             </motion.button>
-//           </div>
-//         </div>
-
-//         {/* Mobile Menu */}
-//         {mobileMenuOpen && (
-//           <motion.div
-//             initial={{ opacity: 0, y: -20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             exit={{ opacity: 0, y: -20 }}
-//             transition={{ duration: 0.3 }}
-//             className={`md:hidden mt-4 rounded-lg shadow-lg ${
-//               darkMode ? 'bg-gray-800/95 backdrop-blur-md' : 'bg-white/95 backdrop-blur-md'
-//             }`}
-//           >
-//             <div className="px-2 pt-2 pb-4 space-y-1">
-//               {navItems.map((item) => (
-//                 <motion.button
-//                   key={item.name}
-//                   whileHover={{ x: 5 }}
-//                   whileTap={{ scale: 0.98 }}
-//                   onClick={() => scrollToSection(item.name)}
-//                   className={`block w-full px-4 py-3 rounded-md text-left font-medium ${
-//                     activeSection === item.name
-//                       ? (darkMode ? 'bg-gray-700 text-cyan-400' : 'bg-amber-100 text-amber-600')
-//                       : (darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-amber-50')
-//                   }`}
-//                 >
-//                   {item.label}
-//                 </motion.button>
-//               ))}
-//               <div className="px-4 py-3">
-//                 <motion.button
-//                   whileHover={{ scale: 1.05 }}
-//                   whileTap={{ scale: 0.95 }}
-//                   onClick={toggleDarkMode}
-//                   className={`flex items-center gap-2 w-full p-2 rounded-md ${
-//                     darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-amber-100 hover:bg-amber-200'
-//                   }`}
-//                 >
-//                   {darkMode ? (
-//                     <>
-//                       <FaSun className="text-amber-300" />
-//                       <span>Light Mode</span>
-//                     </>
-//                   ) : (
-//                     <>
-//                       <FaMoon className="text-amber-600" />
-//                       <span>Dark Mode</span>
-//                     </>
-//                   )}
-//                 </motion.button>
-//               </div>
-//             </div>
-//           </motion.div>
-//         )}
-//       </div>
-//     </nav>
-//   )
-// }
-
-// export default Navbar
-
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa'
-import { useLocation, Link } from 'react-router-dom'
+import PropTypes from "prop-types";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaMoon,
+  FaSun,
+  FaBars,
+  FaTimes,
+  FaUser,
+  FaBriefcase,
+  FaCode,
+  FaGraduationCap,
+  FaEnvelope,
+  FaRocket,
+  FaChevronDown,
+} from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState('')
-  const location = useLocation()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [navbarHeight, setNavbarHeight] = useState(80);
+  const location = useLocation();
+  const mobileMenuRef = useRef(null);
+  const navbarRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
+  const sectionRefs = useRef({});
 
   const navItems = [
-    { name: 'about', label: 'About' },
-    { name: 'experience', label: 'Experience' },
-    { name: 'projects', label: 'Projects' },
-    { name: 'skills', label: 'Skills' },
-    { name: 'education', label: 'Education' },
-    { name: 'contact', label: 'Contact' }
-  ]
+    { name: "about", label: "About", icon: <FaUser /> },
+    { name: "experience", label: "Experience", icon: <FaBriefcase /> },
+    { name: "projects", label: "Projects", icon: <FaCode /> },
+    { name: "skills", label: "Skills", icon: <FaRocket /> },
+    { name: "education", label: "Education", icon: <FaGraduationCap /> },
+    { name: "contact", label: "Contact", icon: <FaEnvelope /> },
+  ];
 
-  // Handle scroll for navbar transparency and active section
+  // Calculate navbar height dynamically
+  useEffect(() => {
+    const updateNavbarHeight = () => {
+      if (navbarRef.current) {
+        const height = navbarRef.current.offsetHeight;
+        setNavbarHeight(height);
+      }
+    };
+
+    updateNavbarHeight();
+    window.addEventListener('resize', updateNavbarHeight);
+    
+    return () => window.removeEventListener('resize', updateNavbarHeight);
+  }, [mobileMenuOpen]);
+
+  // Initialize section refs
+  useEffect(() => {
+    navItems.forEach(item => {
+      const element = document.getElementById(item.name);
+      if (element) {
+        sectionRefs.current[item.name] = element;
+      }
+    });
+  }, []);
+
+  // Enhanced section detection with Intersection Observer
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: `-${navbarHeight}px 0px -70% 0px`,
+      threshold: 0.1,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          setActiveSection(sectionId);
+          window.history.replaceState(null, null, `#${sectionId}`);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    Object.values(sectionRefs.current).forEach(section => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [navbarHeight]);
+
+  // Handle scroll for navbar transparency and scroll indicator
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-      
-      // Update active section based on scroll position
-      const sections = navItems.map(item => document.getElementById(item.name))
-      const scrollPosition = window.scrollY + 100
-      
-      sections.forEach(section => {
-        if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-          setActiveSection(section.id)
-          // Update URL without causing a page reload
-          window.history.replaceState(null, null, `#${section.id}`)
-        }
-      })
-    }
+      setScrolled(window.scrollY > 50);
+      setShowScrollIndicator(window.scrollY < 100);
+    };
 
-    // Check for hash in URL on initial load
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Handle initial hash on page load
+  useEffect(() => {
     if (location.hash) {
-      const sectionId = location.hash.replace('#', '')
-      setActiveSection(sectionId)
+      const sectionId = location.hash.replace("#", "");
       setTimeout(() => {
-        scrollToSection(sectionId)
-      }, 100)
+        scrollToSection(sectionId, true);
+      }, 300); // Increased delay for page load
+    }
+  }, [location]);
+
+  // Enhanced scroll to section function with better mobile handling
+  const scrollToSection = useCallback((sectionId, isInitialLoad = false) => {
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [location])
-
-  // Scroll to section with offset
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: 'smooth'
-      })
-      setActiveSection(sectionId)
-      // Update URL to include the section hash
-      window.history.pushState(null, null, `#${sectionId}`)
-      setMobileMenuOpen(false)
+      // Calculate dynamic offset based on current navbar state
+      let offset = navbarHeight;
+      
+      // For mobile, we need additional offset when menu is open
+      if (window.innerWidth < 1024 && mobileMenuOpen) {
+        // Add extra offset for mobile menu height
+        offset += 50;
+      }
+
+      // Get accurate position
+      const elementPosition = element.getBoundingClientRect().top;
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      const targetPosition = elementPosition + currentScrollPosition - offset;
+
+      // Smooth scroll with requestAnimationFrame for better performance
+      const startPosition = currentScrollPosition;
+      const distance = targetPosition - startPosition;
+      const duration = 600;
+      let startTime = null;
+
+      const animateScroll = (currentTime) => {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        
+        // Easing function for smooth scrolling
+        const easeInOutCubic = (t) => {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        };
+
+        const easeProgress = easeInOutCubic(progress);
+        window.scrollTo(0, startPosition + distance * easeProgress);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animateScroll);
+        } else {
+          // Ensure final position is accurate
+          window.scrollTo(0, targetPosition);
+        }
+      };
+
+      requestAnimationFrame(animateScroll);
+
+      // Set active section immediately
+      setActiveSection(sectionId);
+      
+      // Update URL without causing scroll
+      if (!isInitialLoad) {
+        window.history.replaceState(null, null, `#${sectionId}`);
+      }
+
+      // Close mobile menu after successful scroll
+      if (mobileMenuOpen) {
+        scrollTimeoutRef.current = setTimeout(() => {
+          setMobileMenuOpen(false);
+        }, 300);
+      }
     }
-  }
+  }, [mobileMenuOpen, navbarHeight]);
+
+  // Scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ 
+      top: 0, 
+      behavior: "smooth" 
+    });
+    setActiveSection("");
+    window.history.replaceState(null, null, "#");
+    setMobileMenuOpen(false);
+  };
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+        const menuButton = document.querySelector('[data-menu-button]');
+        if (!menuButton || !menuButton.contains(event.target)) {
+          setMobileMenuOpen(false);
+        }
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
+
+  // Handle mobile nav click
+  const handleMobileNavClick = (sectionId) => {
+    scrollToSection(sectionId);
+  };
+
+  // Handle desktop nav click
+  const handleDesktopNavClick = (e, sectionId) => {
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? (darkMode ? 'bg-gray-900/90 backdrop-blur-md' : 'bg-white/90 backdrop-blur-md') : 'bg-transparent'} shadow-md`}>
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex justify-between items-center">
-          {/* Logo - Now a proper link to homepage with ID */}
-          <motion.a 
-            whileHover={{ scale: 1.05 }}
-            href="/"
-            id="home"
-            className="flex items-center cursor-pointer"
-          >
-            <span className={`text-xl font-bold ${
-                  darkMode 
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white'
-                    : 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white'
-                } rounded-full p-3`}>{"{Ps}"}</span>
-          </motion.a>
+    <>
+      {/* Scroll Progress Indicator */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: scrolled ? 1 : 0 }}
+        className="fixed top-0 left-0 right-0 h-1 z-50 origin-left"
+        style={{
+          background: darkMode
+            ? "linear-gradient(90deg, #10b981, #2dd4bf, #0ea5e9)"
+            : "linear-gradient(90deg, #f59e0b, #fbbf24, #f97316)",
+        }}
+      />
 
-          {/* Desktop Navigation - Using anchor tags instead of buttons */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <motion.div
-                key={item.name}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative"
+      {/* Main Navbar */}
+      <motion.nav
+        ref={navbarRef}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        className={`fixed w-full z-40 transition-all duration-300 ${
+          scrolled
+            ? darkMode
+              ? "bg-gray-900/95 backdrop-blur-xl shadow-2xl"
+              : "bg-white/95 backdrop-blur-xl shadow-xl"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative group cursor-pointer"
+              onClick={scrollToTop}
+            >
+              <div
+                className={`absolute inset-0 rounded-2xl blur-xl transition-opacity duration-300 ${
+                  darkMode ? "bg-teal-500/30" : "bg-amber-500/30"
+                } group-hover:opacity-100 opacity-0`}
+              />
+              <div
+                className={`relative flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-xl ${
+                  darkMode
+                    ? "bg-gray-800/80 text-white border border-teal-800/50"
+                    : "bg-white/90 text-gray-900 border border-amber-200"
+                } backdrop-blur-sm`}
               >
-                <a
-                  href={`#${item.name}`}
-                  id={`#${item.name}`}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection(item.name)
-                  }}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium relative overflow-hidden ${
-                    activeSection === item.name 
-                      ? (darkMode ? 'text-cyan-400' : 'text-amber-500')
-                      : (darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-gray-900')
+                <span
+                  className={`text-2xl ${
+                    darkMode ? "text-teal-400" : "text-amber-600"
                   }`}
                 >
-                  {item.label}
-                  {/* Gradient underline for active item */}
-                  {activeSection === item.name && (
-                    <motion.span
-                      layoutId="navUnderline"
-                      className={`absolute bottom-0 left-0 w-full h-0.5 ${
-                        darkMode ? 'bg-gradient-to-r from-purple-400 to-cyan-400' : 'bg-gradient-to-r from-amber-400 to-pink-400'
+                  {"</>"}
+                </span>
+                <span className="hidden sm:inline-block">Prabhanjan</span>
+                <span
+                  className={`text-xs px-2 py-1 rounded-full ${
+                    darkMode
+                      ? "bg-teal-900/40 text-teal-300"
+                      : "bg-amber-100 text-amber-800"
+                  }`}
+                >
+                  Dev
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-1">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  onMouseEnter={() => setHoveredItem(item.name)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  className="relative"
+                >
+                  <a
+                    href={`#${item.name}`}
+                    onClick={(e) => handleDesktopNavClick(e, item.name)}
+                    className={`relative flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                      activeSection === item.name
+                        ? darkMode
+                          ? "text-teal-300 bg-teal-900/20"
+                          : "text-amber-600 bg-amber-100"
+                        : darkMode
+                        ? "text-gray-300 hover:text-white hover:bg-gray-800/50"
+                        : "text-gray-700 hover:text-gray-900 hover:bg-amber-50"
+                    }`}
+                  >
+                    <span className="text-base">{item.icon}</span>
+                    {item.label}
+                    
+                    {/* Active indicator */}
+                    {activeSection === item.name && (
+                      <motion.div
+                        layoutId="activeIndicator"
+                        className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full ${
+                          darkMode
+                            ? "bg-gradient-to-r from-emerald-400 to-teal-400"
+                            : "bg-gradient-to-r from-amber-500 to-amber-600"
+                        }`}
+                      />
+                    )}
+                  </a>
+
+                  {/* Hover effect */}
+                  {hoveredItem === item.name && (
+                    <motion.div
+                      layoutId="hoverEffect"
+                      className={`absolute inset-0 rounded-xl -z-10 ${
+                        darkMode
+                          ? "bg-gradient-to-r from-emerald-500/10 to-teal-500/10"
+                          : "bg-gradient-to-r from-amber-500/10 to-amber-600/10"
                       }`}
-                      transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
                     />
                   )}
-                </a>
+                </motion.div>
+              ))}
+
+              {/* Theme Toggle */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                className="ml-2 relative"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 180 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={toggleDarkMode}
+                  className={`relative p-3 rounded-xl overflow-hidden ${
+                    darkMode
+                      ? "bg-gradient-to-br from-gray-800 to-gray-900 text-amber-300"
+                      : "bg-gradient-to-br from-amber-50 to-amber-100 text-amber-600"
+                  } border ${
+                    darkMode
+                      ? "border-teal-800/50 shadow-lg shadow-teal-900/20"
+                      : "border-amber-200 shadow-lg shadow-amber-200/30"
+                  }`}
+                >
+                  <div className="relative z-10">
+                    {darkMode ? <FaSun /> : <FaMoon />}
+                  </div>
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      scale: darkMode ? 1 : 0,
+                    }}
+                    className={`absolute inset-0 ${
+                      darkMode
+                        ? "bg-gradient-to-br from-amber-500/20 to-yellow-500/20"
+                        : "bg-gradient-to-br from-blue-500/20 to-indigo-500/20"
+                    }`}
+                  />
+                </motion.button>
               </motion.div>
-            ))}
+            </div>
 
-            {/* Dark Mode Toggle */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={toggleDarkMode}
-              className={`ml-4 p-2 rounded-full ${
-                darkMode ? 'bg-gray-800 text-amber-300' : 'bg-amber-100 text-amber-600'
-              }`}
-            >
-              {darkMode ? <FaSun /> : <FaMoon />}
-            </motion.button>
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden flex items-center gap-3">
+              {/* Theme Toggle - Mobile */}
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={toggleDarkMode}
+                className={`p-2.5 rounded-lg ${
+                  darkMode
+                    ? "bg-gray-800 text-amber-300"
+                    : "bg-amber-100 text-amber-600"
+                }`}
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </motion.button>
+
+              {/* Mobile Menu Toggle */}
+              <motion.button
+                data-menu-button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className={`p-2.5 rounded-lg relative ${
+                  darkMode
+                    ? "bg-gray-800 text-white"
+                    : "bg-amber-100 text-gray-800"
+                }`}
+              >
+                {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+                {!mobileMenuOpen && (
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: "loop",
+                    }}
+                    className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${
+                      darkMode ? "bg-teal-400" : "bg-amber-500"
+                    }`}
+                  />
+                )}
+              </motion.button>
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-full ${
-                darkMode ? 'bg-gray-800 text-white' : 'bg-amber-100 text-gray-800'
-              }`}
-            >
-              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-            </motion.button>
-          </div>
+          {/* Mobile Menu */}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                ref={mobileMenuRef}
+                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                transition={{ duration: 0.3 }}
+                className={`lg:hidden rounded-2xl overflow-hidden ${
+                  darkMode
+                    ? "bg-gray-900/95 backdrop-blur-xl"
+                    : "bg-white/95 backdrop-blur-xl"
+                } shadow-2xl`}
+              >
+                <div className="p-4 space-y-2">
+                  {navItems.map((item, index) => (
+                    <motion.button
+                      key={item.name}
+                      type="button"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleMobileNavClick(item.name)}
+                      className={`flex items-center gap-3 w-full px-4 py-3.5 rounded-xl text-left font-medium transition-all ${
+                        activeSection === item.name
+                          ? darkMode
+                            ? "bg-gradient-to-r from-emerald-900/30 to-teal-900/30 text-teal-300 border border-teal-800/50"
+                            : "bg-gradient-to-r from-amber-100 to-amber-50 text-amber-600 border border-amber-200"
+                          : darkMode
+                          ? "text-gray-300 hover:bg-gray-800/50"
+                          : "text-gray-700 hover:bg-amber-50"
+                      }`}
+                    >
+                      <span
+                        className={`text-lg ${
+                          activeSection === item.name
+                            ? darkMode
+                              ? "text-teal-400"
+                              : "text-amber-600"
+                            : darkMode
+                            ? "text-gray-400"
+                            : "text-gray-500"
+                        }`}
+                      >
+                        {item.icon}
+                      </span>
+                      <span className="flex-1 text-left">{item.label}</span>
+                      {activeSection === item.name && (
+                        <motion.div
+                          layoutId="mobileActive"
+                          className={`ml-auto w-2 h-2 rounded-full ${
+                            darkMode ? "bg-teal-400" : "bg-amber-500"
+                          }`}
+                        />
+                      )}
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
+      </motion.nav>
 
-        {/* Mobile Menu - Using anchor tags instead of buttons */}
-        {mobileMenuOpen && (
+      {/* Scroll Down Indicator */}
+      <AnimatePresence>
+        {showScrollIndicator && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className={`md:hidden mt-4 rounded-lg shadow-lg ${
-              darkMode ? 'bg-gray-800/95 backdrop-blur-md' : 'bg-white/95 backdrop-blur-md'
-            }`}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 hidden md:block"
           >
-            <div className="px-2 pt-2 pb-4 space-y-1">
-              {navItems.map((item) => (
-                <motion.a
-                  key={item.name}
-                  href={`#${item.name}`}
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection(item.name)
-                  }}
-                  className={`block w-full px-4 py-3 rounded-md text-left font-medium ${
-                    activeSection === item.name
-                      ? (darkMode ? 'bg-gray-700 text-cyan-400' : 'bg-amber-100 text-amber-600')
-                      : (darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-amber-50')
-                  }`}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
-              <div className="px-4 py-3">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={toggleDarkMode}
-                  className={`flex items-center gap-2 w-full p-2 rounded-md ${
-                    darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-amber-100 hover:bg-amber-200'
-                  }`}
-                >
-                  {darkMode ? (
-                    <>
-                      <FaSun className="text-amber-300" />
-                      <span>Light Mode</span>
-                    </>
-                  ) : (
-                    <>
-                      <FaMoon className="text-amber-600" />
-                      <span>Dark Mode</span>
-                    </>
-                  )}
-                </motion.button>
-              </div>
-            </div>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className={`flex flex-col items-center gap-2 ${
+                darkMode ? "text-teal-300" : "text-amber-600"
+              }`}
+            >
+              <span className="text-xs font-medium">Scroll</span>
+              <FaChevronDown className="text-lg" />
+            </motion.div>
           </motion.div>
         )}
-      </div>
-    </nav>
-  )
-}
+      </AnimatePresence>
 
-export default Navbar
+      {/* Back to Top Button */}
+      <AnimatePresence>
+        {scrolled && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={scrollToTop}
+            className={`fixed bottom-8 right-8 z-30 p-3 rounded-full shadow-xl ${
+              darkMode
+                ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white"
+                : "bg-gradient-to-r from-amber-500 to-amber-600 text-white"
+            }`}
+          >
+            <FaChevronDown className="rotate-180" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+Navbar.propTypes = {
+  darkMode: PropTypes.bool.isRequired,
+  toggleDarkMode: PropTypes.func.isRequired,
+};
+
+export default Navbar;

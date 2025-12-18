@@ -101,6 +101,6 @@ export const projectsData = [
     ],
     github: "https://github.com/Raorakshith/NammaMartNew",
     live: "https://taskmanager-demo.com",
-    image: "/assets/project2.jpg",
+    image: "/assets/fallback.svg",
   },
 ];
