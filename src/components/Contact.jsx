@@ -368,6 +368,7 @@ const Contact = ({ darkMode, id }) => {
                     >
                       <span
                         className={`${info.color} group-hover:scale-110 transition-transform`}
+                        aria-label={info.title}
                       >
                         {info.icon}
                       </span>
@@ -416,7 +417,7 @@ const Contact = ({ darkMode, id }) => {
                       className={`relative group flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl text-white text-xl md:text-2xl ${social.color} ${social.hoverColor} shadow-lg transition-all`}
                       aria-label={social.name}
                     >
-                      <span className="relative z-10">{social.icon}</span>
+                      <span className="relative z-10" aria-label={social.name}>{social.icon}</span>
                       <motion.div
                         initial={{ scale: 0 }}
                         whileHover={{ scale: 1 }}
