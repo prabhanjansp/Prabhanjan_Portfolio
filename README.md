@@ -2,6 +2,7 @@
 # 🚀 Personal Portfolio Website
 
 Welcome to my **Developer Portfolio** — a sleek, responsive, and modern website built using **React**, **Tailwind CSS**, **Material UI**, and a wide array of animation and UI libraries. It showcases who I am, what I’ve built, and how I bring value to the tech world.
+![App Screenshot](./public/assets/project5.png)
 
 ---
 
