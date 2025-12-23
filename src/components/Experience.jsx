@@ -1,48 +1,40 @@
 
-import { motion } from 'framer-motion'
-import { experienceData } from '../data/ExperienceData'
-import { FaBriefcase, FaCalendarAlt, FaChevronRight, FaMapMarkerAlt, FaLaptopCode, FaBuilding, FaUserTie } from 'react-icons/fa'
-import { SiJavascript, SiReact, SiNodedotjs, SiTypescript, SiMongodb, } from 'react-icons/si'
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { experienceData } from "../data/ExperienceData";
+
+// MUI Core
+import { Box, Typography, Chip } from "@mui/material";
+
+// MUI Timeline
+import Timeline from "@mui/lab/Timeline";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import TimelineContent from "@mui/lab/TimelineContent";
+import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import TimelineDot from "@mui/lab/TimelineDot";
+
+// MUI Icons
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
+import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
+import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
+import JavascriptOutlinedIcon from "@mui/icons-material/Javascript";
+
+const techIcons = {
+  JavaScript: <JavascriptOutlinedIcon fontSize="small" />,
+  React: <CodeOutlinedIcon fontSize="small" />,
+  "Node.js": <CodeOutlinedIcon fontSize="small" />,
+  TypeScript: <CodeOutlinedIcon fontSize="small" />,
+  MongoDB: <StorageOutlinedIcon fontSize="small" />,
+};
 
 const Experience = ({ darkMode, id }) => {
-  const cardVariants = {
-    offscreen: {
-      y: 50,
-      opacity: 0,
-      scale: 0.95
-    },
-    onscreen: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        bounce: 0.3,
-        duration: 0.8
-      }
-    }
-  }
-
-  const techIcons = {
-    'JavaScript': <SiJavascript />,
-    'React': <SiReact />,
-    'Node.js': <SiNodedotjs />,
-    'TypeScript': <SiTypescript />,
-    'MongoDB': <SiMongodb />,
-    // 'AWS': <SiAws />
-  }
-
-  const jobTypeIcons = {
-    'Full-time': <FaUserTie />,
-    'Part-time': <FaUserTie />,
-    'Contract': <FaLaptopCode />,
-    'Internship': <FaUserTie />,
-    'Freelance': <FaLaptopCode />
-  }
-
-  const getJobTypeIcon = (type) => {
-    return jobTypeIcons[type] || <FaBriefcase />;
-  }
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
     <motion.section
@@ -50,151 +42,329 @@ const Experience = ({ darkMode, id }) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true, margin: "-100px" }}
-      className={`relative py-20 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}
+      viewport={{ once: true }}
+      className={`relative min-h-screen pt-20 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden ${darkMode ? "bg-gray-900" : "bg-gray-50"
+        }`}
     >
-      {/* Floating background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ 
-              x: Math.random() * 100 - 50,
-              y: Math.random() * 100 - 50,
-              rotate: Math.random() * 360
-            }}
-            animate={{
-              x: [null, Math.random() * 100 - 50],
-              y: [null, Math.random() * 100 - 50],
-              transition: {
-                duration: 20 + Math.random() * 20,
-                repeat: Infinity,
-                repeatType: 'reverse'
-              }
-            }}
-            className={`absolute rounded-full ${darkMode ? 'bg-teal-900/20' : 'bg-amber-400/20'}`}
-            style={{
-              width: `${20 + Math.random() * 40}px`,
-              height: `${20 + Math.random() * 40}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              filter: 'blur(12px)'
-            }}
-          />
-        ))}
-      </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Title section */}
-        <motion.div 
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header Section */}
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-16 text-center relative"
+          className="text-center mb-8"
         >
-          <h2 className={`text-4xl font-bold bg-clip-text text-transparent ${darkMode ? 'bg-gradient-to-r from-emerald-400 to-teal-400' : 'bg-gradient-to-r from-amber-500 to-amber-700'}`}>
-            Professional Journey
-          </h2>
-          <p className={`mt-4 max-w-2xl mx-auto ${darkMode ? 'text-teal-100' : 'text-amber-800'}`}>
-            My career path and professional experiences
+          <div className="inline-block relative mb-4">
+            <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? "text-gray-100" : "text-gray-900"
+              }`}>
+              Professional <span className={`bg-clip-text text-transparent ${darkMode
+                  ? "bg-gradient-to-r from-emerald-400 to-teal-400"
+                  : "bg-gradient-to-r from-amber-500 to-amber-600"
+                }`}>Journey</span>
+            </h1>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className={`h-1 rounded-full ${darkMode ? "bg-gradient-to-r from-emerald-400 to-teal-400" : "bg-gradient-to-r from-amber-500 to-amber-600"
+                }`}
+            />
+          </div>
+          <p className={`mt-4 text-lg md:text-xl max-w-3xl mx-auto ${darkMode ? "text-gray-300" : "text-gray-600"
+            }`}>
+            A timeline of my career progression and achievements
           </p>
         </motion.div>
 
-        {/* Timeline container */}
-        <div className="relative">
-          <div className={`absolute left-8 top-0 h-full w-0.5 ${darkMode ? 'bg-teal-700/50' : 'bg-amber-200'}`}></div>
-
-          <div className="space-y-16 pl-12">
+        {/* Timeline Section */}
+        <div className="relative z-10">
+          <Timeline
+            position="alternate"
+            sx={{
+              maxWidth: 1000,
+              mx: "auto",
+              pt: 2,
+              [`& .MuiTimelineItem-root:before`]: {
+                flex: 0,
+                padding: 0,
+              },
+              [`& .MuiTimelineSeparator-root`]: {
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+              },
+            }}
+          >
             {experienceData.map((exp, index) => (
-              <motion.div
+              <TimelineItem
                 key={index}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, margin: "-50px" }}
-                variants={cardVariants}
-                className={`relative rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-800/70' : 'bg-white/90'} backdrop-blur-sm border ${darkMode ? 'border-teal-800/50' : 'border-amber-200'} shadow-lg ${darkMode ? 'shadow-teal-900/20' : 'shadow-amber-100'}`}
+                component={motion.div}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-30px" }}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
-                {/* Timeline dot */}
-                <div className={`absolute -left-14 top-6 w-6 h-6 rounded-full flex items-center justify-center ${darkMode ? 'bg-teal-400' : 'bg-amber-500'} shadow-lg`}>
-                  <div className={`w-2 h-2 rounded-full ${darkMode ? 'bg-gray-900' : 'bg-white'}`}></div>
-                </div>
+                {/* Desktop Date */}
+                <TimelineOppositeContent
+                  sx={{
+                    display: { xs: "none", md: "block" },
+                    color: darkMode ? "grey.400" : "text.secondary",
+                    flex: 0.25,
+                    position: "relative",
+                    pt: 0,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      p: 1.5,
+                      borderRadius: 2,
+                      backgroundColor: darkMode
+                        ? "rgba(45, 212, 191, 0.1)"
+                        : "rgba(245, 158, 11, 0.1)",
+                      border: darkMode
+                        ? "1px solid rgba(45, 212, 191, 0.2)"
+                        : "1px solid rgba(245, 158, 11, 0.2)",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1,
+                      backdropFilter: "blur(10px)",
+                    }}
+                  >
+                    <CalendarMonthOutlinedIcon
+                      sx={{
+                        color: darkMode ? "#2dd4bf" : "#f59e0b",
+                        fontSize: 18
+                      }}
+                    />
+                    <Typography variant="body2" fontWeight={500}>
+                      {exp.duration}
+                    </Typography>
+                  </Box>
+                </TimelineOppositeContent>
 
-                <div className="p-8">
-                  {/* Header with all information */}
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
-                    <div>
-                      <h3 className={`text-2xl font-bold ${darkMode ? 'text-teal-100' : 'text-amber-900'}`}>{exp.position}</h3>
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2">
-                        <div className={`inline-flex items-center ${darkMode ? 'text-teal-300' : 'text-amber-600'}`}>
-                          <FaBriefcase className="mr-2" />
-                          <span>{exp.company}</span>
-                        </div>
-                        <div className={`inline-flex items-center ${darkMode ? 'text-teal-100/80' : 'text-amber-800/80'}`}>
-                          <FaMapMarkerAlt className="mr-2" />
-                          <span>{exp.location}</span>
-                        </div>
-                        <div className={`inline-flex items-center ${darkMode ? 'text-emerald-300' : 'text-amber-700'}`}>
-                          {getJobTypeIcon(exp.type)}
-                          <span className="ml-2 capitalize">{exp.type}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={`flex items-center ${darkMode ? 'text-teal-100/80' : 'text-amber-800/80'}`}>
-                      <FaCalendarAlt className="mr-2" />
-                      <span>{exp.duration}</span>
-                    </div>
-                  </div>
-
-                  {/* Responsibilities list */}
-                  <ul className="space-y-3 pl-5">
-                    {exp.responsibilities.map((item, i) => (
-                      <motion.li
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 * i }}
-                        viewport={{ once: true }}
-                        className="relative group"
-                      >
-                        <div className={`absolute -left-5 top-2 w-2 h-2 rounded-full ${darkMode ? 'bg-teal-400' : 'bg-amber-500'} group-hover:scale-150 transition-transform`}></div>
-                        <span className={`${darkMode ? 'text-teal-50' : 'text-amber-900'} group-hover:translate-x-2 transition-transform`}>{item}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-
-                  {/* Technology stack */}
-                  {exp.technologies && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      viewport={{ once: true }}
-                      className="mt-8"
-                    >
-                      <h4 className={`font-medium mb-3 ${darkMode ? 'text-teal-200' : 'text-amber-800'}`}>Tech Stack:</h4>
-                      <div className="flex flex-wrap gap-3">
-                        {exp.technologies.map((tech, i) => (
-                          <motion.div
-                            key={i}
-                            whileHover={{ y: -3, scale: 1.05 }}
-                            className={`flex items-center gap-1 px-3 py-1.5 rounded-full ${darkMode ? 'bg-teal-900/40 hover:bg-teal-800/60' : 'bg-amber-100 hover:bg-amber-200'}`}
-                          >
-                            {techIcons[tech] && <span className={`text-sm ${darkMode ? 'text-teal-300' : 'text-amber-600'}`}>{techIcons[tech]}</span>}
-                            <span className={`text-sm ${darkMode ? 'text-teal-100' : 'text-amber-800'}`}>{tech}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
+                {/* Timeline Separator */}
+                <TimelineSeparator sx={{ px: 1 }}>
+                  <TimelineDot
+                    sx={{
+                      bgcolor: darkMode ? "#2dd4bf" : "#f59e0b",
+                      color: "#fff",
+                      width: 44,
+                      height: 44,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      m: 0,
+                      p: 0,
+                      boxShadow: `0 0 20px ${darkMode ? "rgba(45, 212, 191, 0.3)" : "rgba(245, 158, 11, 0.3)"}`,
+                    }}
+                  >
+                    <WorkOutlineIcon sx={{ fontSize: 20 }} />
+                  </TimelineDot>
+                  {index < experienceData.length - 1 && (
+                    <TimelineConnector
+                      sx={{
+                        bgcolor: darkMode ? "rgba(45, 212, 191, 0.3)" : "rgba(245, 158, 11, 0.3)",
+                        width: 3,
+                        height: "100%",
+                        minHeight: 40,
+                        borderRadius: 2,
+                        my: 0.5,
+                      }}
+                    />
                   )}
-                </div>
-              </motion.div>
+                </TimelineSeparator>
+
+                {/* Content Card */}
+                <TimelineContent sx={{ py: 0 }}>
+                  <Box
+                    component={motion.div}
+                    animate={{
+                      y: hoveredCard === index ? -4 : 0,
+                      boxShadow: hoveredCard === index
+                        ? darkMode
+                          ? "0 15px 30px -12px rgba(0, 0, 0, 0.4)"
+                          : "0 15px 30px -12px rgba(245, 158, 11, 0.2)"
+                        : "0 8px 20px rgba(0, 0, 0, 0.08)",
+                    }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    sx={{
+                      p: { xs: 2.5, md: 3.5 },
+                      borderRadius: 3,
+                      backgroundColor: darkMode
+                        ? "rgba(15, 23, 42, 0.85)"
+                        : "rgba(255, 255, 255, 0.95)",
+                      border: darkMode
+                        ? `1px solid ${hoveredCard === index ? "rgba(45, 212, 191, 0.3)" : "rgba(45, 212, 191, 0.2)"}`
+                        : `1px solid ${hoveredCard === index ? "rgba(251, 191, 36, 0.4)" : "rgba(251, 191, 36, 0.2)"}`,
+                      backdropFilter: "blur(10px)",
+                      position: "relative",
+                      overflow: "hidden",
+                      mb: 3,
+                    }}
+                  >
+                    {/* Role */}
+                    <Typography
+                      variant="h6"
+                      fontWeight={700}
+                      gutterBottom
+                      sx={{
+                        color: darkMode ? "#2dd4bf" : "#f59e0b",
+                        fontSize: { xs: "1.125rem", md: "1.25rem" },
+                      }}
+                    >
+                      {exp.position}
+                    </Typography>
+
+                    {/* Meta Info */}
+                    <Box
+                      display="flex"
+                      flexWrap="wrap"
+                      gap={2}
+                      mb={2.5}
+                    >
+                      <Box display="flex" alignItems="center" gap={0.75}>
+                        <BusinessCenterOutlinedIcon
+                          sx={{
+                            color: darkMode ? "#2dd4bf" : "#f59e0b",
+                            fontSize: 16
+                          }}
+                        />
+                        <Typography
+                          variant="body2"
+                          fontWeight={500}
+                          sx={{ color: darkMode ? "grey.300" : "text.primary" }}
+                        >
+                          {exp.company}
+                        </Typography>
+                      </Box>
+
+                      <Box display="flex" alignItems="center" gap={0.75}>
+                        <LocationOnOutlinedIcon
+                          sx={{
+                            color: darkMode ? "#2dd4bf" : "#f59e0b",
+                            fontSize: 16
+                          }}
+                        />
+                        <Typography
+                          variant="body2"
+                          fontWeight={500}
+                          sx={{ color: darkMode ? "grey.300" : "text.primary" }}
+                        >
+                          {exp.location}
+                        </Typography>
+                      </Box>
+                    </Box>
+
+                    {/* Mobile Date */}
+                    <Box
+                      display={{ xs: "flex", md: "none" }}
+                      alignItems="center"
+                      gap={1}
+                      mb={2.5}
+                      sx={{
+                        p: 1.25,
+                        borderRadius: 2,
+                        backgroundColor: darkMode
+                          ? "rgba(45, 212, 191, 0.1)"
+                          : "rgba(245, 158, 11, 0.1)",
+                        width: "fit-content",
+                      }}
+                    >
+                      <CalendarMonthOutlinedIcon
+                        sx={{
+                          color: darkMode ? "#2dd4bf" : "#f59e0b",
+                          fontSize: 16
+                        }}
+                      />
+                      <Typography
+                        variant="body2"
+                        fontWeight={500}
+                        sx={{ color: darkMode ? "grey.300" : "text.primary" }}
+                      >
+                        {exp.duration}
+                      </Typography>
+                    </Box>
+
+                    {/* Responsibilities */}
+                    <Box component="ul" sx={{ pl: 2, mb: 3 }}>
+                      {exp.responsibilities.map((item, i) => (
+                        <Box
+                          component="li"
+                          key={i}
+                          sx={{
+                            mb: 1.25,
+                            lineHeight: 1.6,
+                            color: darkMode ? "grey.300" : "text.primary",
+                            "&:last-child": { mb: 0 },
+                          }}
+                        >
+                          <Typography variant="body2">{item}</Typography>
+                        </Box>
+                      ))}
+                    </Box>
+
+                    {/* Tech Stack */}
+                    {exp.technologies && (
+                      <Box>
+                        <Typography
+                          variant="body2"
+                          fontWeight={600}
+                          gutterBottom
+                          sx={{
+                            color: darkMode ? "#2dd4bf" : "#f59e0b",
+                            mb: 1.5,
+                          }}
+                        >
+                          Technologies Used
+                        </Typography>
+                        <Box display="flex" flexWrap="wrap" gap={1}>
+                          {exp.technologies.map((tech, i) => (
+                            <Chip
+                              key={i}
+                              component={motion.div}
+                              whileHover={{ scale: 1.05 }}
+                              icon={techIcons[tech]}
+                              label={tech}
+                              size="small"
+                              sx={{
+                                fontWeight: 500,
+                                color: darkMode ? "#fff" : "#000",
+                                bgcolor: darkMode
+                                  ? "rgba(45, 212, 191, 0.15)"
+                                  : "rgba(245, 158, 11, 0.2)",
+                                border: darkMode
+                                  ? "1px solid rgba(45, 212, 191, 0.3)"
+                                  : "1px solid rgba(245, 158, 11, 0.3)",
+                                backdropFilter: "blur(10px)",
+                                "& .MuiChip-icon": {
+                                  color: darkMode ? "#2dd4bf" : "#f59e0b",
+                                },
+                                height: 28,
+                              }}
+                            />
+                          ))}
+                        </Box>
+                      </Box>
+                    )}
+                  </Box>
+                </TimelineContent>
+              </TimelineItem>
             ))}
-          </div>
+          </Timeline>
         </div>
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default Experience
+Experience.propTypes = {
+  darkMode: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
+};
+
+export default Experience;

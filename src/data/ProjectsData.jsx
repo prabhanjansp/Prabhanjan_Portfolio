@@ -1,19 +1,19 @@
 export const projectsData = [
-  // {
-  //   title: "Blog Application 📰",
-  //   description: "A full-stack blog application built with MERN.",
-  //   technologies: ["React.js",
-  //         "Redux Toolkit",
-  //         "Firebase",
-  //         "Node.js",
-  //         "Express",
-  //         "MongoDB",
-  //         "Tailwind",
-  //         "FlowBit",],
-  //   github: "https://github.com/prabhanjansp/MeenBlogApp",
-  //   live: "https://ecommerce-demo.com",
-  //   image: "/project1.jpg"
-  // },
+  {
+    title: "Cine Verse🎥",
+    description: "Cine verse is a modern, responsive web application built with React that allows users to discover trending movies, TV shows, and actors. Powered by the TMDB API, it offers a sleek interface with dark/light mode, search functionality, and personalized watchlists...",
+    technologies: ["React js",
+      "javascript",
+      "Material ui",
+      "Debounce",
+      "TMDB API",
+      "Firebase",
+      "Vercel",
+      "Framer Motion"],
+    github: "https://github.com/prabhanjansp/movieapp",
+    live: "https://movieapp-n29e.vercel.app/",
+    image: "/assets/project1.png"
+  },
 
   {
     title: "ClimaVue🌦️",
@@ -30,7 +30,7 @@ export const projectsData = [
     ],
     github: "https://github.com/prabhanjansp/weather-app",
     live: "https://neon-capybara-b374b2.netlify.app/",
-    image: "src/assets/project3.png",
+    image: "/assets/project3.png",
   },
   {
     title: "YouTube Clone Application ▶️",
@@ -40,7 +40,17 @@ export const projectsData = [
     github:
       "https://github.com/prabhanjansp/youtubeclone/tree/main/youtubeclone",
     live: "https://rococo-horse-9ef7de.netlify.app/",
-    image: "src/assets/project4.png",
+    image: "/assets/project4.png",
+  },
+  {
+    title: "News Wave 📰",
+    description:
+      "NewsWave is a fully responsive, modern news web application that delivers real-time news from thousands of trusted sources worldwide. Built with cutting-edge React technologies, it offers a sleek, intuitive interface with personalized news consumption features.",
+    technologies: ["React.js", "Material UI", "Axios", "Tailwindcss", "WebShare", "LocalStorage", "File Export", "Memoization", "Framer Motion", "DeBounce", "Context API"],
+    github:
+      "https://github.com/prabhanjansp/news-app",
+    live: "https://github.com/prabhanjansp/news-app",
+    image: "/assets/project7.png",
   },
   {
     title: "Portfolio Website",
@@ -55,22 +65,9 @@ export const projectsData = [
     ],
     github: "https://github.com/prabhanjansp/Prabhanjan_Portfolio",
     live: "https://prabhanjansp.web.app/",
-    image: "src/assets/project5.png",
+    image: "/assets/project5.png",
   },
-  // {
-  //   title: "PrepWise 📚",
-  //   description: "PrepWise is an AI-powered mock interview platform designed to help job seekers prepare for interviews with a voice-based AI assistant. The platform simulates real interview scenarios by generating and asking industry-specific questions, evaluating responses, and providing instant feedback..",
-  //   technologies: ["NextJS",
-  //         "TypeScript",
-  //         "VAPI",
-  //         "Gemini",
-  //         "ShadCN",
-  //         "Firebase",
-  //         "Vercel",],
-  //   github: "https://github.com/yourusername/chat-app",
-  //   live: "https://chat-demo.com",
-  //   image: "/project6.jpg"
-  // },
+
   {
     title: "CryptoPulse 💰",
     description:
@@ -87,7 +84,7 @@ export const projectsData = [
     ],
     github: "https://github.com/prabhanjansp/crypto-dashboard",
     live: "https://whimsical-lolly-fa9245.netlify.app/",
-    image: "src/assets/project6.png",
+    image: "/assets/project6.png",
   },
   {
     title: "Namma Mart Application 🛍️",
@@ -101,6 +98,6 @@ export const projectsData = [
     ],
     github: "https://github.com/Raorakshith/NammaMartNew",
     live: "https://taskmanager-demo.com",
-    image: "/project2.jpg",
+    image: "/assets/fallback.svg",
   },
 ];

@@ -1,52 +1,87 @@
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaGithub, FaNpm, FaSass } from 'react-icons/fa'
-import { SiJavascript, SiTypescript, SiRedux,SiVercel , SiNextdotjs, SiPostman,SiTailwindcss, SiMongodb,  SiExpress,   SiJest, SiFirebase,SiMui,SiInsomnia,SiFigma,SiAxios,SiApollographql    } from 'react-icons/si'
 
-import { FaJava } from "react-icons/fa";
+
+import JavascriptOriginal from "react-devicons/javascript/original";
+import TypescriptOriginal from "react-devicons/typescript/original";
+import ReactOriginal from "react-devicons/react/original";
+import NextjsOriginal from "react-devicons/nextjs/original";
+import Html5Original from "react-devicons/html5/original";
+import Css3Original from "react-devicons/css3/original";
+import TailwindcssOriginalWordmark from "react-devicons/tailwindcss/original-wordmark";
+import SassOriginal from "react-devicons/sass/original";
+import ReduxOriginal from "react-devicons/redux/original";
+import MaterialuiOriginal from "react-devicons/materialui/original";
+import FigmaOriginal from "react-devicons/figma/original";
+import GraphqlPlain from "react-devicons/graphql/plain";
+import { SiAxios } from "react-icons/si";
+
+import NodejsPlain from "react-devicons/nodejs/plain";
+import ExpressOriginal from "react-devicons/express/original";
+import MongodbOriginal from "react-devicons/mongodb/original";
+import FirebasePlain from "react-devicons/firebase/plain";
+import JavaOriginal from "react-devicons/java/original";
+
+import GitOriginal from "react-devicons/git/original";
+import GithubOriginal from "react-devicons/github/original";
+import JestPlain from "react-devicons/jest/plain";
+import PostmanOriginal from "react-devicons/postman/original";
+import InsomniaOriginal from "react-devicons/insomnia/original";
+import VercelOriginal from "react-devicons/vercel/original";
+import NpmOriginalWordmark from "react-devicons/npm/original-wordmark";
+import MarkdownOriginal from "react-devicons/markdown/original";
+import MochaPlain from "react-devicons/mocha/plain";
+import JqueryOriginal from "react-devicons/jquery/original";
+
 
 
 
 export const skillsData = [
   {
-    category: "Frontend",
+    title: "Frontend Architecture & UI",
+    description:
+      "Technologies for building type-safe, responsive, and high-performance user interfaces.",
     skills: [
-      { name: "React", icon: <FaReact />,level: 85 },
-      { name: "JavaScript", icon: <SiJavascript />,level: 80 },
-      { name: "TypeScript", icon: <SiTypescript />,level: 35 },
-      { name: "HTML5", icon: <FaHtml5 />,level: 90 },
-      { name: "CSS3", icon: <FaCss3Alt />,level: 90 },
-      { name: "Redux", icon: <SiRedux />,level: 65 },
-      { name: "Next.js", icon: <SiNextdotjs />,level: 40 },
-      { name: "Tailwind CSS", icon: <SiTailwindcss />,level: 50 },
-      { name: "SASS", icon: <FaSass />,level: 60 },
-      { name: "Material UI", icon: <SiMui />,level: 75 },                 
-      { name: "Figma ", icon: <SiFigma  />,level: 40 },                 
-      { name: "Axios  ", icon: <SiAxios   />,level: 45 },                 
-      { name: "Apollo-graphql   ", icon: <SiApollographql    />,level: 50 },                 
+      { name: "HTML5", icon: <Html5Original /> },
+      { name: "CSS3", icon: <Css3Original /> },
+      { name: "JavaScript", icon: <JavascriptOriginal /> },
+      { name: "Jquery", icon: <JqueryOriginal /> },
+      { name: "TypeScript", icon: <TypescriptOriginal /> },
+      { name: "React", icon: <ReactOriginal /> },
+      { name: "Next.js", icon: <NextjsOriginal /> },
+      { name: "Tailwind CSS", icon: <TailwindcssOriginalWordmark /> },
+      { name: "SASS", icon: <SassOriginal /> },
+      { name: "Redux", icon: <ReduxOriginal /> },
+      { name: "Material UI", icon: <MaterialuiOriginal /> },
+      { name: "Figma", icon: <FigmaOriginal /> },
+      { name: "Axios", icon: <SiAxios /> },
+      { name: "GraphQL (Apollo)", icon: <GraphqlPlain /> }
     ]
   },
   {
-    category: "Backend",
+    title: "MERN Stack & Security",
+    description:
+      "Server-side, database, and authentication technologies for full-stack capability.",
     skills: [
-      { name: "Java", icon: <FaJava  />,level: 60 },
-      { name: "Node.js", icon: <FaNodeJs />,level: 50 },
-      { name: "Express", icon: <SiExpress />,level: 65 ,},
-      { name: "MongoDB", icon: <SiMongodb />,level: 35 },
-      // { name: "PostgreSQL", icon: <SiPostgresql />,level: 90 },
-      // { name: "GraphQL", icon: <SiGraphql />,level: 90 },
-      { name: "Firebase", icon: <SiFirebase />,level: 55 }
+      { name: "Node.js", icon: <NodejsPlain /> },
+      { name: "Express.js", icon: <ExpressOriginal /> },
+      { name: "MongoDB", icon: <MongodbOriginal /> },
+      { name: "Firebase", icon: <FirebasePlain /> },
+      { name: "Java", icon: <JavaOriginal /> }
     ]
   },
   {
-    category: "Tools & Others",
+    title: "Tools & Professional Workflow",
+    description:
+      "Complementary tools and platforms for code quality, testing, deployment, and collaboration.",
     skills: [
-      { name: "Git", icon: <FaGitAlt />,level: 85 },
-      { name: "GitHub", icon: <FaGithub />,level: 80 },
-      // { name: "Docker", icon: <SiDocker />,level: 90 },
-      { name: "Jest", icon: <SiJest />,level: 45 },
-      { name: "NPM", icon: <FaNpm />,level: 60 },
-      { name: "Postman", icon: <SiPostman />,level: 70 },
-      { name: "Insomnia ", icon: <SiInsomnia  />,level: 55 },
-      { name: "Vercel  ", icon: <SiVercel   />,level: 60 },
+      { name: "Git", icon: <GitOriginal /> },
+      { name: "GitHub", icon: <GithubOriginal /> },
+      { name: "Jest", icon: <JestPlain /> },
+      { name: "Postman", icon: <PostmanOriginal /> },
+      { name: "Insomnia", icon: <InsomniaOriginal /> },
+      { name: "Vercel", icon: <VercelOriginal /> },
+      { name: "NPM", icon: <NpmOriginalWordmark /> },
+      { name: "Mocha", icon: <MochaPlain /> },
+      { name: "Markdown", icon: <MarkdownOriginal /> }
     ]
   }
-]
+];
