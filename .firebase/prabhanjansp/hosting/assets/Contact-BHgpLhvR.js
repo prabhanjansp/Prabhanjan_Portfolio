@@ -1,4 +1,4 @@
-import{t as commonjsGlobal$2,h as getDefaultExportFromCjs,b as reactExports,d as React,j as jsxDevRuntimeExports,m as motion,u as FaUser,v as FaClock,w as FaComment,x as FaCheck,y as FaExclamationCircle,z as FaCheckCircle,A as FaTimes,B as FaSpinner,C as FaPaperPlane,P as PropTypes,D as FaEnvelope,E as FaPhone,n as FaMapMarkerAlt,I as FaLinkedin,f as FaGithub,J as FaInstagram}from"./index-C_lHoYeb.js";const getDefaultsFromPostinstall=()=>{};var define_process_env_default={};/**
+import{t as commonjsGlobal$2,h as getDefaultExportFromCjs,b as reactExports,d as React,j as jsxDevRuntimeExports,m as motion,u as FaUser,v as FaClock,w as FaComment,x as FaCheck,y as FaExclamationCircle,z as FaCheckCircle,A as FaTimes,B as FaSpinner,C as FaPaperPlane,P as PropTypes,D as FaEnvelope,E as FaPhone,n as FaMapMarkerAlt,I as FaLinkedin,f as FaGithub,J as FaInstagram}from"./index-C3HHnBVq.js";const getDefaultsFromPostinstall=()=>{};var define_process_env_default={};/**
  * @license
  * Copyright 2017 Google LLC
  *
