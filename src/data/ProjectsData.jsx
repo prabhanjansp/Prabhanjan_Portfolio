@@ -43,6 +43,16 @@ export const projectsData = [
     image: "/assets/project4.png",
   },
   {
+    title: "News Wave 📰",
+    description:
+      "NewsWave is a fully responsive, modern news web application that delivers real-time news from thousands of trusted sources worldwide. Built with cutting-edge React technologies, it offers a sleek, intuitive interface with personalized news consumption features.",
+    technologies: ["React.js", "Material UI", "Axios", "Tailwindcss", "WebShare", "LocalStorage", "File Export", "Memoization", "Framer Motion", "DeBounce", "Context API"],
+    github:
+      "https://github.com/prabhanjansp/news-app",
+    live: "https://github.com/prabhanjansp/news-app",
+    image: "/assets/project7.png",
+  },
+  {
     title: "Portfolio Website",
     description:
       "Personal portfolio website showcasing projects, skills, and contact information.",
