@@ -14,6 +14,28 @@ export const projectsData = [
     live: "https://movieapp-n29e.vercel.app/",
     image: "/assets/project1.png"
   },
+   {
+    title: "ChronoLogic: Smart Focus Timer ⏱️",
+    description:
+      "Boost productivity with ChronoLogic, an intelligent timer supporting Pomodoro, custom intervals, and auto-breaks. Track goals, streaks, and progress with visual analytics and AI-powered insights. Enjoy offline PWA support with push notifications and full privacy. Perfect for maintaining focus and building consistent work habits.",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "React Icons",
+      "PWA",
+      "Zustand",
+      "Chart.js",
+      "LocalStorage",
+      "jsdom",
+      "clsx",
+      "Debounce",
+
+    ],
+    github: "https://github.com/prabhanjansp/Prabhanjan_Portfolio",
+    live: "https://timerapp-snowy.vercel.app/",
+    image: "/assets/project8.png",
+  },
 
   {
     title: "ClimaVue🌦️",
@@ -53,7 +75,7 @@ export const projectsData = [
     image: "/assets/project7.png",
   },
   {
-    title: "Portfolio Website",
+    title: "Portfolio Website 💼",
     description:
       "Personal portfolio website showcasing projects, skills, and contact information.",
     technologies: [
@@ -67,6 +89,7 @@ export const projectsData = [
     live: "https://prabhanjansp.web.app/",
     image: "/assets/project5.png",
   },
+ 
 
   {
     title: "CryptoPulse 💰",
