@@ -96,15 +96,15 @@ const Projects = ({ darkMode, id }) => {
             <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? "text-gray-100" : "text-gray-900"
               }`}>
               Featured <span className={`bg-clip-text text-transparent ${darkMode
-                  ? "bg-gradient-to-r from-emerald-400 to-teal-400"
-                  : "bg-gradient-to-r from-amber-500 to-amber-600"
+                  ? "bg-gradient-to-r from-emerald-400 to-green-400"
+                  : "bg-gradient-to-r from-orange-500 to-orange-600"
                 }`}>Projects</span>
             </h1>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{ duration: 1, delay: 0.5 }}
-              className={`h-1 rounded-full ${darkMode ? "bg-gradient-to-r from-emerald-400 to-teal-400" : "bg-gradient-to-r from-amber-500 to-amber-600"
+              className={`h-1 rounded-full ${darkMode ? "bg-gradient-to-r from-emerald-400 to-green-400" : "bg-gradient-to-r from-orange-500 to-orange-600"
                 }`}
             />
           </div>
@@ -134,8 +134,8 @@ const Projects = ({ darkMode, id }) => {
               onClick={() => setActiveFilter(tech)}
               className={`px-4 py-2 rounded-full text-sm md:text-base font-medium transition-all flex items-center gap-2 ${activeFilter === tech
                   ? darkMode
-                    ? 'bg-teal-500 text-white shadow-lg shadow-teal-500/30'
-                    : 'bg-amber-500 text-white shadow-lg shadow-amber-500/30'
+                    ? 'bg-green-500 text-white shadow-lg shadow-green-500/30'
+                    : 'bg-orange-500 text-white shadow-lg shadow-orange-500/30'
                   : darkMode
                     ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                     : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
@@ -168,14 +168,14 @@ const Projects = ({ darkMode, id }) => {
                 transition: { type: "spring", stiffness: 300, damping: 20 }
               }}
               className={`relative group rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-800/80' : 'bg-white/90'
-                } backdrop-blur-sm border ${darkMode ? 'border-teal-800/50' : 'border-amber-200'
+                } backdrop-blur-sm border ${darkMode ? 'border-green-800/50' : 'border-orange-200'
                 } shadow-xl hover:shadow-2xl transition-shadow duration-300`}
             >
               {/* Featured badge */}
               {project.featured && (
                 <div className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-xs font-bold ${darkMode
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white'
-                    : 'bg-gradient-to-r from-amber-500 to-amber-600 text-white'
+                    ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white'
+                    : 'bg-gradient-to-r from-orange-500 to-orange-600 text-white'
                   }`}>
                   Featured
                 </div>
@@ -205,8 +205,8 @@ const Projects = ({ darkMode, id }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg font-medium ${darkMode
-                        ? 'bg-teal-600 hover:bg-teal-500 text-white'
-                        : 'bg-amber-500 hover:bg-amber-600 text-white'
+                        ? 'bg-green-600 hover:bg-green-500 text-white'
+                        : 'bg-orange-500 hover:bg-orange-600 text-white'
                       } transition-all shadow-lg`}
                   >
                     View Live Demo
@@ -217,7 +217,7 @@ const Projects = ({ darkMode, id }) => {
               {/* Project content */}
               <div className="p-6 md:p-8">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className={`text-xl md:text-2xl font-bold ${darkMode ? 'text-teal-100' : 'text-amber-900'
+                  <h3 className={`text-xl md:text-2xl font-bold ${darkMode ? 'text-green-100' : 'text-orange-900'
                     }`}>
                     {project.title}
                   </h3>
@@ -230,8 +230,8 @@ const Projects = ({ darkMode, id }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`p-2 rounded-lg ${darkMode
-                            ? 'bg-gray-700 hover:bg-gray-600 text-teal-300'
-                            : 'bg-amber-100 hover:bg-amber-200 text-amber-700'
+                            ? 'bg-gray-700 hover:bg-gray-600 text-green-300'
+                            : 'bg-orange-100 hover:bg-orange-200 text-orange-700'
                           } transition-all`}
                         aria-label="GitHub repository"
                       >
@@ -246,8 +246,8 @@ const Projects = ({ darkMode, id }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`p-2 rounded-lg ${darkMode
-                            ? 'bg-teal-600 hover:bg-teal-500 text-white'
-                            : 'bg-amber-500 hover:bg-amber-600 text-white'
+                            ? 'bg-green-600 hover:bg-green-500 text-white'
+                            : 'bg-orange-500 hover:bg-orange-600 text-white'
                           } transition-all`}
                         aria-label="Live demo"
                       >
@@ -273,8 +273,8 @@ const Projects = ({ darkMode, id }) => {
                       viewport={{ once: true }}
                       whileHover={{ y: -2, scale: 1.05 }}
                       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs md:text-sm ${darkMode
-                          ? 'bg-teal-900/40 text-teal-300 border border-teal-800/50'
-                          : 'bg-amber-100 text-amber-800 border border-amber-200'
+                          ? 'bg-green-900/40 text-green-300 border border-green-800/50'
+                          : 'bg-orange-100 text-orange-800 border border-orange-200'
                         }`}
                     >
                       {techIcons[tech] && (
@@ -289,11 +289,11 @@ const Projects = ({ darkMode, id }) => {
 
                 {/* Project stats */}
                 {(project.stats || project.status) && (
-                  <div className={`pt-4 border-t ${darkMode ? 'border-gray-700' : 'border-amber-100'
+                  <div className={`pt-4 border-t ${darkMode ? 'border-gray-700' : 'border-orange-100'
                     }`}>
                     <div className="flex flex-wrap gap-4">
                       {project.stats && (
-                        <span className={`text-sm ${darkMode ? 'text-teal-300' : 'text-amber-600'}`}>
+                        <span className={`text-sm ${darkMode ? 'text-green-300' : 'text-orange-600'}`}>
                           {project.stats}
                         </span>
                       )}
@@ -303,8 +303,8 @@ const Projects = ({ darkMode, id }) => {
                               ? 'bg-emerald-900/30 text-emerald-300'
                               : 'bg-emerald-100 text-emerald-700'
                             : darkMode
-                              ? 'bg-amber-900/30 text-amber-300'
-                              : 'bg-amber-100 text-amber-700'
+                              ? 'bg-orange-900/30 text-orange-300'
+                              : 'bg-orange-100 text-orange-700'
                           }`}>
                           {project.status}
                         </span>
@@ -315,7 +315,7 @@ const Projects = ({ darkMode, id }) => {
               </div>
 
               {/* Hover effect border */}
-              <div className={`absolute inset-0 rounded-2xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${darkMode ? 'border-teal-400/30' : 'border-amber-400/30'
+              <div className={`absolute inset-0 rounded-2xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${darkMode ? 'border-green-400/30' : 'border-orange-400/30'
                 }`} />
             </motion.article>
           ))}
@@ -351,8 +351,8 @@ const Projects = ({ darkMode, id }) => {
             className="text-center mt-12"
           >
             <div className={`inline-flex items-center gap-2 px-6 py-3 rounded-full ${darkMode
-                ? 'bg-gray-800 text-teal-300'
-                : 'bg-amber-100 text-amber-700'
+                ? 'bg-gray-800 text-green-300'
+                : 'bg-orange-100 text-orange-700'
               }`}>
               <span className="text-sm font-medium">
                 Scroll to view more projects
@@ -360,7 +360,7 @@ const Projects = ({ darkMode, id }) => {
               <motion.div
                 animate={{ y: [0, 5, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
-                className={`text-lg ${darkMode ? 'text-teal-400' : 'text-amber-500'}`}
+                className={`text-lg ${darkMode ? 'text-green-400' : 'text-orange-500'}`}
               >
                 ↓
               </motion.div>

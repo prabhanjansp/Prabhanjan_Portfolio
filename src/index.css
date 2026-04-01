@@ -6,7 +6,10 @@
   /* cursor: none !important; */
 }
 body {
-  font-family: "Noto Sans", sans-serif;
+  font-family:  "JetBrains Mono", "Noto Sans", sans-serif;
+}
+h1{
+  font-family: "Silkscreen", sans-serif;
 }
 
 /* Smooth scrolling */

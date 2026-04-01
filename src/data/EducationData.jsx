@@ -30,6 +30,14 @@ export const educationData = [
   }
 ]
 export const certificationsData = [
+   {
+    name: "Claude Code in Action",
+      issuer: "Skilljar-Anthropic",
+    date: "March 2026",
+    description: "About Complete Usage of Claude Code",
+    credentialId: "6ykky6kp5d3u",
+    link: "http://verify.skilljar.com/c/6ykky6kp5d3u"
+  },
   {
     name: "Responsive Web Design",
     issuer: "FreeCodeCamp",
@@ -72,5 +80,6 @@ export const certificationsData = [
     credentialId: "636bb5d8-28a3-4c0e-a504-468eb6943d09",
     link: "https://learn.deeplearning.ai/accomplishments/636bb5d8-28a3-4c0e-a504-468eb6943d09"
   },
+ 
   // Add more certifications as needed
 ]

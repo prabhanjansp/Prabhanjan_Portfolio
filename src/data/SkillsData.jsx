@@ -6,7 +6,8 @@ import ReactOriginal from "react-devicons/react/original";
 import NextjsOriginal from "react-devicons/nextjs/original";
 import Html5Original from "react-devicons/html5/original";
 import Css3Original from "react-devicons/css3/original";
-import TailwindcssOriginalWordmark from "react-devicons/tailwindcss/original-wordmark";
+import { SiRadixui,SiChakraui } from "react-icons/si";
+
 import SassOriginal from "react-devicons/sass/original";
 import ReduxOriginal from "react-devicons/redux/original";
 import MaterialuiOriginal from "react-devicons/materialui/original";
@@ -27,9 +28,12 @@ import PostmanOriginal from "react-devicons/postman/original";
 import InsomniaOriginal from "react-devicons/insomnia/original";
 import VercelOriginal from "react-devicons/vercel/original";
 import NpmOriginalWordmark from "react-devicons/npm/original-wordmark";
-import MarkdownOriginal from "react-devicons/markdown/original";
+// import MarkdownOriginal from "react-devicons/markdown/original";
 import MochaPlain from "react-devicons/mocha/plain";
 import JqueryOriginal from "react-devicons/jquery/original";
+import PlaywrightPlain from "react-devicons/playwright/plain";
+import { SiShadcnui,SiStorybook,SiTailwindcss,SiSwagger,SiMarkdown, } from "react-icons/si";
+
 
 
 
@@ -47,14 +51,19 @@ export const skillsData = [
       { name: "TypeScript", icon: <TypescriptOriginal /> },
       { name: "React", icon: <ReactOriginal /> },
       { name: "Next.js", icon: <NextjsOriginal /> },
-      { name: "Tailwind CSS", icon: <TailwindcssOriginalWordmark /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss/> },
       { name: "SASS", icon: <SassOriginal /> },
       { name: "Redux", icon: <ReduxOriginal /> },
       { name: "Material UI", icon: <MaterialuiOriginal /> },
       { name: "Figma", icon: <FigmaOriginal /> },
       { name: "Axios", icon: <SiAxios /> },
-      { name: "GraphQL (Apollo)", icon: <GraphqlPlain /> }
-    ]
+      { name: "GraphQL (Apollo)", icon: <GraphqlPlain /> },
+      { name: "Storybook", icon:<SiStorybook /> } , 
+      { name: "Radix", icon:<SiRadixui /> } , 
+      { name: "ChakraUI", icon:<SiChakraui /> } , 
+            { name: "Shadcn/UI", icon:<SiShadcnui /> } , 
+            
+      ]
   },
   {
     title: "MERN Stack & Security",
@@ -81,7 +90,9 @@ export const skillsData = [
       { name: "Vercel", icon: <VercelOriginal /> },
       { name: "NPM", icon: <NpmOriginalWordmark /> },
       { name: "Mocha", icon: <MochaPlain /> },
-      { name: "Markdown", icon: <MarkdownOriginal /> }
+      { name: "Playwright", icon: <PlaywrightPlain /> },
+      { name: "Swagger", icon: <SiSwagger /> },
+      { name: "Markdown", icon: <SiMarkdown /> }
     ]
   }
 ];

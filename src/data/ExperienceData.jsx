@@ -2,6 +2,32 @@
 
 export const experienceData = [
   {
+    position: "Front-End Developer-L1",
+    company: "Opteamix Technology Solution.",
+    duration: "Feb 2026 - Present",
+    location: "Bangalore, India",
+    type: "Contractor",
+    responsibilities: [
+      "Coming Soon"
+    ],
+    technologies: [
+      "React",
+      "Node.js",
+      "Redux",
+      "E-Charts",
+      "Material-UI",
+      "Husky",
+      "StoryBook",
+      "TanStack",
+      "Swagger",
+      "RESTful APIs",
+      "Typescript",
+      "Radix UI",
+      "Chakra UI",
+      "PlayWright"
+    ],
+  },
+  {
     position: "Front-End Developer-1",
     company: "Scontinent Technologies Pvt Ltd.",
     duration: "November 2023 - January 2025",

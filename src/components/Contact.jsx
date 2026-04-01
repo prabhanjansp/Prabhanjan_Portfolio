@@ -297,8 +297,8 @@ const Contact = ({ darkMode, id }) => {
               {`Let's`}{" "}
               <span
                 className={`bg-clip-text text-transparent ${darkMode
-                  ? "bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400"
-                  : "bg-gradient-to-r from-amber-500 via-amber-600 to-amber-500"
+                  ? "bg-gradient-to-r from-emerald-400 via-green-400 to-emerald-400"
+                  : "bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500"
                   }`}
               >
                 Connect
@@ -308,7 +308,7 @@ const Contact = ({ darkMode, id }) => {
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{ duration: 1, delay: 0.5 }}
-              className={`h-1 rounded-full ${darkMode ? "bg-gradient-to-r from-emerald-400 to-teal-400" : "bg-gradient-to-r from-amber-500 to-amber-600"
+              className={`h-1 rounded-full ${darkMode ? "bg-gradient-to-r from-emerald-400 to-green-400" : "bg-gradient-to-r from-orange-500 to-orange-600"
                 }`}
             />
           </div>
@@ -331,21 +331,21 @@ const Contact = ({ darkMode, id }) => {
               initial="hidden"
               animate="visible"
               className={`rounded-2xl md:rounded-3xl backdrop-blur-sm border p-6 md:p-8 ${darkMode
-                ? "bg-gray-800/60 border-teal-800/30"
-                : "bg-white/80 border-amber-200"
+                ? "bg-gray-800/60 border-green-800/30"
+                : "bg-white/80 border-orange-200"
                 }`}
             >
               <motion.h3
                 variants={itemVariants}
-                className={`text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center ${darkMode ? "text-teal-200" : "text-amber-800"
+                className={`text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center ${darkMode ? "text-green-200" : "text-orange-800"
                   }`}
               >
                 <div
-                  className={`p-2 md:p-3 rounded-lg mr-3 ${darkMode ? "bg-teal-900/40" : "bg-amber-100"
+                  className={`p-2 md:p-3 rounded-lg mr-3 ${darkMode ? "bg-green-900/40" : "bg-orange-100"
                     }`}
                 >
                   <FaUser
-                    className={`${darkMode ? "text-teal-400" : "text-amber-600"
+                    className={`${darkMode ? "text-green-400" : "text-orange-600"
                       }`}
                   />
                 </div>
@@ -399,7 +399,7 @@ const Contact = ({ darkMode, id }) => {
               {/* Social Links */}
               <motion.div variants={itemVariants}>
                 <h4
-                  className={`text-lg md:text-xl font-bold mb-4 md:mb-6 ${darkMode ? "text-teal-200" : "text-amber-800"
+                  className={`text-lg md:text-xl font-bold mb-4 md:mb-6 ${darkMode ? "text-green-200" : "text-orange-800"
                     }`}
                 >
                   Connect With Me
@@ -450,12 +450,12 @@ const Contact = ({ darkMode, id }) => {
                     }}
                   >
                     <FaClock
-                      className={`text-lg md:text-xl ${darkMode ? "text-teal-400" : "text-amber-600"
+                      className={`text-lg md:text-xl ${darkMode ? "text-green-400" : "text-orange-600"
                         }`}
                     />
                   </motion.div>
                   <h5
-                    className={`font-bold text-sm md:text-base ${darkMode ? "text-teal-200" : "text-amber-800"
+                    className={`font-bold text-sm md:text-base ${darkMode ? "text-green-200" : "text-orange-800"
                       }`}
                   >
                     Response Time
@@ -481,21 +481,21 @@ const Contact = ({ darkMode, id }) => {
           >
             <div
               className={`rounded-2xl md:rounded-3xl backdrop-blur-sm border p-6 md:p-8 ${darkMode
-                ? "bg-gray-800/60 border-teal-800/30"
-                : "bg-white/80 border-amber-200"
+                ? "bg-gray-800/60 border-green-800/30"
+                : "bg-white/80 border-orange-200"
                 }`}
             >
               <div className="flex items-center justify-between mb-6 md:mb-8">
                 <h3
-                  className={`text-xl md:text-2xl font-bold flex items-center ${darkMode ? "text-teal-200" : "text-amber-800"
+                  className={`text-xl md:text-2xl font-bold flex items-center ${darkMode ? "text-green-200" : "text-orange-800"
                     }`}
                 >
                   <div
-                    className={`p-2 md:p-3 rounded-lg mr-3 ${darkMode ? "bg-teal-900/40" : "bg-amber-100"
+                    className={`p-2 md:p-3 rounded-lg mr-3 ${darkMode ? "bg-green-900/40" : "bg-orange-100"
                       }`}
                   >
                     <FaComment
-                      className={`${darkMode ? "text-teal-400" : "text-amber-600"
+                      className={`${darkMode ? "text-green-400" : "text-orange-600"
                         }`}
                     />
                   </div>
@@ -507,10 +507,10 @@ const Contact = ({ darkMode, id }) => {
                   className={`text-xs px-3 py-1 rounded-full ${darkMode
                     ? formSubmitted
                       ? "bg-green-900/30 text-green-400"
-                      : "bg-teal-900/30 text-teal-400"
+                      : "bg-green-900/30 text-green-400"
                     : formSubmitted
                       ? "bg-green-100 text-green-700"
-                      : "bg-amber-100 text-amber-700"
+                      : "bg-orange-100 text-orange-700"
                     }`}
                 >
                   {formSubmitted ? "Form Submitted" : "Required *"}
@@ -524,7 +524,7 @@ const Contact = ({ darkMode, id }) => {
                     <div className="flex items-center justify-between mb-1 md:mb-2">
                       <label
                         htmlFor="name"
-                        className={`block font-medium text-sm md:text-base ${darkMode ? "text-teal-100" : "text-amber-800"
+                        className={`block font-medium text-sm md:text-base ${darkMode ? "text-green-100" : "text-orange-800"
                           }`}
                       >
                         Your Name *
@@ -557,8 +557,8 @@ const Contact = ({ darkMode, id }) => {
                             ? "border-red-500/50 bg-red-900/20"
                             : "border-red-500 bg-red-50"
                           : darkMode
-                            ? "bg-gray-800/40 border-teal-900/30 focus:border-teal-400"
-                            : "bg-white border-amber-200 focus:border-amber-500"
+                            ? "bg-gray-800/40 border-green-900/30 focus:border-green-400"
+                            : "bg-white border-orange-200 focus:border-orange-500"
                           } outline-none transition-all text-sm md:text-base`}
                         placeholder="Enter your full name"
                       />
@@ -598,7 +598,7 @@ const Contact = ({ darkMode, id }) => {
                   <div>
                     <label
                       htmlFor="email"
-                      className={`block mb-1 md:mb-2 font-medium text-sm md:text-base ${darkMode ? "text-teal-100" : "text-amber-800"
+                      className={`block mb-1 md:mb-2 font-medium text-sm md:text-base ${darkMode ? "text-green-100" : "text-orange-800"
                         }`}
                     >
                       Email Address *
@@ -617,8 +617,8 @@ const Contact = ({ darkMode, id }) => {
                             ? "border-red-500/50 bg-red-900/20"
                             : "border-red-500 bg-red-50"
                           : darkMode
-                            ? "bg-gray-800/40 border-teal-900/30 focus:border-teal-400"
-                            : "bg-white border-amber-200 focus:border-amber-500"
+                            ? "bg-gray-800/40 border-green-900/30 focus:border-green-400"
+                            : "bg-white border-orange-200 focus:border-orange-500"
                           } outline-none transition-all text-sm md:text-base`}
                         placeholder="your.email@example.com"
                       />
@@ -660,7 +660,7 @@ const Contact = ({ darkMode, id }) => {
                   <div className="flex items-center justify-between mb-1 md:mb-2">
                     <label
                       htmlFor="subject"
-                      className={`block font-medium text-sm md:text-base ${darkMode ? "text-teal-100" : "text-amber-800"
+                      className={`block font-medium text-sm md:text-base ${darkMode ? "text-green-100" : "text-orange-800"
                         }`}
                     >
                       Subject *
@@ -693,8 +693,8 @@ const Contact = ({ darkMode, id }) => {
                           ? "border-red-500/50 bg-red-900/20"
                           : "border-red-500 bg-red-50"
                         : darkMode
-                          ? "bg-gray-800/40 border-teal-900/30 focus:border-teal-400"
-                          : "bg-white border-amber-200 focus:border-amber-500"
+                          ? "bg-gray-800/40 border-green-900/30 focus:border-green-400"
+                          : "bg-white border-orange-200 focus:border-orange-500"
                         } outline-none transition-all text-sm md:text-base`}
                       placeholder="What is this regarding?"
                     />
@@ -735,7 +735,7 @@ const Contact = ({ darkMode, id }) => {
                   <div className="flex items-center justify-between mb-1 md:mb-2">
                     <label
                       htmlFor="message"
-                      className={`block font-medium text-sm md:text-base ${darkMode ? "text-teal-100" : "text-amber-800"
+                      className={`block font-medium text-sm md:text-base ${darkMode ? "text-green-100" : "text-orange-800"
                         }`}
                     >
                       Your Message *
@@ -771,8 +771,8 @@ const Contact = ({ darkMode, id }) => {
                           ? "border-red-500/50 bg-red-900/20"
                           : "border-red-500 bg-red-50"
                         : darkMode
-                          ? "bg-gray-800/40 border-teal-900/30 focus:border-teal-400"
-                          : "bg-white border-amber-200 focus:border-amber-500"
+                          ? "bg-gray-800/40 border-green-900/30 focus:border-green-400"
+                          : "bg-white border-orange-200 focus:border-orange-500"
                         } outline-none transition-all text-sm md:text-base`}
                       placeholder="Tell me about your project or inquiry..."
                     />
@@ -914,8 +914,8 @@ const Contact = ({ darkMode, id }) => {
                   disabled={isSubmitting || !isFormValid}
                   className={`w-full py-3 md:py-4 px-6 rounded-xl font-bold text-sm md:text-base flex items-center justify-center gap-3 ${isFormValid && !isSubmitting
                     ? darkMode
-                      ? "bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white"
-                      : "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white"
+                      ? "bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white"
+                      : "bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white"
                     : darkMode
                       ? "bg-gray-700 text-gray-400 cursor-not-allowed"
                       : "bg-gray-300 text-gray-500 cursor-not-allowed"
@@ -942,8 +942,8 @@ const Contact = ({ darkMode, id }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className={`mt-8 md:mt-12 text-center p-4 md:p-6 rounded-xl md:rounded-2xl backdrop-blur-sm border ${darkMode
-                ? "bg-gray-800/40 border-teal-800/30"
-                : "bg-white/60 border-amber-200"
+                ? "bg-gray-800/40 border-green-800/30"
+                : "bg-white/60 border-orange-200"
                 }`}
             >
               <p
