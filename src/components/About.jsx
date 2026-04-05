@@ -81,10 +81,7 @@ const About = ({ darkMode, id }) => {
                     {` I'm `}
                   </span>
                   <span
-                    className={`bg-clip-text text-transparent ${darkMode
-                        ? "bg-gradient-to-r from-emerald-400 via-green-400 to-emerald-500"
-                        : "bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700"
-                      }`}
+                    className={`bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700`}
                   >
                     Prabhanjan
                   </span>
@@ -105,8 +102,7 @@ const About = ({ darkMode, id }) => {
                 className="mb-8"
               >
                 <p
-                  className={`text-xl sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl font-bold leading-relaxed ${darkMode ? "text-emerald-300" : "text-orange-700"
-                    }`}
+                  className={`text-xl sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl font-bold leading-relaxed text-orange-700`}
                 >
                   {aboutData.tagline}
                 </p>
@@ -120,10 +116,7 @@ const About = ({ darkMode, id }) => {
                 className="mb-8 lg:hidden"
               >
                 <div
-                  className={`relative rounded-3xl overflow-hidden p-1 shadow-2xl ${darkMode
-                      ? "bg-gradient-to-br from-emerald-500 via-green-500 to-emerald-600"
-                      : "bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700"
-                    }`}
+                  className={`relative rounded-3xl overflow-hidden p-1 shadow-2xl bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700`}
                 >
                   <div
                     className={`rounded-3xl overflow-hidden ${darkMode ? "bg-gray-900" : "bg-white"
@@ -173,10 +166,7 @@ const About = ({ darkMode, id }) => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   href="#projects"
-                  className={`group px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg ${darkMode
-                      ? "bg-gradient-to-r from-emerald-500 to-green-500 text-white hover:shadow-xl hover:shadow-green-500/30"
-                      : "bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-xl hover:shadow-orange-500/30"
-                    } transition-all duration-300 flex items-center justify-center gap-3 shadow-lg`}
+                  className={`group px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg`}
                 >
                   <span>View My Work</span>
                   <FaArrowDown className="group-hover:translate-y-1 transition-transform duration-300" />
@@ -187,10 +177,7 @@ const About = ({ darkMode, id }) => {
                   whileTap={{ scale: 0.98 }}
                   href={resume}
                   download
-                  className={`px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg border-2 ${darkMode
-                      ? "border-green-500 text-green-400 hover:bg-green-500/10 hover:shadow-lg hover:shadow-green-500/20"
-                      : "border-orange-500 text-orange-600 hover:bg-orange-50 hover:shadow-lg hover:shadow-orange-500/20"
-                    } transition-all duration-300 flex items-center justify-center gap-3`}
+                  className={`px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg border-2 border-orange-500 ${darkMode ? "text-orange-400 hover:bg-orange-500/10 hover:shadow-lg hover:shadow-orange-500/20" : "text-orange-600 hover:bg-orange-50 hover:shadow-lg hover:shadow-orange-500/20"} transition-all duration-300 flex items-center justify-center gap-3`}
                 >
                   <FaDownload className="text-lg sm:text-xl" />
                   <span>Download CV</span>
@@ -211,10 +198,7 @@ const About = ({ darkMode, id }) => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className={`relative rounded-3xl overflow-hidden p-1 shadow-2xl ${darkMode
-                    ? "bg-gradient-to-br from-emerald-500 via-green-500 to-emerald-600"
-                    : "bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700"
-                  }`}
+                className={`relative rounded-3xl overflow-hidden p-1 shadow-2xl bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700`}
               >
                 <div
                   className={`rounded-3xl overflow-hidden ${darkMode ? "bg-gray-900" : "bg-white"
@@ -241,10 +225,10 @@ const About = ({ darkMode, id }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className={`p-5 sm:p-6 rounded-2xl backdrop-blur-sm border shadow-xl ${darkMode
-                    ? "bg-gradient-to-br from-emerald-900/30 via-green-900/20 to-emerald-900/30 border-green-700/40"
-                    : "bg-gradient-to-br from-orange-100 via-orange-50 to-orange-100 border-orange-300"
-                  }`}
+                className={`p-5 sm:p-6 rounded-2xl backdrop-blur-sm border shadow-xl ${darkMode 
+                  ? "bg-gray-900/80 border-orange-500/30" 
+                  : "bg-gradient-to-br from-orange-100 via-orange-50 to-orange-100 border-orange-300"
+                }`}
               >
                 <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                   <div className="text-center sm:text-left">
@@ -255,7 +239,7 @@ const About = ({ darkMode, id }) => {
                       {`  Let's Collaborate!`}
                     </h3>
                     <p
-                      className={`text-sm sm:text-base ${darkMode ? "text-green-200" : "text-orange-700"
+                      className={`text-sm sm:text-base ${darkMode ? "text-orange-300" : "text-orange-700"
                         }`}
                     >
                       Have a project in mind?
@@ -265,10 +249,7 @@ const About = ({ darkMode, id }) => {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     href="#contact"
-                    className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base whitespace-nowrap ${darkMode
-                        ? "bg-gradient-to-r from-emerald-500 to-green-500 text-white hover:shadow-lg hover:shadow-green-500/30"
-                        : "bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-500/30"
-                      } transition-all duration-300 flex items-center justify-center gap-2`}
+                    className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base whitespace-nowrap bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 flex items-center justify-center gap-2`}
                   >
                     <span>Start Conversation</span>
                     <svg
@@ -294,10 +275,10 @@ const About = ({ darkMode, id }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className={`p-5 sm:p-6 rounded-2xl backdrop-blur-sm border shadow-xl lg:hidden order-3 ${darkMode
-                  ? "bg-gradient-to-br from-emerald-900/30 via-green-900/20 to-emerald-900/30 border-green-700/40"
-                  : "bg-gradient-to-br from-orange-100 via-orange-50 to-orange-100 border-orange-300"
-                }`}
+              className={`p-5 sm:p-6 rounded-2xl backdrop-blur-sm border shadow-xl lg:hidden order-3 ${darkMode 
+                ? "bg-gray-900/80 border-orange-500/30" 
+                : "bg-gradient-to-br from-orange-100 via-orange-50 to-orange-100 border-orange-300"
+              }`}
             >
               <div className="flex flex-col items-center gap-4">
                 <div className="text-center">
@@ -308,7 +289,7 @@ const About = ({ darkMode, id }) => {
                     {`  Let's Collaborate!`}
                   </h3>
                   <p
-                    className={`text-sm sm:text-base ${darkMode ? "text-green-200" : "text-orange-700"
+                    className={`text-sm sm:text-base ${darkMode ? "text-orange-300" : "text-orange-700"
                       }`}
                   >
                     Have a project in mind?
@@ -318,10 +299,7 @@ const About = ({ darkMode, id }) => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   href="#contact"
-                  className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base ${darkMode
-                      ? "bg-gradient-to-r from-emerald-500 to-green-500 text-white hover:shadow-lg hover:shadow-green-500/30"
-                      : "bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-500/30"
-                    } transition-all duration-300 flex items-center justify-center gap-2`}
+                  className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 flex items-center justify-center gap-2`}
                 >
                   <span>Start Conversation</span>
                   <svg

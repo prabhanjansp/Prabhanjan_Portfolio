@@ -10,7 +10,7 @@ const Education = lazy(() => import("./components/Education"));
 const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

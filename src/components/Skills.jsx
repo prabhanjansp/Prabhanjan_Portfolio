@@ -1,4 +1,3 @@
-
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -32,22 +31,19 @@ const Skills = ({ darkMode, id }) => {
           <div className="inline-block relative mb-4">
             <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${darkMode ? "text-gray-100" : "text-gray-900"
               }`}>
-              Technical <span className={`bg-clip-text text-transparent ${darkMode
-                ? "bg-gradient-to-r from-emerald-400 via-green-400 to-emerald-400"
-                : "bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500"
-                }`}>Excellence</span>
+              Technical <span className={`bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500`}>Excellence</span>
             </h1>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{ duration: 1, delay: 0.5 }}
-              className={`h-1 rounded-full ${darkMode ? "bg-gradient-to-r from-emerald-400 to-green-400" : "bg-gradient-to-r from-orange-500 to-orange-600"
-                }`}
+              className={`h-1 rounded-full bg-gradient-to-r from-orange-500 to-orange-600`}
             />
           </div>
           <p className={`mt-4 text-lg md:text-xl max-w-3xl mx-auto ${darkMode ? "text-gray-300" : "text-gray-600"
             }`}>
-            Mastering modern technologies to build exceptional digital experiences                  </p>
+            Mastering modern technologies to build exceptional digital experiences
+          </p>
         </motion.div>
 
         {/* Interactive Skill Cards */}
@@ -77,7 +73,7 @@ const Skills = ({ darkMode, id }) => {
               onMouseEnter={() => setActiveSkill(index)}
               onMouseLeave={() => setActiveSkill(null)}
               className={`group relative rounded-3xl overflow-hidden backdrop-blur-sm border transition-all duration-300 ${darkMode
-                ? 'bg-gray-800/60 border-green-800/30 hover:border-green-500/50'
+                ? 'bg-gray-800/60 border-orange-800/30 hover:border-orange-500/50'
                 : 'bg-white/80 border-orange-200 hover:border-orange-400'
                 } ${activeSkill === index ? 'scale-[1.02]' : ''}`}
             >
@@ -85,7 +81,7 @@ const Skills = ({ darkMode, id }) => {
               <div className="p-8">
                 <div className="flex items-start mb-6">
                   <div>
-                    <h3 className={`text-2xl font-bold mb-3 ${darkMode ? 'text-green-200' : 'text-orange-800'
+                    <h3 className={`text-2xl font-bold mb-3 ${darkMode ? 'text-orange-300' : 'text-orange-800'
                       }`}>
                       {section.title}
                     </h3>
@@ -105,7 +101,7 @@ const Skills = ({ darkMode, id }) => {
                       whileHover={{ y: -8, scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       className={`relative cursor-pointer rounded-2xl p-4 flex flex-col items-center justify-center transition-all duration-300 ${darkMode
-                        ? 'bg-gray-800/40 hover:bg-gray-800/70 text-green-300 border border-green-800/30 hover:border-green-500/50'
+                        ? 'bg-gray-800/40 hover:bg-gray-800/70 text-orange-300 border border-orange-800/30 hover:border-orange-500/50'
                         : 'bg-white hover:bg-amber-50 text-orange-600 border border-orange-200 hover:border-orange-300'
                         }`}
                     >
@@ -124,10 +120,7 @@ const Skills = ({ darkMode, id }) => {
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileHover={{ opacity: 1, scale: 1 }}
-                        className={`absolute inset-0 rounded-2xl ${darkMode
-                          ? 'bg-gradient-to-br from-green-500/10 to-emerald-500/10'
-                          : 'bg-gradient-to-br from-orange-400/10 to-orange-500/10'
-                          }`}
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-400/10 to-orange-500/10`}
                       />
                     </motion.div>
                   ))}
@@ -136,7 +129,7 @@ const Skills = ({ darkMode, id }) => {
                 {/* Featured Skills */}
                 {section.featuredSkills && (
                   <div className="mt-8 pt-6 border-t border-gray-700/30">
-                    <h4 className={`text-sm font-semibold mb-3 ${darkMode ? 'text-green-300' : 'text-orange-600'
+                    <h4 className={`text-sm font-semibold mb-3 ${darkMode ? 'text-orange-300' : 'text-orange-600'
                       }`}>
                       Featured Expertise
                     </h4>
@@ -145,7 +138,7 @@ const Skills = ({ darkMode, id }) => {
                         <span
                           key={i}
                           className={`px-3 py-1.5 rounded-full text-xs font-medium ${darkMode
-                            ? 'bg-green-900/40 text-green-300 border border-green-800/50'
+                            ? 'bg-orange-900/40 text-orange-300 border border-orange-800/50'
                             : 'bg-orange-100 text-orange-800 border border-orange-200'
                             }`}
                         >
@@ -158,14 +151,11 @@ const Skills = ({ darkMode, id }) => {
               </div>
 
               {/* Card Glow Effect */}
-              <div className={`absolute inset-0 rounded-3xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${darkMode ? 'border-green-400/20' : 'border-orange-400/20'
-                }`} />
+              <div className={`absolute inset-0 rounded-3xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border-orange-400/20`} />
 
               {/* Card Corner Accents */}
-              <div className={`absolute top-0 left-0 w-20 h-20 -translate-x-10 -translate-y-10 rounded-full ${darkMode ? 'bg-green-500/10' : 'bg-orange-500/10'
-                } blur-3xl`} />
-              <div className={`absolute bottom-0 right-0 w-20 h-20 translate-x-10 translate-y-10 rounded-full ${darkMode ? 'bg-emerald-500/10' : 'bg-amber-600/10'
-                } blur-3xl`} />
+              <div className={`absolute top-0 left-0 w-20 h-20 -translate-x-10 -translate-y-10 rounded-full bg-orange-500/10 blur-3xl`} />
+              <div className={`absolute bottom-0 right-0 w-20 h-20 translate-x-10 translate-y-10 rounded-full bg-orange-500/10 blur-3xl`} />
             </motion.div>
           ))}
         </motion.div>
