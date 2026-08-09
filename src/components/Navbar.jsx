@@ -102,7 +102,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
       const sectionId = location.hash.replace("#", "");
       setTimeout(() => {
         scrollToSection(sectionId, true);
-      }, 300); // Increased delay for page load
+      }, 300);
     }
   }, [location]);
 
@@ -115,22 +115,17 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
       const element = document.getElementById(sectionId);
       if (element) {
-        // Calculate dynamic offset based on current navbar state
         let offset = navbarHeight;
 
-        // For mobile, we need additional offset when menu is open
         if (window.innerWidth < 1024 && mobileMenuOpen) {
-          // Add extra offset for mobile menu height
           offset += 50;
         }
 
-        // Get accurate position
         const elementPosition = element.getBoundingClientRect().top;
         const currentScrollPosition =
           window.pageYOffset || document.documentElement.scrollTop;
         const targetPosition = elementPosition + currentScrollPosition - offset;
 
-        // Smooth scroll with requestAnimationFrame for better performance
         const startPosition = currentScrollPosition;
         const distance = targetPosition - startPosition;
         const duration = 600;
@@ -141,7 +136,6 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           const timeElapsed = currentTime - startTime;
           const progress = Math.min(timeElapsed / duration, 1);
 
-          // Easing function for smooth scrolling
           const easeInOutCubic = (t) => {
             return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
           };
@@ -152,22 +146,18 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           if (timeElapsed < duration) {
             requestAnimationFrame(animateScroll);
           } else {
-            // Ensure final position is accurate
             window.scrollTo(0, targetPosition);
           }
         };
 
         requestAnimationFrame(animateScroll);
 
-        // Set active section immediately
         setActiveSection(sectionId);
 
-        // Update URL without causing scroll
         if (!isInitialLoad) {
           window.history.replaceState(null, null, `#${sectionId}`);
         }
 
-        // Close mobile menu after successful scroll
         if (mobileMenuOpen) {
           scrollTimeoutRef.current = setTimeout(() => {
             setMobileMenuOpen(false);
@@ -256,7 +246,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         className="fixed top-0 left-0 right-0 h-1 z-50 origin-left"
         style={{
           background: darkMode
-            ? "linear-gradient(90deg, #10b981, #2dd4bf, #0ea5e9)"
+            ? "linear-gradient(90deg, #f97316, #fb923c, #f59e0b)"
             : "linear-gradient(90deg, #f59e0b, #fbbf24, #f97316)",
         }}
       />
@@ -270,7 +260,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         className={`fixed w-full z-40 transition-all duration-300 ${
           scrolled
             ? darkMode
-              ? "bg-gray-900/95 backdrop-blur-xl shadow-2xl"
+              ? "bg-zinc-900/95 backdrop-blur-xl shadow-2xl"
               : "bg-white/95 backdrop-blur-xl shadow-xl"
             : "bg-transparent"
         }`}
@@ -286,19 +276,20 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             >
               <div
                 className={`absolute inset-0 rounded-2xl blur-xl transition-opacity duration-300 ${
-                  darkMode ? "bg-green-500/30" : "bg-orange-500"
+                  darkMode ? "bg-orange-500/30" : "bg-orange-500"
                 } group-hover:opacity-100 opacity-0`}
               />
               <div
                 className={`relative flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-xl ${
                   darkMode
-                    ? "bg-gray-800/80 text-white border border-green-800/50"
-                    : "bg-white/90 text-gray-900 border border-orange-500"
+                    ? "bg-zinc-800/80 text-white border border-orange-800/50"
+                    : "bg-white/90 text-zinc-900 border border-orange-500"
                 } backdrop-blur-sm`}
               >
+                {/* Only $ symbol is green */}
                 <span
                   className={`text-xl ${
-                    darkMode ? "text-orange-600" : "text-green-600"
+                    darkMode ? "text-green-400" : "text-green-600"
                   }`}
                 >
                   {"$~/"}
@@ -307,7 +298,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 <span
                   className={`text-xs px-2 py-1 rounded-md ${
                     darkMode
-                      ? "bg-green-900/40 text-green-300"
+                      ? "bg-orange-900/40 text-orange-300"
                       : "bg-orange-100 text-orange-500"
                   }`}
                 >
@@ -334,16 +325,17 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                     className={`relative flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                       activeSection === item.name
                         ? darkMode
-                          ? "text-green-300 bg-green-900/20"
+                          ? "text-orange-300 bg-orange-900/20"
                           : "text-orange-600 bg-orange-100"
                         : darkMode
-                          ? "text-gray-300 hover:text-white hover:bg-gray-800/50"
-                          : "text-gray-700 hover:text-gray-900 hover:bg-orange-50"
+                          ? "text-zinc-300 hover:text-white hover:bg-zinc-800/50"
+                          : "text-zinc-700 hover:text-zinc-900 hover:bg-orange-50"
                     }`}
                   >
+                    {/* Only $ symbol is green */}
                     <span
                       className={`text-base ${
-                        darkMode ? "text-orange-600" : "text-green-800"
+                        darkMode ? "text-green-400" : "text-green-800"
                       }`}
                     >
                       $~/
@@ -356,7 +348,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         layoutId="activeIndicator"
                         className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full ${
                           darkMode
-                            ? "bg-gradient-to-r from-emerald-400 to-green-800"
+                            ? "bg-gradient-to-r from-orange-400 to-orange-600"
                             : "bg-gradient-to-r from-orange-500 to-orange-600"
                         }`}
                       />
@@ -369,7 +361,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                       layoutId="hoverEffect"
                       className={`absolute inset-0 rounded-xl -z-10 ${
                         darkMode
-                          ? "bg-gradient-to-r from-emerald-500/10 to-green-500/10"
+                          ? "bg-gradient-to-r from-orange-500/10 to-orange-600/10"
                           : "bg-gradient-to-r from-orange-500/10 to-orange-600/10"
                       }`}
                       initial={{ opacity: 0 }}
@@ -393,11 +385,11 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                   onClick={toggleDarkMode}
                   className={`relative p-3 rounded-xl overflow-hidden ${
                     darkMode
-                      ? "bg-gradient-to-br from-gray-800 to-gray-900 text-orange-300"
+                      ? "bg-gradient-to-br from-zinc-800 to-zinc-900 text-orange-300"
                       : "bg-gradient-to-br from-orange-50 to-orange-100 text-orange-600"
                   } border ${
                     darkMode
-                      ? "border-green-800/50 shadow-lg shadow-green-900/20"
+                      ? "border-orange-800/50 shadow-lg shadow-orange-900/20"
                       : "border-orange-200 shadow-lg shadow-orange-200/30"
                   }`}
                 >
@@ -427,7 +419,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 onClick={toggleDarkMode}
                 className={`p-2.5 rounded-lg ${
                   darkMode
-                    ? "bg-gray-800 text-orange-300"
+                    ? "bg-zinc-800 text-orange-300"
                     : "bg-orange-100 text-orange-600"
                 }`}
               >
@@ -442,8 +434,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className={`p-2.5 rounded-lg relative ${
                   darkMode
-                    ? "bg-gray-800 text-white"
-                    : "bg-orange-100 text-gray-800"
+                    ? "bg-zinc-800 text-white"
+                    : "bg-orange-100 text-zinc-800"
                 }`}
               >
                 {mobileMenuOpen ? <FaTimes /> : <FaBars />}
@@ -459,7 +451,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                       repeatType: "loop",
                     }}
                     className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${
-                      darkMode ? "bg-green-400" : "bg-orange-500"
+                      darkMode ? "bg-orange-400" : "bg-orange-500"
                     }`}
                   />
                 )}
@@ -478,7 +470,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 transition={{ duration: 0.3 }}
                 className={`lg:hidden rounded-2xl overflow-hidden ${
                   darkMode
-                    ? "bg-gray-900/95 backdrop-blur-xl"
+                    ? "bg-zinc-900/95 backdrop-blur-xl"
                     : "bg-white/95 backdrop-blur-xl"
                 } shadow-2xl`}
               >
@@ -495,22 +487,22 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                       className={`flex items-center gap-3 w-full px-4 py-3.5 rounded-xl text-left font-medium transition-all ${
                         activeSection === item.name
                           ? darkMode
-                            ? "bg-gradient-to-r from-emerald-900/30 to-green-900/30 text-green-300 border border-green-800/50"
+                            ? "bg-gradient-to-r from-orange-900/30 to-orange-800/30 text-orange-300 border border-orange-800/50"
                             : "bg-gradient-to-r from-orange-100 to-orange-50 text-orange-600 border border-orange-200"
                           : darkMode
-                            ? "text-gray-300 hover:bg-gray-800/50"
-                            : "text-gray-700 hover:bg-orange-50"
+                            ? "text-zinc-300 hover:bg-zinc-800/50"
+                            : "text-zinc-700 hover:bg-orange-50"
                       }`}
                     >
                       <span
                         className={`text-lg ${
                           activeSection === item.name
                             ? darkMode
-                              ? "text-green-400"
+                              ? "text-orange-400"
                               : "text-orange-600"
                             : darkMode
-                              ? "text-gray-400"
-                              : "text-gray-500"
+                              ? "text-zinc-400"
+                              : "text-zinc-500"
                         }`}
                       >
                         {item.icon}
@@ -520,7 +512,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         <motion.div
                           layoutId="mobileActive"
                           className={`ml-auto w-2 h-2 rounded-full ${
-                            darkMode ? "bg-green-400" : "bg-orange-500"
+                            darkMode ? "bg-orange-400" : "bg-orange-500"
                           }`}
                         />
                       )}
@@ -546,7 +538,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
               className={`flex flex-col items-center gap-2 ${
-                darkMode ? "text-green-300" : "text-orange-600"
+                darkMode ? "text-orange-300" : "text-orange-600"
               }`}
             >
               <span className="text-xs font-medium">Scroll</span>
@@ -568,7 +560,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             onClick={scrollToTop}
             className={`fixed bottom-8 right-8 z-30 p-3 rounded-full shadow-xl ${
               darkMode
-                ? "bg-gradient-to-r from-emerald-500 to-green-500 text-white"
+                ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white"
                 : "bg-gradient-to-r from-orange-500 to-orange-600 text-white"
             }`}
           >

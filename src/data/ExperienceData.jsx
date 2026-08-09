@@ -8,14 +8,26 @@ export const experienceData = [
     location: "Bangalore, India",
     type: "Contractor",
     responsibilities: [
-      "Coming Soon"
+      "Implemented a Feature-Sliced Design (FSD) architecture to establish a scalable, maintainable frontend structure across multiple modules.",
+      "Engineered comprehensive API integrations using Redux Toolkit (RTK) , optimizing state management and streamlining data fetching logic.",
+      "Spearheaded the implementation of a dynamic Feature Flag system, enabling seamless A/B testing and decoupled feature rollouts without full deployments.",
+
+      "Established a comprehensive testing strategy utilizing Vitest for unit and integration testing with detailed coverage reporting, and Playwright for robust end-to-end workflow validation.",
+
+      "Conducted UI and functional latency identification analyses, successfully reducing time-to-interaction (TTI) and improving overall user experience.",
+
+      "Applied the Strangler Fig Pattern to systematically modernize a monolithic legacy application, incrementally replacing outdated components with microservices.",
+
+      "Designed and built a dual-mode Sync Engine, supporting both offline-first and online functionality to ensure data consistency across varying network conditions.",
+
+
     ],
     technologies: [
       "React",
       "Node.js",
       "Redux",
       "E-Charts",
-      "Material-UI",
+      "Vitest",
       "Husky",
       "StoryBook",
       "TanStack",
@@ -23,7 +35,7 @@ export const experienceData = [
       "RESTful APIs",
       "Typescript",
       "Radix UI",
-      "Chakra UI",
+      "Strangler Fig Pattern",
       "PlayWright"
     ],
   },

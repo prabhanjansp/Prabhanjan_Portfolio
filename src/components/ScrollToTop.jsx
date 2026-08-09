@@ -34,7 +34,7 @@ const ScrollToTop = ({ darkMode }) => {
       onClick={scrollToTop}
       className={`fixed bottom-8 right-8 p-4 rounded-full shadow-xl transition-all ${
         darkMode 
-          ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-teal-900/50' 
+          ? 'bg-zinc-600 hover:bg-zinc-700 text-white shadow-zinc-900/50' 
           : 'bg-amber-500 hover:bg-amber-600 text-white shadow-amber-600/30'
       }`}
       whileHover={{ 
